@@ -739,3 +739,1010 @@ ul a {
 
 See also - [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
 See also - [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
+
+## Intro to DOM Scripting
+
+This semester we will observe how the three pillars of web development come together to create the modern web. Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
+
+## Homework
+
+1. Add a popover window to your homework from session one using a link to _your_ favorite restaurant
+1. Add a close button ("X") to the popover div 
+1. Use CSS to style the close button
+1. Add JavaScript to make the close button close the popover when clicked
+1. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
+<!-- 1. Review the documentation for
+   - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
+   - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
+   - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
+   - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
+1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com) -->
+
+## Reading
+
+Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
+
+## Sushi - Converting to Standards (continued)
+
+Note: we need to pick up from the end of [session one](https://github.com/front-end-foundations/session1#adding-more-design-to-our-layout) before continuing with the material below.
+
+### Highlighting Tabs
+
+A simple way to create opportunities for section differentiation or themeing across a web site is to add a class at a high level of the pages.
+
+Note: before continuing note the behavior of the navigation tabs in the device simulator. Remember - there is no such thing as `:hover` on devices.
+
+Add a class to body tag so we know what kind of page this is.
+
+```html
+<body class="p-review">
+  ...
+</body>
+```
+
+('p-' stands for page.)
+
+Edit the nav so it uses classes on the tabs and 'real' links:
+
+```html
+<nav>
+  <ul class="nav">
+    <li class="t-cuisine"><a href="cuisines.html">Cuisines</a></li>
+    <li class="t-recipe"><a href="recipes.html">Recipes</a></li>
+    <li class="t-review"><a href="index.html">Reviews</a></li>
+    <li class="t-delivery"><a href="delivery.html">Delivery</a></li>
+  </ul>
+</nav>
+```
+
+('t-' stands for tab.)
+
+I have placed a series of placeholder HTML pages in today's directory. Click on the tabs to test.
+
+Add the following to our CSS block:
+
+```css
+.p-review .t-review a {
+  color: #600;
+  background: #f0dfb4;
+}
+```
+
+The Reviews tab is now highlighted - but only on the reviews section.
+
+Expand the css rule to allow the other tabs to display highlighted as well.
+
+```css
+.p-review .t-review a,
+.p-cuisines .t-cuisine a,
+.p-delivery .t-delivery a,
+.p-recipes .t-recipe a {
+  color: #600;
+  background: #f0dfb4;
+}
+```
+
+Note that we could use these top level page classes and some CSS to customize other items on the page.
+
+## DOM Scripting
+
+An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
+
+A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link.
+
+"DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
+
+The DOM is a cross-platform and language-independent application programming interface (API) that treats an HTML document as a tree structure wherein each node is an object representing a part of the document. 
+
+<!-- ### Variable Assignment and Types
+
+In the browser console (one line at a time):
+
+```js
+var width = 100;
+width;
+typeof width;
+
+width + 300;
+width; // still 100
+width = width + 300;
+width; // now 400
+
+var wide = true;
+wide;
+typeof wide;
+
+var testString = '123456';
+typeof testString;
+``` -->
+
+Link `scripts.js` to `index.html` before the closing body tag:
+
+```html
+...
+  <script src="js/scripts.js"></script>
+</body>
+```
+
+Currenty we have this list item in the aside region of `index.html`:
+
+```html
+<li><a href="#">Map</a> | <a href="#">Directions</a></li>
+```
+
+Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map href in the aside:
+
+```html
+<li>
+  <a
+    class="map"
+    target="_blank"
+    href="https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734"
+    >Map</a
+  >
+  | <a href="#">Directions</a>
+</li>
+```
+
+Note the target attribute for the anchor tag. We have also used `class="map"` to identify the href.
+
+Note the contents of `scripts.js`. Open the developer tools in Chrome and display the JavaScript Console. 
+
+In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console. If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting. 
+
+The most important DOM scripting techniques we will be using are:
+
+- [querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+- [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll)
+- [addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+- [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+
+You will also be introduced to:
+
+- [event types](https://developer.mozilla.org/en-US/docs/Web/Events)
+- [functions](https://developer.mozilla.org/en-US/docs/Glossary/Function)
+
+### A Quick Note on jQuery
+
+[jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about various aspects of JavaScript your results will likely contain a multitude of references to it. For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript." The rational for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
+
+### Creating the Popover
+
+Make sure everything in `scripts.js` is commented. Add this to `scripts.js`:
+
+```js
+var mapClicker = document.querySelector('.map');
+console.log(mapClicker);
+```
+
+Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp) to listen for a click on `mapClicker`:
+
+```js
+var mapClicker = document.querySelector('.map');
+
+mapClicker.addEventListener('click', function() {
+  event.preventDefault();
+});
+```
+
+Without `preventDefault()` a click would launch the link in a new tab. Since we are working with a link we need to prevent it from navigating away from the page.
+
+Let's examine the event. 
+
+When you click on anything on the page an event occurs. We can examine the event in the console.
+
+```js
+var mapClicker = document.querySelector('.map');
+
+mapClicker.addEventListener('click', function() {
+  console.log(event); // The event details
+  console.log(event.target); // The clicked element
+  event.preventDefault();
+});
+```
+
+A function is a list of commands that, in this case, are run when the event occurs.
+
+<!-- Try:
+
+- Click on elements on the page with the Console open -->
+
+Call the `show` function to run when the event (the user clicks on `mapClicker`) occurs:
+
+```js
+var mapClicker = document.querySelector('.map');
+
+mapClicker.addEventListener('click', show);
+
+function show() {
+  console.log(event); // The event details
+  console.log(event.target); // The clicked element
+  event.preventDefault();
+}
+```
+
+Add to the bottom of the html (but before `<script>`) so it appears at the bottom of the browser:
+
+```html
+<div class="popover">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.821674756671!2d-73.97492268461596!3d40.67789794763805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25ba8edab126b%3A0xfaa0551477e2ec72!2sGeido!5e0!3m2!1sen!2sus!4v1490213487125"
+    width="300"
+    height="225"
+    frameborder="0"
+    style="border:0"
+    allowfullscreen
+  ></iframe>
+</div>
+```
+
+The div and iframe will be visible at the bottom of the page.
+
+Note that it uses an [iframe](https://www.w3schools.com/tags/tag_iframe.asp). An inline frame is used to embed another document within the current HTML document. It is most often used in advertising.
+
+Style the popover div:
+
+```css
+.popover {
+  padding: 1rem;
+  width: 300px;
+  height: 225px;
+  background: #fff;
+  border: 2px solid #600;
+  border-radius: 4px;
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  /*display: none;*/
+}
+```
+
+Note the `position: fixed` as well as the `top` and `left` properties - we center the div with 50% and then use calc to subtract half the width and height of the div.
+
+Note: if we were using the alternate box model our CSS would look like this:
+
+```css
+.popover {
+  padding: 1rem;
+  width: calc(300px + 2rem);
+  height: calc(225px + 2rem);
+  background: #fff;
+  border: 1px solid #600;
+  border-radius: 4px;
+  position: fixed;
+  top: calc(50% - 116px);
+  left: calc(50% - 166px);
+  /*display: none;*/
+  box-sizing: border-box;
+}
+```
+
+Uncomment `display: none` so the popover div is initially hidden.
+
+Add a new utility rule to the css:
+
+```css
+.showme {
+  display: block;
+}
+```
+
+Try:
+
+- In the Elements inspector, try adding the `showme` class to the popover.
+
+Create a new variable with a reference to the popover div.
+
+```js
+var mapClicker = document.querySelector('.map');
+var popOver = document.querySelector('.popover'); // NEW
+
+mapClicker.addEventListener('click', show);
+
+function show(e) {
+  e.preventDefault();
+}
+```
+
+Use `classList` to toggle the `showme` class:
+
+```js
+var mapClicker = document.querySelector('.map');
+var popOver = document.querySelector('.popover');
+
+mapClicker.addEventListener('click', show);
+
+function show(e) {
+  popOver.classList.toggle('showme'); // NEW
+  e.preventDefault();
+}
+```
+
+Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`.
+
+If we want to manipulate the display of other items based on the presence of the popover we need to add the showme class higher up in the DOM.
+
+We'll go all the way to the top by adding the class on the body tag:
+
+```js
+var mapClicker = document.querySelector('.map');
+var body = document.querySelector('body'); // NEW
+
+mapClicker.addEventListener('click', show);
+
+function show(e) {
+  body.classList.toggle('showme'); // NEW
+  e.preventDefault();
+}
+```
+
+This will entail editing the CSS selector:
+
+```css
+.showme .popover {
+  display: block;
+}
+```
+
+Placing the new class at a high level allows us to manipulate the display of other items:
+
+```css
+.showme #wrapper {
+  filter: blur(4px) grayscale(100%) opacity(50%);
+}
+```
+
+Note - it becomes more difficult for the user to close the popover.
+
+Note - we cannot animate the popover by, say, fading it in becuase we are using `display:none/block` which is binary and is not a property capable of being tweened.
+
+### Using Event Delegation
+
+This will be the final iteration of this script. It is something of a standard to use what is known as  _event delegation_ in JavaScript.
+
+Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to handle events at a higher level in the DOM than the element on which the event originated.
+
+Events "bubble up" from the targeted element to their parent elements and all the way up through their ancestors and eventually to the document and window - the highest levels of a page. 
+
+So instead of listening to specific elements, we’ll listen for all click events on the page, and then test to see if the clicked item has a specific name before running the function.
+
+Start by looking again at the event targets:
+
+```js
+document.addEventListener('click', show);
+
+function show() {
+  console.log(event.target)
+  // 'event.target' is the clicked element
+  event.preventDefault();
+}
+```
+
+Note: `preventDefault()` here disables all our links - even those on our navbar.
+
+Try:
+
+- clicking elsewhere on the page with the Console open.
+
+We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to toggle a class:
+
+```js
+document.addEventListener('click', handleClicks);
+
+function handleClicks() {
+  console.log(event.target)
+  if (event.target.matches('.map')) {
+    document.querySelector('body').classList.toggle('showme');
+    event.preventDefault();
+  }
+}
+```
+
+This is somewhat analogous to using a class at a high level - see for example the first part of today's exercise - as it allows us to control things at a higher level.
+
+Note that the `event` is passed automagically to the function. If we wanted to explicitly declare it - and make our code a bit more concise - we could do so by using `e`:
+
+```js
+document.addEventListener('click', handleClicks);
+
+function handleClicks(e) {
+  if (e.target.matches('.map')) {
+    document.querySelector('body').classList.toggle('showme');
+    e.preventDefault();
+  }
+}
+```
+
+## HomeWork
+### A Close (✖︎) Button
+
+<!-- 1. We will use [Font Awesome](https://fontawesome.com/cheatsheet) for icons
+1. Examine some usage samples from [Font Awesome](http://fontawesome.io/examples/)
+1. Load Font Awesome with:
+
+```html
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+```
+
+Use it once to add an icon to the web site link:
+
+```html
+<li><a href="#"><i class="fa fa-external-link-square-alt"></i>Web site</a></li>
+```
+
+Use the inspector to examine it.
+
+1. [Examine](http://fontawesome.io/icons/) looks like `fa-times` will work.
+
+Add a link to the popover:
+
+```html
+<div class="popover">
+	<a class="closer"><i class="fa fa-times" aria-hidden="true"></i></a>
+	<iframe>...</iframe>
+</div>
+```
+
+```css
+.popover .closer {
+	float: right;
+}
+``` -->
+
+Add to the top of the `popover` div:
+
+```html
+<a class="closer" href="#">✖︎</a>
+```
+
+E.g.:
+
+```html
+  <div class="popover">
+    <a class="closer" href="#">✖︎</a>
+    <iframe>
+      ...
+  </div>
+```
+
+To format the close button, temporarily disable the `display: none` property on the popover's CSS and add:
+
+```css
+.popover .closer {
+  position: absolute;
+  top: -11px;
+  right: -14px;
+  color: #600;
+  cursor: pointer;
+}
+```
+
+The close button will be positioned relative to its nearest positioned ancestor which, in this case, is the popover div which already has a `position: static` property.
+
+Note the (here superfluous) `cursor` property. Here is a [list of available cursors](https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor) in CSS.
+
+Add some additional formatting to the button:
+
+```css
+.popover .closer {
+  ...
+  text-decoration: none;
+  background-color: #fff;
+  padding: 0.25rem;
+  border: 2px solid #600;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+}
+```
+
+Note: `border-radius: 50%` creates a circle - as long as the box is perfectly square.
+
+Re-enable the `display:none` property on the popover div.
+
+<!-- Create a new script at the bottom of `scripts.js` to include a reference to the new close button:
+
+```js
+var closeButton = document.querySelector('.closer');
+closeButton.addEventListener('click', close);
+
+function close(){
+  var body = document.querySelector('body');
+  body.classList.toggle('showme');
+  event.preventDefault();
+}
+```
+
+Note that the close function is identical to the show function we currently have. -->
+
+We will use a new JavaScript utility - [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
+
+```js
+document.addEventListener('click', handleClicks);
+
+function handleClicks(e) {
+  if (e.target.matches('.map')) {
+    document.querySelector('body').classList.add('showme');
+    e.preventDefault();
+  }
+  if (e.target.matches('.closer')) {
+    document.querySelector('body').classList.remove('showme');
+    e.preventDefault();
+  }
+}
+```
+
+Let's refactor the script by using an 'or' operator `||` in JavaScript:
+
+```js
+if (event.target.classList.contains('map') || event.target.classList.contains('closer')) {
+}
+```
+
+With our toggle, e.g.:
+
+```js
+document.addEventListener('click', handleClicks);
+
+function handleClicks(e) {
+  if (e.target.matches('.map') || e.target.matches('.closer')) {
+    document.querySelector('body').classList.toggle('showme');
+    e.preventDefault();
+  }
+}
+```
+
+See the samples on CodePen for [querySelector](https://codepen.io/DannyBoyNYC/pen/wNXPKY) and [querySelectorAll](https://codepen.io/DannyBoyNYC/pen/exKegp)].
+
+<!-- Try a [recipe](http://fontawesome.io/examples/) from font-awesome:
+
+```html
+<a class="closer">
+	<span class="fa-stack fa-md">
+		<i class="fa fa-square fa-stack-2x"></i>
+		<i class="fa fa-times fa-stack-1x fa-inverse" aria-hidden="true"></i>
+	</span>
+</a>
+``` -->
+
+
+
+<!-- Add a shadow to the popover:
+
+```css
+box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+``` -->
+
+<!-- Add an overlay for effect:
+
+```html
+<body>
+<div class="overlay"></div>
+<div id="wrapper">
+``` -->
+
+<!-- ```css
+.overlay {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 10;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+```
+
+Note that it blocks all the clicks.
+
+...and turn it on:
+
+```js
+...
+var overlay = document.querySelector('.overlay')
+...
+
+function show(){
+	popOver.classList.toggle('showme')
+	overlay.classList.toggle('showme')
+	event.preventDefault()
+}
+```
+
+We used the z-index css property to control stacking order for the menu (review).
+
+We need to control z-index in this case by giving the popover a hight number than the overlay.
+
+Note that there is no possibility of animating this because we are using `display: block` and `display: none`. These are binary states and cannot be used for effects like fading on etc. More on this in a later class. -->
+
+
+
+
+<!-- Event delegation allows us to listen for click events anywhere on the page and then do different things depending on which item is clicked on. It also improves code organization.
+
+The last argument in `addEventListener()` (`false`) is known as "Use Capture." It allows you to force bubbling on events that don't do it by default. Setting `useCapture` to true allows you to take advantage of event bubbling for events that otherwise don’t support it.
+
+For example, focus does not bubble, so in the example below we force it so we can listen for events on the document or window:
+
+```js
+// Listen for all focus events in the document
+document.addEventListener(
+  'focus',
+  function(event) {
+    // Run functions whenever an element in the document comes into focus
+  },
+  true,
+); 
+```
+-->
+
+### End Sushi
+
+<!-- ## Styling a List: Floats vs Flexbox
+
+<img src="Tabs/tabs-image.jpg">
+
+In this exercise we will focus on list styling and navigation but instead of using `display: inline` or `display: inline-block` to create horizontal navigation we will use floats. -->
+
+<!-- ## Demo in Sublime
+
+* Install [package control](https://packagecontrol.io)
+
+* Install [emmet](https://packagecontrol.io/packages/Emmet)
+
+* Review [emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
+
+Using emmet -->
+
+<!-- ```sh
+!
+
+ul>li*4>a[href="#"]{link}
+
+nav>ul>li.t-cuisines*4>a[href="cuisines.html"]{cuisines}
+``` -->
+
+<!-- Create an HTML file and save it as `cuisines.html` into the `Tabs` folder. -->
+
+<!-- * duplicate lines `cmd-d` and
+* use multiple cursors `cmd` to complete the classes and links so you end up with: -->
+
+<!-- ```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cuisines</title>
+    <style></style>
+  </head>
+
+  <body>
+    <nav>
+      <ul class="nav">
+        <li class="t-cuisines"><a href="cuisines.html">Cuisines</a></li>
+        <li class="t-chefs"><a href="chefs.html">Chefs</a></li>
+        <li class="t-reviews"><a href="reviews.html">Reviews</a></li>
+        <li class="t-delivery"><a href="delivery.html">Delivery</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
+```
+
+Take a moment to examine the default user agent styles using the inspector.
+
+Add and review some basic formatting (in the `<style>` block):
+
+```css
+body {
+  margin: 0;
+  font-family: 'Lucida Grande', sans-serif;
+}
+.nav {
+  background: #ffcb2d;
+  margin: 0;
+  padding: 10px 0 0 46px;
+}
+```
+
+Remove the bullets from the `<ul>`:
+
+```css
+.nav {
+  ... 
+  list-style: none;
+}
+```
+
+Float the list items to the left:
+
+```css
+li {
+  float: left;
+}
+```
+
+Notice what happened to the `<ul>`'s height. The `<li>` items no longer force the parent `<ul>` element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the `<ul>` has collapsed. This behavior is important as "collapsing" is a common design issue when using floats.
+
+There are a number of methods in use to prevent this:
+
+- float a float (or "FNE" - float nearly everything) - apply a float to the collapsed element
+- the clearfix hack - this entails creating a utility class and will be covered later
+- adding a clearing div - this entails adding an HTML element to the page and is discouraged
+
+For our current example let's use the second FNE method.
+
+Try adding a float to the 'collapsed' element:
+
+```css
+.nav {
+  ... 
+  float: left;
+}
+```
+
+Note that the width has changed. Boxes are 100% width by default (they stretch to fill their container). Floating the collapsed element causes it to contract to contain its children.
+
+Since we want the `<ul>` to extend the width of the window let's fix the width.
+
+```css
+.nav {
+  ... 
+  width: 100%;
+}
+```
+
+_When you float an element you usually have to specify a width._
+
+Extend the [background property](https://www.w3schools.com/css/css_background.asp) to add a background color and image to the `<ul>`.
+
+```css
+.nav {
+  ... 
+  background-color: #ffcb2d;
+  background-image: url(i/nav_bg.gif);
+}
+```
+
+Aside: demo the background property using `pattern.gif`.
+
+Add positioning to the background.
+
+```css
+.nav {
+  ... 
+  background-color: #ffcb2d;
+  background-image: url(i/nav_bg.gif);
+  background-repeat: repeat-x;
+  background-position: bottom left;
+}
+```
+
+Next we'll tackle the `<a>` tags. Add the following to our CSS block.
+
+```css
+a {
+  text-decoration: none;
+  color: #333;
+}
+```
+
+Adding padding, margins to separate, and a border to make them more tab-like:
+
+```css
+a {
+  ... 
+  padding: 4px 8px;
+  border: 1px solid #9b8748;
+  margin: 0 6px 0 0;
+}
+```
+
+Although it may be a little difficult to discern, the same issue we had with collapsing earlier has occurred here as well. We will use the same method as before to make the container expand to fit its floated children. Let's remove the redundant border while we're at it.
+
+```css
+a {
+  ... 
+  border-bottom: none;
+  float: left;
+}
+```
+
+By floating the anchors we cause the `<li>`s to expand to contain their floated children.
+Now we add a background image to the `<a>`. Note the use of the background shortcut and that the image has a gradient and transparency.
+
+```css
+
+a {
+  ...
+  background: #f9eaa9 url(i/off_bg.gif) repeat-x top left;
+
+```
+
+Note what happened to the background graphic we placed in the `<ul>`. It is hidden behind the anchors.
+
+Now we create hover states for our tabs by swapping out the background image:
+
+```css
+a:hover {
+  background: #fff url(i/on_bg.gif) repeat-x top left;
+}
+```
+
+### Finishing touches
+
+This part is a but tricky since it uses padding to show or hide the background graphic running along the bottom of the `<ul>`. We will be increasing the height by one pixel on hover to hide the image.
+
+Recall that the padding on the bottom of the anchor tags was 4px. Let's increase the padding on the hover state to 5px.
+
+```css
+a:hover {
+  ... padding-bottom: 5px;
+}
+```
+
+If you roll over the tabs now the height of the anchor increases by one pixel causing the `<ul>` to expand as well and thus showing the border along the bottom under the inactive tabs.
+
+Due to the fact that there is no selected tab (only hovered) the height of the element appears to jump slightly. Let's assume that one of the tabs will always be highlighted.
+
+Create a second selector to highlight one of the anchors by adding `.t-cuisines a` as a second selector to the hover rule.
+
+```css
+a:hover,
+.t-cuisines a {
+  ...;
+}
+```
+
+Note that when you use two selectors they must be separated by a comma.
+
+Many prefer to keep the multiple selectors on separate lines like so:
+
+```css
+a:hover,
+.t-cuisines a {
+  ...;
+}
+```
+
+Now, if we add an id to the body tag we can edit the selector to make it page specific.
+
+Add `class="cuisines"` to the body tag.
+
+```html
+<body class="p-cuisines"></body>
+```
+
+Edit the second selector to make the tab highlighting specific to this page.
+
+```css
+a:hover,
+.p-cuisines .t-cuisines a {
+  ...;
+}
+```
+
+We are going to create a second HTML page shortly so let's copy our CSS into an external file as `styles.css` and link to it:
+
+```html
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
+```
+
+Note that because we used a new directory, the paths to the images are no longer correct. Correct them now using this pattern:
+
+```css
+background-image: url(../i/nav_bg.gif);
+```
+
+Save a new copy of the HTML page as `chefs.html` and edit the ID:
+
+```html
+<body class="chefs"></body>
+```
+
+Add a new selector to the CSS.
+
+```css
+a:hover,
+.p-cuisines .t-cuisines a,
+.p-chefs .t-chefs a {
+  ...;
+}
+```
+
+Now when you navigate between the two pages you should see a friendly reminder of what page you are on courtesy of the CSS file.
+
+- There is a demo of this in the `Tabs > demo` directory.
+
+### Removing the on- off- images
+
+Images and any other externally linked asset increases the time it takes to download and render your page. It is considered a best practice to minimize the number of images whereever possible so let's remove as many as we can.
+
+Aside: [Hex color vs. RGB vs. RGBA](https://www.w3schools.com/colors/colors_converter.asp)
+
+- [Intro to gradients in css](https://css-tricks.com/css3-gradients/) has more information than you'll ever need
+- The [Gradient editor](http://www.colorzilla.com/gradient-editor/) is still a useful tool
+
+Edit the background properties for the tabs:
+
+Normal (eg. non-hovered) state:
+
+```css
+background-image: linear-gradient(
+  to bottom,
+  rgba(255, 236, 165, 1) 0%,
+  rgba(232, 213, 149, 1) 6%,
+  rgba(253, 233, 162, 1) 94%,
+  rgba(253, 233, 162, 1) 100%
+);
+```
+
+Highlighted (eg. hovered) state:
+
+```css
+background-image: linear-gradient(
+  to bottom,
+  rgba(255, 255, 255, 1) 0%,
+  rgba(224, 226, 240, 1) 6%,
+  rgba(254, 254, 254, 1) 53%
+);
+```
+
+We cannot use `border` for the underline on the `<ul>` so let's use a very thin gradient:
+
+```css
+background-image: linear-gradient(
+  to bottom,
+  #ffcb2d 0%,
+  #ffcb2d 96%,
+  #9b8748 100%
+);
+```
+
+### Using Flexbox
+
+We will be covering flexbox in a future class. For now, note that a more modern method of creating the same design would be to use `display: flex`.
+
+Remove the float from the `ul` and add `display: flex`:
+
+```css
+.nav {
+  ... /* float: left; */ display: flex;;
+}
+```
+
+Remove the float from the `<li>` tags and add flex:
+
+```css
+li {
+  /* float: left; */
+  display: flex;
+}
+```
+
+Remove the float and underline from the anchors: -->
+
+<!-- ```css
+a {
+  ...
+  /* border-bottom: none; */ /* float: left; */ ;;
+}
+``` -->
+
+<!-- Add `border-bottom: none;` to the active state:
+
+```css
+a:hover,
+.p-cuisines .t-cuisines a,
+.p-chefs .t-chefs a {
+  border-bottom: none;
+  ...;
+}
+```
+
+## Looking Forward
+
+Examine the other demos in the `demo` folder. -->
