@@ -1,4 +1,4 @@
-# Matsu Sushi
+# Sushi Review
 
 ## This Week's Homework
 
@@ -23,7 +23,7 @@ If you prefer to read:
 - [MDN's Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
 - [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL)
 
-## Matsu Sushi
+## Sushi Exercise
 
 A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link. Be sure to resize the browser to see the responsive features.
 
