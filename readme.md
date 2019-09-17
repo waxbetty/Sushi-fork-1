@@ -3,7 +3,7 @@
 ## This Week's Homework
 
 1. Download the files as distributed in class from Github and, using the notes below, try to recreate the design we did in class from scratch
-1. Examine the provided homework samples (in the `home-work-samples` folder) using Chrome's developer tools. Pick two or three visual formatting features that appeal to you and apply them to your page. Be sure to Google any CSS properties you are unfamiliar with.
+2. Examine the provided homework samples (in `other/home-work-samples`) using Chrome's developer tools. Pick two or three visual formatting features that appeal to you and apply them to your page. Be sure to Google any CSS properties you are unfamiliar with.
 
 As noted above, the "end state" files (the files I was working as they were at the end of class) can be downloaded from the `fall2019-done` branch of the repo for reference. Be sure to select the branch on Github _before_ downloading the zip.
 
