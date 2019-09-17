@@ -2,35 +2,45 @@
 
 ## This Week's Homework
 
-1. Download the files as distributed in class from Github and, using the notes below, try to recreate the design we did in class from scratch
+1. Download the files as distributed in class from Github and, using the notes below, try to recreate the design we did in class from scratch. Be sure to Google any CSS properties you are unfamiliar with.
 2. Examine the provided homework samples (in `other/home-work-samples`) using Chrome's developer tools. Pick two or three visual formatting features that appeal to you and apply them to your page. Be sure to Google any CSS properties you are unfamiliar with.
 
-As noted above, the "end state" files (the files I was working as they were at the end of class) can be downloaded from the `fall2019-done` branch of the repo for reference. Be sure to select the branch on Github _before_ downloading the zip.
+The "end state" files (the files I was working as they were at the end of class) can be downloaded from the `fall2019-done` branch of the repo for reference. Be sure to select the `fall2019-done` branch on Github _before_ downloading the zip. 
+
+Email me if anything is unclear
 
 ### Additional Reading
 
-These are good resources for absolute beginners and go into more depth in some areas than we will have time for in class. You should try to watch them over the first two weeks of the semester. Be sure to download the accompanying files in order to follow along on your own.
+These are good resources for absolute beginners and go into more depth in some areas than we will have time for in class. Be sure to download any accompanying files in order to follow along on your own.
 
-- Video: [HTML Crash Course for Absolute Beginners](https://youtu.be/UB1O30fR-EE), and the [accompanying files](https://www.youtube.com/redirect?redir_token=1Yb19FwXTj2Zp4L-bRWo-VIllCl8MTUxODAxNjc4OUAxNTE3OTMwMzg5&event=video_description&v=UB1O30fR-EE&q=http%3A%2F%2Fwww.traversymedia.com%2Fdownloads%2Fhtmlcheatsheet.zip)
-- Video: [CSS Crash Course for Absolute Beginners](https://youtu.be/yfoY53QXEnI), and the [accompanying files](https://www.youtube.com/redirect?event=video_description&v=yfoY53QXEnI&redir_token=7uspCtsw-mSVQ-CRLJqyBuXp4B18MTUzNzIwOTU4MUAxNTM3MTIzMTgx&q=http%3A%2F%2Fwww.traversymedia.com%2Fdownloads%2Fcsscrashcourse.zip)
+If you prefer video:
+
+- [HTML Crash Course for Absolute Beginners](https://youtu.be/UB1O30fR-EE), and the [accompanying files](https://www.traversymedia.com/downloads/htmlcheatsheet.zip)
+- [CSS Crash Course for Absolute Beginners](https://youtu.be/yfoY53QXEnI), and the [accompanying files](https://www.traversymedia.com/downloads/csscrashcourse.zip)
+
+If you prefer to read:
+
+- [MDN's Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
+- [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL)
 
 ## Matsu Sushi
 
 A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link. Be sure to resize the browser to see the responsive features.
 
-In this exercise we use the contents of the Sushi folder to begin looking at layout with the following properties:
+In this exercise we use the contents of the Sushi folder to begin looking at layout focusing on the following properties:
 
-- Margin and Padding
-- Display
-- Floats
-- Overflow
-- Position
-- Visibility
-- Z-Index
+- margin 
+- padding
+- display
+- float
+- overflow
+- position
+- z-index
+- visibility
 
-Examine `before.html`. This is often referred to as tag soup as it makes little sense to humans looking at the code. Note the preponderance of visual markup code in the file. This is how html was written from the late 90's to about a decade ago.
+Open `before.html` in Chrome and right click on "Matsu" to open the inspector. This is often referred to as tag soup - it makes little sense to anyone looking at the code. Note the preponderance of visual markup code in the file. This is how html was written from the late 90's to about a decade ago. This is similar to how HTML emails are written today.
 
-Open `index.html`. This is an html5 document that uses HTML tags semantically. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
+Open `index.html`. This is an html5 document that uses semantic HTML. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
 
 Add a CSS declaration to `styles.css` as follows:
 
@@ -83,6 +93,10 @@ header {
 }
 ```
 
+`<link>` is preferred in all cases over `@import`, because the latter blocks parallel downloads, meaning that the browser will wait for the imported file to finish downloading before it starts downloading the rest of the content.
+
+In practice, web developers use tools to combine stylesheets into a single compressed and minified sheet when releasing a web site.
+
 Note: `h1` tags are bold by default but Lobster has no bold version. Thus we use `font-weight: normal` to keep the browser from applying bold.
 
 ```css
@@ -96,15 +110,22 @@ header h2 {
 }
 ```
 
-`header h1` is a _descendant selector_.
+`header h1` is a [_descendant selector_](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
 
-Here we apply the same properties to multiple items using a comma in the selector and then override one of the properties. The application of font family to the entire header region is an example of the "C" in CSS - [the cascade](https://css-tricks.com/the-c-in-css-the-cascade/). In order to use the cascade effectively we will look at _specificity_ as we proceed.
+Here we apply the same properties to multiple items using a comma in the selector:
+
+```css
+header h1,
+header h2
+```
+
+ and then override one of the properties in the next CSS rule. The application of font family to the entire header region is an example of the "C" in CSS - [the cascade](https://css-tricks.com/the-c-in-css-the-cascade/). In order to use the cascade effectively we will look at _specificity_ as we proceed.
 
 Note the _margin collapsing_ beween the H1 and H2 tags.
 
 ## Formatting the Navigation
 
-Note that we have two unordered lists in our page. Add a _class_ to the `<ul>` that will form the navigation for our page so we have a name space that will allow us to target it exclusively.
+Note that we have two unordered lists in our page. Add a _class_ to the `<ul>` that will form the navigation for our page. We now have a name space that will allow us to target it exclusively:
 
 ```html
 <ul class="nav">
@@ -139,9 +160,14 @@ Add the following to our style sheet:
 }
 ```
 
-<!-- We will examine display options for making the navigation elements horizontal using float and flex. -->
+Note:
 
-Note the use of a colon to target the hover state. This is an example of a _pseudo_ selector. So called because, unlike other selectors, it doesn't really target an HTML tag.
+- `list-style` controls the bullets
+- `display: inline-block` 
+- `text-decoration`
+- `display: block`
+
+Also note the use of a colon to target the hover state. This is an example of a _pseudo_ selector. So called because, unlike other selectors, it doesn't really target an HTML tag.
 
 Examine the inspector's color picker. Also, note again the ability to force element hover state.
 
