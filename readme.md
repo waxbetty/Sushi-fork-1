@@ -16,7 +16,7 @@ These are good resources for absolute beginners and go into more depth in some a
 
 ## Matsu Sushi
 
-A finished version of this exercise can be [viewed here](http://oit2.scps.nyu.edu/~devereld/session1/Sushi/). Be sure to resize the browser to see the responsive features.
+A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link. Be sure to resize the browser to see the responsive features.
 
 In this exercise we use the contents of the Sushi folder to begin looking at layout with the following properties:
 
@@ -115,7 +115,7 @@ Note that we have two unordered lists in our page. Add a _class_ to the `<ul>` t
 
 We have created a name space that allows us to differentiate the two `<ul>` lists in `start.html` and apply different styles.
 
-Add the following to our style block:
+Add the following to our style sheet:
 
 ```css
 .nav {
@@ -747,10 +747,10 @@ This semester we will observe how the three pillars of web development come toge
 ## Homework
 
 1. Add a popover window to your homework from session one using a link to _your_ favorite restaurant
-1. Add a close button ("X") to the popover div 
-1. Use CSS to style the close button
-1. Add JavaScript to make the close button close the popover when clicked
-1. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
+2. Add a close button ("X") to the popover div 
+3. Use CSS to style the close button
+4. Add JavaScript to make the close button close the popover when clicked
+5. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
 <!-- 1. Review the documentation for
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
    - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
@@ -762,13 +762,11 @@ This semester we will observe how the three pillars of web development come toge
 
 Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
 
-## Sushi - Converting to Standards (continued)
-
-Note: we need to pick up from the end of [session one](https://github.com/front-end-foundations/session1#adding-more-design-to-our-layout) before continuing with the material below.
+## Sushi - continued
 
 ### Highlighting Tabs
 
-A simple way to create opportunities for section differentiation or themeing across a web site is to add a class at a high level of the pages.
+A simple way to create opportunities for section differentiation or themes across a web site is to add a class at a high level of the pages.
 
 Note: before continuing note the behavior of the navigation tabs in the device simulator. Remember - there is no such thing as `:hover` on devices.
 
@@ -827,8 +825,6 @@ Note that we could use these top level page classes and some CSS to customize ot
 ## DOM Scripting
 
 An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
-
-A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link.
 
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
 
