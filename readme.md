@@ -1,28 +1,31 @@
 # Sushi
 
+Today we are coninuing with the `fall2019-done` branch. Please download that branch as a zip file to your class folder, unzip it and open it in VS Code.
+
+We are picking up these notes [here](https://github.com/front-end-foundations/Sushi#responsive-design).
+
 ## This Week's Homework
 
-### Install for Next Week
+### 1. Install for Next Week
 
 Install [NodeJS](https://nodejs.org/en/) (either version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com)
 
-### Review CSS
+### 2. Review CSS
 
 1. Download the files as distributed in class from Github and, using the notes below, try to recreate the design we did in class from scratch. Be sure to Google any CSS properties you are unfamiliar with.
-2. Examine the provided homework samples (in `other/home-work-samples`) using Chrome's developer tools. Pick two or three visual formatting features that appeal to you and apply them to your page. Be sure to Google any CSS properties you are unfamiliar with.
+2. Examine the provided homework samples (in `other/home-work-samples`) for inspiration. Pick two or three visual formatting features from them (or any other site)that appeal to you and apply them to your page.
 
-The "end state" files (the files I was working as they were at the end of class) can be downloaded from the `fall2019-done` branch of the repo for reference. Be sure to select the `fall2019-done` branch on Github _before_ downloading the zip. 
+The "end state" files (the files I was working as they were at the end of class) can be downloaded from the `fall2019-done` branch of the repo for reference. Be sure to select the `fall2019-done` branch on Github _before_ downloading the zip.
 
-### Review JavaScript
+### 3. Review JavaScript
 
 Some guidance for this assignment is provided at the bottom of this ReadMe.
 
 1. Add a popover window to your homework from session one using a link to _your_ favorite restaurant
-2. Add a close button ("X") to the popover div using HTML 
+2. Add a close button ("X") to the popover div using HTML
 3. Use CSS to style the close button
 4. Add JavaScript to make the close button close the popover when clicked
 5. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
-
 
 <!-- 1. Review the documentation for
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
@@ -57,7 +60,7 @@ A finished version of this exercise is available [here](http://oit2.scps.nyu.edu
 
 In this exercise we use the contents of the Sushi folder to begin looking at layout focusing on the following properties:
 
-- margin 
+- margin
 - padding
 - display
 - float
@@ -147,7 +150,7 @@ header h1,
 header h2
 ```
 
- and then override one of the properties in the next CSS rule. The application of font family to the entire header region is an example of the "C" in CSS - [the cascade](https://css-tricks.com/the-c-in-css-the-cascade/). In order to use the cascade effectively we will look at _specificity_ as we proceed.
+and then override one of the properties in the next CSS rule. The application of font family to the entire header region is an example of the "C" in CSS - [the cascade](https://css-tricks.com/the-c-in-css-the-cascade/). In order to use the cascade effectively we will look at _specificity_ as we proceed.
 
 CSS order is important. Try:
 
@@ -217,7 +220,7 @@ Add the following to our style sheet:
 Note:
 
 - `list-style` controls the bullets
-- `display: inline-block` 
+- `display: inline-block`
 - `text-decoration`
 - `display: block`
 
@@ -590,7 +593,7 @@ Add the device meta tag to the head of the HTML:
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
-Toggle the device button in the developer tools again. 
+Toggle the device button in the developer tools again.
 
 ### Adding Simple Responsiveness
 
@@ -636,8 +639,7 @@ Use the [flexbox CSS module](https://codepen.io/DannyBoyNYC/pen/QYaNab) on the n
 
 ```css
 @media all and (max-width: 800px) {
-  ...
-  .nav {
+  ... .nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -656,12 +658,11 @@ Use the [flexbox CSS module](https://codepen.io/DannyBoyNYC/pen/QYaNab) on the n
 
 Note that the absolutely positioned aside region scrolls _over the top_ of the navbar. Normally you'd use `z-index` to control this.
 
-Revert aside's position property to `static` (the default). 
+Revert aside's position property to `static` (the default).
 
 ```css
 @media all and (max-width: 800px) {
-  ...
-  aside {
+  ... aside {
     position: static;
     float: none;
     margin-right: 20px;
@@ -673,8 +674,7 @@ Add adjustments to the image and blockquote:
 
 ```css
 @media all and (max-width: 800px) {
-  ...
-  blockquote {
+  ... blockquote {
     width: 100%;
     float: none;
     margin: 0;
@@ -701,7 +701,7 @@ CodePen [Intro-margin-auto](https://codepen.io/DannyBoyNYC/pen/qgpVaL)
 ```html
 <div class="container">
   <div class="inner">
-  Hello
+    Hello
   </div>
 </div>
 ```
@@ -869,7 +869,7 @@ This semester we will observe how the three pillars of web development come toge
 
 <!-- An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer). -->
 
-"DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
+"DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model).
 
 "The DOM is a cross-platform and language-independent application programming interface (API) that treats an HTML document as a tree structure wherein each node is an object representing a part of the document."
 
@@ -925,11 +925,11 @@ Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979
 
 Note the target attribute for the anchor tag. We have also used `class="map"` to identify the href.
 
-Note the contents of `scripts.js`. Open the developer tools in Chrome and display the JavaScript Console. 
+Note the contents of `scripts.js`. Open the developer tools in Chrome and display the JavaScript Console.
 
-In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console. 
+In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console.
 
-If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting. 
+If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting.
 
 The most important DOM scripting techniques we will be using are:
 
@@ -947,7 +947,7 @@ You will also be introduced to:
 
 [jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The rational for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
 
-For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript." 
+For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript."
 
 ### Creating the Popover
 
@@ -971,7 +971,7 @@ mapClicker.addEventListener('click', function() {
 
 Without `preventDefault()` a click would launch the link in a new tab. Since we are working with a link we need to prevent it from navigating away from the page.
 
-Let's examine the event. 
+Let's examine the event.
 
 When you click on anything on the page an event occurs. We can examine the event in the console.
 
@@ -1142,11 +1142,11 @@ Note - it becomes more difficult for the user to close the popover.
 
 ### Using Event Delegation
 
-This will be the final iteration of this script. It is a standard to use what is known as  _event delegation_ in JavaScript.
+This will be the final iteration of this script. It is a standard to use what is known as _event delegation_ in JavaScript.
 
 Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to handle events at a higher level in the DOM than the element on which the event originated.
 
-Events "bubble up" from the targeted element to their parent elements and all the way up through their ancestors and eventually to the document and window - the highest levels of a page. 
+Events "bubble up" from the targeted element to their parent elements and all the way up through their ancestors and eventually to the document and window - the highest levels of a page.
 
 So instead of listening to specific elements, we’ll listen for all click events on the page, and then test to see if the clicked item has a specific name before running the function.
 
@@ -1156,7 +1156,7 @@ Start by looking again at the event targets:
 document.addEventListener('click', show);
 
 function show() {
-  console.log(event.target)
+  console.log(event.target);
   // 'event.target' is the clicked element
   event.preventDefault();
 }
@@ -1174,7 +1174,7 @@ We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/E
 document.addEventListener('click', handleClicks);
 
 function handleClicks() {
-  console.log(event.target)
+  console.log(event.target);
   if (event.target.matches('.map')) {
     document.querySelector('body').classList.toggle('showme');
     event.preventDefault();
@@ -1270,8 +1270,7 @@ Add some additional formatting to the button:
 
 ```css
 .popover .closer {
-  ...
-  text-decoration: none;
+  ... text-decoration: none;
   background-color: #fff;
   padding: 0.25rem;
   border: 2px solid #600;
@@ -1322,7 +1321,10 @@ function handleClicks(e) {
 Let's refactor the script by using an 'or' operator `||` in JavaScript:
 
 ```js
-if (event.target.classList.contains('map') || event.target.classList.contains('closer')) {
+if (
+  event.target.classList.contains('map') ||
+  event.target.classList.contains('closer')
+) {
 }
 ```
 
@@ -1351,8 +1353,6 @@ See the samples on CodePen for [querySelector](https://codepen.io/DannyBoyNYC/pe
 	</span>
 </a>
 ``` -->
-
-
 
 <!-- Add a shadow to the popover:
 
@@ -1403,9 +1403,6 @@ We need to control z-index in this case by giving the popover a hight number tha
 
 Note that there is no possibility of animating this because we are using `display: block` and `display: none`. These are binary states and cannot be used for effects like fading on etc. More on this in a later class. -->
 
-
-
-
 <!-- Event delegation allows us to listen for click events anywhere on the page and then do different things depending on which item is clicked on. It also improves code organization.
 
 The last argument in `addEventListener()` (`false`) is known as "Use Capture." It allows you to force bubbling on events that don't do it by default. Setting `useCapture` to true allows you to take advantage of event bubbling for events that otherwise don’t support it.
@@ -1420,7 +1417,7 @@ document.addEventListener(
     // Run functions whenever an element in the document comes into focus
   },
   true,
-); 
+);
 ```
 -->
 
@@ -1497,7 +1494,7 @@ Remove the bullets from the `<ul>`:
 
 ```css
 .nav {
-  ... 
+  ...
   list-style: none;
 }
 ```
@@ -1524,7 +1521,7 @@ Try adding a float to the 'collapsed' element:
 
 ```css
 .nav {
-  ... 
+  ...
   float: left;
 }
 ```
@@ -1535,7 +1532,7 @@ Since we want the `<ul>` to extend the width of the window let's fix the width.
 
 ```css
 .nav {
-  ... 
+  ...
   width: 100%;
 }
 ```
@@ -1546,7 +1543,7 @@ Extend the [background property](https://www.w3schools.com/css/css_background.as
 
 ```css
 .nav {
-  ... 
+  ...
   background-color: #ffcb2d;
   background-image: url(i/nav_bg.gif);
 }
@@ -1558,7 +1555,7 @@ Add positioning to the background.
 
 ```css
 .nav {
-  ... 
+  ...
   background-color: #ffcb2d;
   background-image: url(i/nav_bg.gif);
   background-repeat: repeat-x;
@@ -1579,7 +1576,7 @@ Adding padding, margins to separate, and a border to make them more tab-like:
 
 ```css
 a {
-  ... 
+  ...
   padding: 4px 8px;
   border: 1px solid #9b8748;
   margin: 0 6px 0 0;
@@ -1590,7 +1587,7 @@ Although it may be a little difficult to discern, the same issue we had with col
 
 ```css
 a {
-  ... 
+  ...
   border-bottom: none;
   float: left;
 }
