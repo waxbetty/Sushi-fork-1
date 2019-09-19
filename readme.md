@@ -6,23 +6,23 @@ We are picking up these notes [here](https://github.com/front-end-foundations/Su
 
 ## This Week's Homework
 
-### 1. Install for Next Week
+### Installs for Next Week
 
 Install [NodeJS](https://nodejs.org/en/) (either version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com)
 
-### 2. Review CSS
+Choose one or both of the below:
 
-1. Download the files as distributed in class from Github and, using the notes below, try to recreate the design we did in class from scratch. Be sure to Google any CSS properties you are unfamiliar with.
-2. Examine the provided homework samples (in `other/home-work-samples`) for inspiration. Pick two or three visual formatting features from them (or any other site)that appeal to you and apply them to your page.
+### 1. Review CSS
 
-The "end state" files (the files I was working as they were at the end of class) can be downloaded from the `fall2019-done` branch of the repo for reference. Be sure to select the `fall2019-done` branch on Github _before_ downloading the zip.
+1. Review the files from Github and, using the notes below, step through the work we did in class. Be sure to Google any CSS properties you are unfamiliar with.
+2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance.
 
-### 3. Review JavaScript
+### 2. Review JavaScript
 
 Some guidance for this assignment is provided at the bottom of this ReadMe.
 
-1. Add a popover window to your homework from session one using a link to _your_ favorite restaurant
-2. Add a close button ("X") to the popover div using HTML
+1. Add a popover window to your page using a link to _your_ favorite restaurant
+2. Add a close button ("X") to the popover div using HTML (see this [final file](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/))
 3. Use CSS to style the close button
 4. Add JavaScript to make the close button close the popover when clicked
 5. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
