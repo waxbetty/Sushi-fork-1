@@ -1,17 +1,39 @@
-# Sushi Review
+# Sushi
 
 ## This Week's Homework
+
+### Install for Next Week
+
+Install [NodeJS](https://nodejs.org/en/) (either version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com)
+
+### Review CSS
 
 1. Download the files as distributed in class from Github and, using the notes below, try to recreate the design we did in class from scratch. Be sure to Google any CSS properties you are unfamiliar with.
 2. Examine the provided homework samples (in `other/home-work-samples`) using Chrome's developer tools. Pick two or three visual formatting features that appeal to you and apply them to your page. Be sure to Google any CSS properties you are unfamiliar with.
 
 The "end state" files (the files I was working as they were at the end of class) can be downloaded from the `fall2019-done` branch of the repo for reference. Be sure to select the `fall2019-done` branch on Github _before_ downloading the zip. 
 
-Email me if anything is unclear
+### Review JavaScript
+
+1. Add a popover window to your homework from session one using a link to _your_ favorite restaurant
+2. Add a close button ("X") to the popover div using HTML 
+3. Use CSS to style the close button
+4. Add JavaScript to make the close button close the popover when clicked
+5. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
+
+
+<!-- 1. Review the documentation for
+   - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
+   - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
+   - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
+   - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
+1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com) -->
 
 ### Additional Reading
 
 These are good resources for absolute beginners and go into more depth in some areas than we will have time for in class. Be sure to download any accompanying files in order to follow along on your own.
+
+#### CSS
 
 If you prefer video:
 
@@ -22,6 +44,10 @@ If you prefer to read:
 
 - [MDN's Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
 - [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL)
+
+#### DOM Scripting
+
+Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
 
 ## Sushi Exercise
 
@@ -120,6 +146,32 @@ header h2
 ```
 
  and then override one of the properties in the next CSS rule. The application of font family to the entire header region is an example of the "C" in CSS - [the cascade](https://css-tricks.com/the-c-in-css-the-cascade/). In order to use the cascade effectively we will look at _specificity_ as we proceed.
+
+CSS order is important. Try:
+
+```css
+header h2 {
+  font-size: 2rem;
+}
+header h1,
+header h2 {
+  font-size: 4rem;
+  margin: 8px 0;
+}
+```
+
+CSS selector [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) is important. Try:
+
+```css
+body header h2 {
+  font-size: 2rem;
+}
+header h1,
+header h2 {
+  font-size: 4rem;
+  margin: 8px 0;
+}
+```
 
 Note the _margin collapsing_ beween the H1 and H2 tags.
 
@@ -272,6 +324,9 @@ Note the float property and how the text wraps around it before and after we hav
 
 A pseudo-class is a selector that assists in the selection of something that cannot be expressed by a simple selector, for example `:hover`. A pseudo-element allows you to create items that do not normally exist in the document tree such as `::before` or `::first-line`.
 
+- Pseudo Class: `:hover`
+- Pseudo Element: `::before`
+
 ```css
 blockquote::before {
   content: '“';
@@ -287,10 +342,12 @@ blockquote::before {
 Or
 
 ```css
-article p::first-line {
+aside + p::first-line {
   font-weight: bold;
 }
 ```
+
+Note the `+` in the selector. This is an [adjacent sibling selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 
 A complete list of pseudo classes and pseudo elements is located [on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements).
 
@@ -357,7 +414,7 @@ Let's add a white background to wrapper.
 ```css
 #wrapper {
   background-color: #fff;
-  padding: 12px;
+  padding: 1rem;
   ...;
 }
 ```
@@ -375,7 +432,7 @@ Add a box shadow to the wrapper CSS:
 
 Note the chip in the styles inspector that allows you to finesse the box shadow.
 
-Make it a glow:
+Make it more of a glow:
 
 ```css
 #wrapper {
@@ -425,7 +482,7 @@ aside ul {
 }
 ```
 
-### A Note on Inline CSS
+<!-- ### A Note on Inline CSS
 
 We've already seen the link tag and @import methods of adding css to our document.
 
@@ -449,7 +506,7 @@ However this method is often used when dynamically changing the page after it ha
 
 Try using the inspector to inspect a dynamic page (such as [http://www.w3schools.com/jquery/jquery_animate.asp](http://www.w3schools.com/jquery/jquery_animate.asp)). Note how it displays animation by temporarily highlighting inline css in purple.
 
-Ideally, all your stylesheets should be located in a single file to reduce the number of requests the browser needs to make to the server (a major cause of slow loading sites).
+Ideally, all your stylesheets should be located in a single file to reduce the number of requests the browser needs to make to the server (a major cause of slow loading sites). -->
 
 <!-- ## Additional CSS3 Enhancements
 
@@ -519,7 +576,7 @@ A simple way to create navigation on a web site.
 
 Note that the tab is now highlighted. -->
 
-## A Quick Reality Check
+## Responsive Design
 
 Take a moment to resize the browser.
 
@@ -531,7 +588,7 @@ Add the device meta tag to the head of the HTML:
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
-Toggle the device button in the developer tools again. This is not a responsive design.
+Toggle the device button in the developer tools again. 
 
 ### Adding Simple Responsiveness
 
@@ -544,7 +601,8 @@ Copy and paste this at the bottom of the stylesheet:
 ```css
 @media print {
   * {
-    display: none !important;
+    /* display: none !important; */
+    color: red;
   }
 }
 ```
@@ -571,12 +629,6 @@ Begin by removing the margin from the body and article and fixing the nav to the
   }
 }
 ```
-
-Note that `position: static` is _supposed_ to anchor the menu at the top of the page (or where ever we have positioned it) but doesn't work here. 
-
-Inspect the `<ul>` to see if the position property is being applied and you'll find it is being overridden by the `position: absolute` property. This is due to selector strength - `ul.nav` is more selective and therefore more powerful than `.nav`. Edit the CSS to change `ul.nav` to `.nav` and refresh.
-
-Selector strength is a very important factor in creating and maintaining a good style sheet. Try to keep your selectors to a minimum to avoid issues. See [this guide](https://stuffandnonsense.co.uk/archives/css_specificity_wars.html) to selector strength for more information.
 
 Use the [flexbox CSS module](https://codepen.io/DannyBoyNYC/pen/QYaNab) on the nav:
 
@@ -636,24 +688,9 @@ Try:
 - The new image CSS is not working. How would you fix it?
 - if the CSS we just wrote for responsiveness was at the top of the stylesheet what would you see?
 
-<!-- ### Using Flexbox (optional - demo only)
+## CSS Demo's
 
-```css
-.nav {
-  display: flex;
-  padding: 0;
-}
-.nav li {
-  flex: 1;
-  background-color: #f0dfb4;
-  list-style: none;
-}
-```
--->
-
-### Notes
-
-Below are some demos of the major layout features covered in this session.
+Below are some demos of the major layout features covered so far.
 
 [Front end foundations collection](https://codepen.io/collection/nZyrPj/) on Codepen.io.
 
@@ -766,31 +803,7 @@ ul a {
 See also - [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
 See also - [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
 
-## Intro to DOM Scripting
-
-This semester we will observe how the three pillars of web development come together to create the modern web. Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
-
-## Homework
-
-1. Add a popover window to your homework from session one using a link to _your_ favorite restaurant
-2. Add a close button ("X") to the popover div 
-3. Use CSS to style the close button
-4. Add JavaScript to make the close button close the popover when clicked
-5. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
-<!-- 1. Review the documentation for
-   - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
-   - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
-   - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
-   - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
-1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com) -->
-
-## Reading
-
-Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
-
-## Sushi - continued
-
-### Highlighting Tabs
+## Highlighting Tabs
 
 A simple way to create opportunities for section differentiation or themes across a web site is to add a class at a high level of the pages.
 
@@ -848,13 +861,15 @@ Expand the css rule to allow the other tabs to display highlighted as well.
 
 Note that we could use these top level page classes and some CSS to customize other items on the page.
 
-## DOM Scripting
+## JavaScript - DOM Scripting
 
-An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer).
+This semester we will observe how the three pillars of web development come together to create the modern web. Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
+
+<!-- An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer). -->
 
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model). 
 
-The DOM is a cross-platform and language-independent application programming interface (API) that treats an HTML document as a tree structure wherein each node is an object representing a part of the document. 
+"The DOM is a cross-platform and language-independent application programming interface (API) that treats an HTML document as a tree structure wherein each node is an object representing a part of the document."
 
 <!-- ### Variable Assignment and Types
 
@@ -892,7 +907,7 @@ Currenty we have this list item in the aside region of `index.html`:
 <li><a href="#">Map</a> | <a href="#">Directions</a></li>
 ```
 
-Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map href in the aside:
+Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734) to the map link's href:
 
 ```html
 <li>
@@ -910,7 +925,9 @@ Note the target attribute for the anchor tag. We have also used `class="map"` to
 
 Note the contents of `scripts.js`. Open the developer tools in Chrome and display the JavaScript Console. 
 
-In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console. If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting. 
+In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console. 
+
+If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting. 
 
 The most important DOM scripting techniques we will be using are:
 
@@ -930,7 +947,7 @@ You will also be introduced to:
 
 ### Creating the Popover
 
-Make sure everything in `scripts.js` is commented. Add this to `scripts.js`:
+Make sure everything in `scripts.js` is commented or deleted. Add this to `scripts.js`:
 
 ```js
 var mapClicker = document.querySelector('.map');
@@ -1180,7 +1197,7 @@ function handleClicks(e) {
 
 <!-- 1. We will use [Font Awesome](https://fontawesome.com/cheatsheet) for icons
 1. Examine some usage samples from [Font Awesome](http://fontawesome.io/examples/)
-1. Load Font Awesome with:
+2. Load Font Awesome with:
 
 ```html
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
