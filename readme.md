@@ -15,6 +15,8 @@ The "end state" files (the files I was working as they were at the end of class)
 
 ### Review JavaScript
 
+Some guidance for this assignment is provided at the bottom of this ReadMe.
+
 1. Add a popover window to your homework from session one using a link to _your_ favorite restaurant
 2. Add a close button ("X") to the popover div using HTML 
 3. Use CSS to style the close button
@@ -943,7 +945,9 @@ You will also be introduced to:
 
 ### A Quick Note on jQuery
 
-[jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about various aspects of JavaScript your results will likely contain a multitude of references to it. For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript." The rational for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
+[jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The rational for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
+
+For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript." 
 
 ### Creating the Popover
 
@@ -961,6 +965,7 @@ var mapClicker = document.querySelector('.map');
 
 mapClicker.addEventListener('click', function() {
   event.preventDefault();
+  console.log('You clicked on the map link.');
 });
 ```
 
@@ -1000,7 +1005,7 @@ function show() {
 }
 ```
 
-Add to the bottom of the html (but before `<script>`) so it appears at the bottom of the browser:
+Add the following to the bottom of the html (but before `<script>`) so it appears at the bottom of the browser:
 
 ```html
 <div class="popover">
@@ -1038,7 +1043,7 @@ Style the popover div:
 
 Note the `position: fixed` as well as the `top` and `left` properties - we center the div with 50% and then use calc to subtract half the width and height of the div.
 
-Note: if we were using the alternate box model our CSS would look like this:
+Note: if we were using the alternate box model our CSS might look like this:
 
 ```css
 .popover {
@@ -1097,7 +1102,9 @@ function show(e) {
 }
 ```
 
-Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`.
+Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`. (Examine the images.)
+
+### Moving the Toggle
 
 If we want to manipulate the display of other items based on the presence of the popover we need to add the showme class higher up in the DOM.
 
@@ -1133,11 +1140,9 @@ Placing the new class at a high level allows us to manipulate the display of oth
 
 Note - it becomes more difficult for the user to close the popover.
 
-Note - we cannot animate the popover by, say, fading it in becuase we are using `display:none/block` which is binary and is not a property capable of being tweened.
-
 ### Using Event Delegation
 
-This will be the final iteration of this script. It is something of a standard to use what is known as  _event delegation_ in JavaScript.
+This will be the final iteration of this script. It is a standard to use what is known as  _event delegation_ in JavaScript.
 
 Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to handle events at a higher level in the DOM than the element on which the event originated.
 
@@ -1157,7 +1162,7 @@ function show() {
 }
 ```
 
-Note: `preventDefault()` here disables all our links - even those on our navbar.
+Note: `preventDefault()` here disables _all_ our links - even those on our navbar.
 
 Try:
 
@@ -1193,6 +1198,7 @@ function handleClicks(e) {
 ```
 
 ## HomeWork
+
 ### A Close (✖︎) Button
 
 <!-- 1. We will use [Font Awesome](https://fontawesome.com/cheatsheet) for icons
@@ -1296,7 +1302,7 @@ function close(){
 
 Note that the close function is identical to the show function we currently have. -->
 
-We will use a new JavaScript utility - [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
+We will use - [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
 
 ```js
 document.addEventListener('click', handleClicks);
