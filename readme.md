@@ -1,9 +1,5 @@
 # Sushi
 
-Today we are coninuing with the `fall2019-done` branch. Please download that branch as a zip file to your class folder, unzip it and open it in VS Code.
-
-We are picking up these notes [here](https://github.com/front-end-foundations/Sushi#responsive-design).
-
 ## This Week's Homework
 
 ### Installs for Next Week
@@ -14,7 +10,7 @@ Choose one or both of the below:
 
 ### 1. Review CSS
 
-1. Review the files from Github and, using the notes below, step through the work we did in class. Be sure to Google any CSS properties you are unfamiliar with.
+1. Download the files from Github again and, using the notes below, step through everything we did in class again. Be sure to Google any CSS properties you are unfamiliar with.
 2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance.
 
 ### 2. Review JavaScript
