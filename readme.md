@@ -1,27 +1,21 @@
 # Sushi
 
-## This Week's Homework
+## Today's Homework
 
-### Installs for Next Week
+1. Install [NodeJS](https://nodejs.org/en/) (the LTS version recommended for most users) and [Git](https://git-scm.com/) on your personal computer. Create  free accounts on [Github](http://github.com) and [Netlify](https://www.netlify.com)
+1. Download the .zip file from Github again and, using the notes below, step through everything we did in class again. Be sure to Google any CSS properties or HTML you are unfamiliar with.
 
-Install [NodeJS](https://nodejs.org/en/) (either version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com)
+<!-- 2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance. -->
 
-Choose one or both of the below:
+<!-- ### 2. Review JavaScript -->
 
-### 1. Review CSS
-
-1. Download the files from Github again and, using the notes below, step through everything we did in class again. Be sure to Google any CSS properties you are unfamiliar with.
-2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance.
-
-### 2. Review JavaScript
-
-Some guidance for this assignment is provided at the bottom of this ReadMe.
+<!-- Some guidance for this assignment is provided at the bottom of this ReadMe.
 
 1. Add a popover window to your page using a link to _your_ favorite restaurant
 2. Add a close button ("X") to the popover div using HTML (see this [final file](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/))
 3. Use CSS to style the close button
 4. Add JavaScript to make the close button close the popover when clicked
-5. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions
+5. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions -->
 
 <!-- 1. Review the documentation for
    - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
@@ -34,7 +28,7 @@ Some guidance for this assignment is provided at the bottom of this ReadMe.
 
 These are good resources for absolute beginners and go into more depth in some areas than we will have time for in class. Be sure to download any accompanying files in order to follow along on your own.
 
-#### CSS
+#### HTML and CSS
 
 If you prefer video:
 
@@ -46,9 +40,9 @@ If you prefer to read:
 - [MDN's Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
 - [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL)
 
-#### DOM Scripting
+<!-- #### DOM Scripting
 
-Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game).
+Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game). -->
 
 ## Sushi Exercise
 
@@ -82,7 +76,7 @@ body {
 and link it to `index.html` in the head:
 
 ```html
-<link rel="stylesheet" href="css/styles.css" media="all" />
+<link rel="stylesheet" href="css/styles.css" />
 ```
 
 ## Google fonts
@@ -105,7 +99,7 @@ Edit the body css rule:
 font-family: 'Lato', Verdana, Arial, sans-serif;
 ```
 
-Link to the Google fonts css file from html:
+Link a seconds Google font css file from html:
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
@@ -120,7 +114,7 @@ header {
 }
 ```
 
-`<link>` is preferred in all cases over `@import`, because the latter blocks parallel downloads, meaning that the browser will wait for the imported file to finish downloading before it starts downloading the rest of the content.
+`<link>` is preferred in all cases over `@import`, because the browser will wait for the imported file to finish downloading before it starts downloading the rest of the content.
 
 In practice, web developers use tools to combine stylesheets into a single compressed and minified sheet when releasing a web site.
 
@@ -174,11 +168,13 @@ header h2 {
 }
 ```
 
-Note the _margin collapsing_ beween the H1 and H2 tags.
+Note the _margin collapsing_ between the H1 and H2 and paragraph tags.
 
 ## Formatting the Navigation
 
-Note that we have two unordered lists in our page. Add a _class_ to the `<ul>` that will form the navigation for our page. We now have a name space that will allow us to target it exclusively:
+Note that we have two `<ul>`s - unordered lists - in our page.
+
+Add a _class_ to the `<ul>` that will form the navigation for our page. We now have a name space that will allow us to target it exclusively:
 
 ```html
 <ul class="nav">
@@ -256,7 +252,28 @@ Examine the nav ul in the inspector. Note the coordinate system.
 
 Tooggle the position property on and off in the inspector.
 
-Add an `<aside>` tag around the table and the unordered list then add the following CSS:
+In the HTML, add an `<aside>` tag around the table and the unordered list. 
+
+```html
+<!-- HERE -->
+<article>
+  <h2>Geido</h2>
+  <p class="summary">
+    ...
+  </p>
+  <aside>
+  <table>
+    ...
+  </table>
+
+  <ul>
+    ...
+  </ul>
+  <!-- AND CLOSE IT HERE -->
+  </aside>
+```
+
+Then add the following CSS:
 
 ```css
 aside {
@@ -319,7 +336,7 @@ article img {
 }
 ```
 
-Note the float property and how the text wraps around it before and after we have defined a width. By default, the floated container shrinks to the width determined by the content. [Live example](https://theintercept.com/2019/02/04/google-ai-project-maven-figure-eight/) - use the inspector to examine the blockquote.
+Note the float property and how the text wraps around it before and after we have defined a width. By default, the floated container shrinks to the width determined by the content. [Live example](https://theintercept.com/2019/02/04/google-ai-project-maven-figure-eight/) - use the inspector to examine the blockquote at multiple widths.
 
 ## Pseudo Elements vs Pseudo Classes
 
@@ -352,13 +369,13 @@ Note the `+` in the selector. This is an [adjacent sibling selector](https://dev
 
 A complete list of pseudo classes and pseudo elements is located [on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements).
 
-See the Pen <a href="https://codepen.io/DannyBoyNYC/pen/ZwrwoQ/">Intro-pseudo</a> on <a href="https://codepen.io">CodePen</a>.
+See my Pen <a href="https://codepen.io/DannyBoyNYC/pen/ZwrwoQ/">Intro-pseudo</a> on <a href="https://codepen.io">CodePen</a>.
 
 ## Relative Positioning
 
-Currently our document flexes as we make the browser wider to make use of all the available horizontal space. While flexibility is a good practice, we need to understand more about the drawbacks of fixed widths.
+Currently our document "flexes" as we make the browser wider to make use of all the available horizontal space. While flexibility is a good practice, we need to understand more about the drawbacks of fixed widths.
 
-Add wrapper `<div id="wrapper">` to entire content area (after the `<body>` tag and close it before the closing `</body>` tag) and add the following to our CSS style block.
+Add a wrapper `<div id="wrapper">` to the entire content area (after the `<body>` tag and close it before the closing `</body>` tag) and add the following to our CSS style block.
 
 ```css
 #wrapper {
@@ -384,7 +401,7 @@ Then center it in the browser.
 }
 ```
 
-Add a relative positioning instruction.
+Add a relative positioning property.
 
 ```css
 #wrapper {
@@ -635,7 +652,8 @@ Use the [flexbox CSS module](https://codepen.io/DannyBoyNYC/pen/QYaNab) on the n
 
 ```css
 @media all and (max-width: 800px) {
-  ... .nav {
+  ... 
+  .nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -658,7 +676,8 @@ Revert aside's position property to `static` (the default).
 
 ```css
 @media all and (max-width: 800px) {
-  ... aside {
+  ... 
+  aside {
     position: static;
     float: none;
     margin-right: 20px;
@@ -670,7 +689,8 @@ Add adjustments to the image and blockquote:
 
 ```css
 @media all and (max-width: 800px) {
-  ... blockquote {
+  ... 
+  blockquote {
     width: 100%;
     float: none;
     margin: 0;
@@ -683,7 +703,7 @@ Add adjustments to the image and blockquote:
 
 Try:
 
-- The new image CSS is not working. How would you fix it?
+- The new image CSS is not working. Why and how would you fix it?
 - if the CSS we just wrote for responsiveness was at the top of the stylesheet what would you see?
 
 ## CSS Demo's
@@ -867,7 +887,7 @@ This semester we will observe how the three pillars of web development come toge
 
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model).
 
-"The DOM is a cross-platform and language-independent application programming interface (API) that treats an HTML document as a tree structure wherein each node is an object representing a part of the document."
+The DOM is an application programming interface (API) that treats an HTML document as a tree structure where each node on the tree is an object representing a part of the document.
 
 <!-- ### Variable Assignment and Types
 
@@ -910,10 +930,11 @@ Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979
 ```html
 <li>
   <a
-    class="map"
-    target="_blank"
+    class="map" target="_blank"
     href="https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734"
-    >Map</a
+    >
+    Map
+    </a
   >
   | <a href="#">Directions</a>
 </li>
@@ -927,7 +948,7 @@ In order to gain insight into the DOM and some central concepts we will uncommen
 
 If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting.
 
-The most important DOM scripting techniques we will be using are:
+The DOM scripting techniques we will start with are:
 
 - [querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
 - [querySelectorAll()](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/querySelectorAll)
