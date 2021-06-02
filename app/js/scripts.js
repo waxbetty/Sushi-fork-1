@@ -1,9 +1,9 @@
 // EXAMINING AND CHANGING THE DOCUMENT  //
 // console.log('Hello from scripts.js!');
-// console.log(window);
-// console.log(document); // console.dir(document) displays the element DOM properties
-// console.log(document.URL);
+// console.log(document); 
 // console.log(document.title);
+console.log(document.links);
+// console.log(document.images);
 // document.title = 123;
 // console.log(document.body);
 
@@ -11,9 +11,6 @@
 // console.log(document.all);
 // console.log(document.all[19]);
 // document.all[19].textContent = 'Hello';
-
-// console.log(document.links);
-// console.log(document.images);
 
 /* GET ELEMENT BY ID - uncomment in sequence */
 // console.log(document.getElementById('wrapper'));
