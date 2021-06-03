@@ -944,9 +944,13 @@ Note the target attribute for the anchor tag. We have also used `class="map"` to
 
 Note the contents of `scripts.js`. Open the developer tools in Chrome and display the JavaScript Console.
 
+## Aside - experiment in the console
+
 In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console.
 
 If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting.
+
+---
 
 The DOM scripting techniques we will start with are:
 
@@ -968,6 +972,8 @@ For the purposes of this course, you should try to ignore these as we focus sole
 
 ### Creating the Popover
 
+#### QuerySelector
+
 Make sure everything in `scripts.js` is commented or deleted. Add this to `scripts.js`:
 
 ```js
@@ -975,7 +981,34 @@ var mapClicker = document.querySelector('.map');
 console.log(mapClicker);
 ```
 
-Use [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp) to listen for a click on `mapClicker`:
+Note: you use the `document.querySelector()` method to find the first matching element on a page.
+
+```js
+// The first button
+let button = document.querySelector('button');
+
+// The first element with the .bg-red class
+let red = document.querySelector('.bg-red');
+
+// The first element with a data attribute of snack equal to carrots
+let carrots = document.querySelector('[data-snack="carrots"]');
+```
+
+If an element isn’t found, querySelector() returns null. If you try to do something with the nonexistent element, an error will get thrown. You should check that a matching element was found before using it.
+
+```js
+// An element that doesn't exist
+let none = document.querySelector('.bg-orange');
+
+// Verify element exists before doing anything with it
+if (none) {
+	// Do something...
+}
+```
+
+#### addEventListener
+
+Use `addEventListener` to listen for a click on `mapClicker`:
 
 ```js
 var mapClicker = document.querySelector('.map');
@@ -987,6 +1020,8 @@ mapClicker.addEventListener('click', function() {
 ```
 
 Without `preventDefault()` a click would launch the link in a new tab. Since we are working with a link we need to prevent it from navigating away from the page.
+
+Note: you use the `EventTarget.addEventListener()` method to listen for events on an element. You can find a full list of available [events on the Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Events).
 
 Let's examine the event.
 
@@ -1002,13 +1037,13 @@ mapClicker.addEventListener('click', function() {
 });
 ```
 
+We run the `EventTarget.addEventListener()` method on the element we want to listen for events on. It accepts two arguments: the event to listen for, and a callback function to run when the event happens.
+
+The event.target property is the element that triggered the event. The event object has other properties as well, many of them specific to the type of event that occurred.
+
 A function is a list of commands that, in this case, are run when the event occurs.
 
-<!-- Try:
-
-- Click on elements on the page with the Console open -->
-
-Call the `show` function to run when the event (the user clicks on `mapClicker`) occurs:
+Create and call a `show` function to run when the event (the user clicks on `mapClicker`) occurs:
 
 ```js
 var mapClicker = document.querySelector('.map');
@@ -1022,7 +1057,7 @@ function show() {
 }
 ```
 
-Add the following to the bottom of the html (but before `<script>`) so it appears at the bottom of the browser:
+Add the following to the bottom of the html after the footer and before `<script>`. You should see the map at the bottom of the browser:
 
 ```html
 <div class="popover">
@@ -1039,7 +1074,7 @@ Add the following to the bottom of the html (but before `<script>`) so it appear
 
 The div and iframe will be visible at the bottom of the page.
 
-Note that it uses an [iframe](https://www.w3schools.com/tags/tag_iframe.asp). An inline frame is used to embed another document within the current HTML document. It is most often used in advertising.
+Note that it uses an [iframe](https://www.w3schools.com/tags/tag_iframe.asp). An inline frame is used to embed another HTML document within the current HTML document. It is often used in advertising.
 
 Style the popover div:
 
@@ -1058,7 +1093,7 @@ Style the popover div:
 }
 ```
 
-Note the `position: fixed` as well as the `top` and `left` properties - we center the div with 50% and then use calc to subtract half the width and height of the div.
+Note the `position: fixed` as well as the `top` and `left` properties - we center the div with 50% and then use `calc` to subtract half the width and height of the div.
 
 Note: if we were using the alternate box model our CSS might look like this:
 
@@ -1119,11 +1154,11 @@ function show(e) {
 }
 ```
 
-Take a look at [the power](https://www.nytimes.com/interactive/2019/01/07/nyregion/output-closing-brooklyn-memories.html) of `classList`. (Examine the images.)
+The map should appear and disappear when you click on the link.
 
 ### Moving the Toggle
 
-If we want to manipulate the display of other items based on the presence of the popover we need to add the showme class higher up in the DOM.
+If we want to manipulate the display of other items based on the presence of the popover we need to add the `showme` class higher up in the DOM.
 
 We'll go all the way to the top by adding the class on the body tag:
 
@@ -1167,7 +1202,7 @@ Events "bubble up" from the targeted element to their parent elements and all th
 
 So instead of listening to specific elements, we’ll listen for all click events on the page, and then test to see if the clicked item has a specific name before running the function.
 
-Start by looking again at the event targets:
+Let's start over again by examining the event targets:
 
 ```js
 document.addEventListener('click', show);
@@ -1267,7 +1302,7 @@ E.g.:
   </div>
 ```
 
-To format the close button, temporarily disable the `display: none` property on the popover's CSS and add:
+To format the close link, temporarily disable the `display: none` property on the popover's CSS and add:
 
 ```css
 .popover .closer {
@@ -1283,11 +1318,12 @@ The close button will be positioned relative to its nearest positioned ancestor 
 
 Note the (here superfluous) `cursor` property. Here is a [list of available cursors](https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor) in CSS.
 
-Add some additional formatting to the button:
+Add some additional formatting to the close link:
 
 ```css
 .popover .closer {
-  ... text-decoration: none;
+  ... 
+  text-decoration: none;
   background-color: #fff;
   padding: 0.25rem;
   border: 2px solid #600;
@@ -1341,8 +1377,7 @@ Let's refactor the script by using an 'or' operator `||` in JavaScript:
 if (
   event.target.classList.contains('map') ||
   event.target.classList.contains('closer')
-) {
-}
+) 
 ```
 
 With our toggle, e.g.:
