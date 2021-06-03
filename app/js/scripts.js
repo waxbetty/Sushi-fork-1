@@ -1,43 +1,49 @@
 // EXAMINING AND CHANGING THE DOCUMENT  //
 // console.log('Hello from scripts.js!');
-// console.log(document); 
-// console.log(document.title);
-console.log(document.links);
-// console.log(document.images);
-// document.title = 123;
+// console.log(document);
 // console.log(document.body);
+// console.log(document.links);
+// console.log(document.title);
+// document.title = 123;
 
 /* FIND the tags in the header in the list */
 // console.log(document.all);
 // console.log(document.all[19]);
 // document.all[19].textContent = 'Hello';
 
-/* GET ELEMENT BY ID - uncomment in sequence */
-// console.log(document.getElementById('wrapper'));
-// var wrapper = document.getElementById('wrapper');
-// wrapper.textContent = 'Text content set in JavaScript';
-// wrapper.style.borderBottom = 'solid 30px red';
+/* QUERYSELECTOR - uncomment in sequence */
+// console.log(document.querySelector('body'));
+// var bodyElement = document.querySelector('body');
+// bodyElement.textContent = 'Text content set in JavaScript';
+// bodyElement.style.borderBottom = 'solid 30px red';
 
 // QUERY SELECTOR ALL //
 // var listItems = document.querySelectorAll('li');
-// NOTE - returns a NodeList
+// NOTE - view the variable in the console. Returns a NodeList
 
-// Gives BLOCKING error - the console log command never runs
-// listItems.style.backgroundColor = '#f4f4f4';
-// console.log('This will not run b/c the line about causes a blocking error');
+// Gives an error - and the console log command never runs
+// listItems.style.backgroundColor = 'red';
+// console.log('This will not run b/c the line above causes a blocking error');
 
 // HERE'S how you would have to do it
-// NODELIST has a method called FOREACH
 // listItems.forEach(function(listItem) {
 //   listItem.style.backgroundColor = 'red';
 // });
 
-// QUERYSELECTOR //
-// add a class of 'map' to the map anchor tag in the sidebar
-// var mapLink = document.querySelector('.map');
-// mapLink.style.borderBottom = 'solid 8px red';
+// OR
+// for(var item of listItems){
+//   item.style.backgroundColor = 'green';
+// }
+
+// OR
+// for (var i = 0; i<listItems.length; i++){
+//   listItems[i].style.backgroundColor = 'blue'
+// }
 
 // EVENTS //
+// FIRST - add a class of 'map' to the map anchor tag in the sidebar
+// var mapLink = document.querySelector('.map');
+// mapLink.style.borderBottom = 'solid 8px red';
 
 // ADDEVENTLISTENER
 // mapLink.addEventListener('click', function() {
@@ -45,43 +51,38 @@ console.log(document.links);
 // });
 
 // mapLink.addEventListener('click', function(event) {
-//   console.log('It works!');
 //   event.preventDefault();
+//   console.log('It works!');
 // });
-
-// EVENT (e)
 
 // mapLink.addEventListener('click', function() {
-//   console.log(event);
 //   event.preventDefault();
+//   console.log('event::', event);
+//   console.log('event.target::', event.target);
+//   console.log('event.target.href::', event.target.href);
 // });
 
-// CALLING A FUNCTION
-
+// CALLING A FUNCTION - click twice
 // mapLink.addEventListener('click', buttonClick);
 
 // function buttonClick() {
 //   event.preventDefault();
-// console.log('Map link clicked');
-// console.log(event);
-// console.log('Event target ', event.target);
-// console.log('Event type ', event.type);
-// console.log(event.target.className);
-// console.log(event.target.classList);
+//   console.log('className::', event.target.className);
+//   event.target.className = 'foo'
 // }
 
 // DYNAMICALLY CREATE AN ELEMENT //
 
-// // Create a div and then look at it in the console
+// // CREATE a div and then look at it in the console
 // var newDiv = document.createElement('div');
-// console.log(newDiv);
 
 // // Add class
 // newDiv.className = 'popover';
+// console.log(newDiv);
 
 // // Add text
 // newDiv.innerText = 'Hello World';
-// newDiv.innerHTML = '<span>Hello World</span>';
+// newDiv.innerHTML = '<span>Hello Universe</span>';
 
 // // Add styles to the div
 // newDiv.style.fontSize = '40px';
@@ -91,4 +92,5 @@ console.log(document.links);
 // var headerOne = document.querySelector('header h1');
 
 // // Add the new div to the document
-// headerOne.appendChild(newDiv);
+// headerOne.append(newDiv);
+// headerOne.prepend(newDiv);
