@@ -1,9 +1,28 @@
-# Sushi
+# Sushi Restaurant Review
+
+- [Sushi Restaurant Review](#sushi-restaurant-review)
+  - [Today's Homework](#todays-homework)
+    - [Additional Reading](#additional-reading)
+  - [Sushi Exercise](#sushi-exercise)
+  - [Google fonts](#google-fonts)
+    - [Linking to a css file from css](#linking-to-a-css-file-from-css)
+  - [Formatting the Navigation](#formatting-the-navigation)
+  - [Absolute Positioning](#absolute-positioning)
+  - [Responsive Design](#responsive-design)
+    - [Adding Simple Responsiveness](#adding-simple-responsiveness)
+  - [CSS Demos](#css-demos)
+  - [Highlighting the Navigation](#highlighting-the-navigation)
+  - [JavaScript - DOM Scripting](#javascript---dom-scripting)
+    - [End Sushi](#end-sushi)
 
 ## Today's Homework
 
-1. Install [NodeJS](https://nodejs.org/en/) (the LTS version recommended for most users) and [Git](https://git-scm.com/) on your personal computer. Create  free accounts on [Github](http://github.com) and [Netlify](https://www.netlify.com)
-1. Download the .zip file from Github again and, using the notes below, step through everything we did in class again. Be sure to Google any CSS properties or HTML you are unfamiliar with.
+1. Install [NodeJS](https://nodejs.org/en/) (the LTS - "long term service" - version)
+2. Install [Git](https://git-scm.com/) on your personal computer.
+3. Create a free account on [Github](http://github.com)
+4. Create a free account on [Netlify](https://www.netlify.com)
+5. [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
+6. Download the master .zip file from Github again and, using the notes below, step through everything we did in class again. Be sure to Google any CSS properties or HTML you are unfamiliar with.
 
 <!-- 2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance. -->
 
@@ -26,9 +45,7 @@
 
 ### Additional Reading
 
-These are good resources for absolute beginners and go into more depth in some areas than we will have time for in class. Be sure to download any accompanying files in order to follow along on your own.
-
-#### HTML and CSS
+These are good resources for beginners and go into more depth in some areas than we have time for in class. Be sure to download any accompanying files in order to follow along on your own.
 
 If you prefer video:
 
@@ -59,9 +76,11 @@ In this exercise we use the contents of the Sushi folder to begin looking at lay
 - z-index
 - visibility
 
-Open `before.html` in Chrome and right click on "Matsu" to open the inspector. This is often referred to as tag soup - it makes little sense to anyone looking at the code. Note the preponderance of visual markup code in the file. This is how html was written from the late 90's to about a decade ago. This is similar to how HTML emails are written today.
+Open `before.html` in VSCode. This is often referred to as tag soup - it makes little sense to anyone looking at the code. Note the lack of semantics and the preponderance of visual markup code in the HTML. This is how HTML was written from the late 90's to about a decade ago and is similar to how HTML emails are written today.
 
-Open `index.html`. This is an html5 document that uses semantic HTML. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
+Open `index.html`. This is an HTML5 document that uses semantic HTML.
+
+Open `index.html` in Chrome using Go Live. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
 
 Add a CSS declaration to `styles.css` as follows:
 
@@ -81,14 +100,16 @@ and link it to `index.html` in the head:
 
 ## Google fonts
 
-Google has a CDN (Content Delivery Network) offering [free fonts](https://fonts.google.com) for use in HTML documents. We'll use this as an example of using external stylesheets via @import vs the `<link>` tag.
+Google has a CDN (Content Delivery Network) offering [free fonts](https://fonts.google.com) for use in HTML documents.
 
-We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our branding.
+We'll use this as an example of using external stylesheets via @import vs the `<link>` tag.
+
+We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our headers.
 
 ### Linking to a css file from css
 
 ```css
-@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
 ```
 
 Add this to the _top_ of our css (@import statements should always come first) to use the font within our stylesheet.
@@ -96,10 +117,10 @@ Add this to the _top_ of our css (@import statements should always come first) t
 Edit the body css rule:
 
 ```css
-font-family: 'Lato', Verdana, Arial, sans-serif;
+font-family: Lato, Verdana, Arial, sans-serif;
 ```
 
-Link a seconds Google font css file from html:
+Link a second Google font css file from html:
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
@@ -109,14 +130,12 @@ In use:
 
 ```css
 header {
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   font-weight: normal;
 }
 ```
 
-`<link>` is preferred in all cases over `@import`, because the browser will wait for the imported file to finish downloading before it starts downloading the rest of the content.
-
-In practice, web developers use tools to combine stylesheets into a single compressed and minified sheet when releasing a web site.
+`<link>` is generally preferred over `@import` however, in practice, web developers use imports along with tools to combine multiple stylesheets into a single compressed and minified sheet.
 
 Note: `h1` tags are bold by default but Lobster has no bold version. Thus we use `font-weight: normal` to keep the browser from applying bold.
 
@@ -140,9 +159,9 @@ header h1,
 header h2
 ```
 
-and then override one of the properties in the next CSS rule. The application of font family to the entire header region is an example of the "C" in CSS - [the cascade](https://css-tricks.com/the-c-in-css-the-cascade/). In order to use the cascade effectively we will look at _specificity_ as we proceed.
+and then override one of the properties in the next CSS rule.
 
-CSS order is important. Try:
+In CSS, order is important. The second CSS rule will cancel out the first in this example:
 
 ```css
 header h2 {
@@ -155,7 +174,7 @@ header h2 {
 }
 ```
 
-CSS selector [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) is important. Try:
+CSS selector [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) is important. The first CSS rule will now be applied since its selector - `body header h2` - is more specific than the second - `header h2`:
 
 ```css
 body header h2 {
@@ -211,9 +230,9 @@ Add the following to our style sheet:
 
 Note:
 
-- `list-style` controls the bullets
+- `list-style` (bullet styles)
 - `display: inline-block`
-- `text-decoration`
+- `text-decoration` (link underlining)
 - `display: block`
 
 Also note the use of a colon to target the hover state. This is an example of a _pseudo_ selector. So called because, unlike other selectors, it doesn't really target an HTML tag.
@@ -250,27 +269,26 @@ _Edit_ the nav CSS rule to position it
 
 Examine the nav ul in the inspector. Note the coordinate system.
 
-Tooggle the position property on and off in the inspector.
+Toggle the position property on and off in the inspector.
 
-In the HTML, add an `<aside>` tag around the table and the unordered list. 
+In the HTML, add an `<aside>` tag around the table and the unordered list.
 
 ```html
 <!-- HERE -->
 <article>
   <h2>Geido</h2>
-  <p class="summary">
-    ...
-  </p>
+  <p class="summary">...</p>
   <aside>
-  <table>
-    ...
-  </table>
+    <table>
+      ...
+    </table>
 
-  <ul>
-    ...
-  </ul>
-  <!-- AND CLOSE IT HERE -->
+    <ul>
+      ...
+    </ul>
+    <!-- AND CLOSE IT HERE -->
   </aside>
+</article>
 ```
 
 Then add the following CSS:
@@ -347,7 +365,7 @@ A pseudo-class is a selector that assists in the selection of something that can
 
 ```css
 blockquote::before {
-  content: '“';
+  content: "“";
   font-size: 4rem;
   font-family: serif;
   color: #333;
@@ -412,7 +430,7 @@ Add a relative positioning property.
 
 Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. The rule here is that absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree. This is an important CSS design pattern and well will see it again.
 
-## Adding More Design to Our layout
+## More Design Elements
 
 Edit the CSS body rule to include `background-color: #ddd;`:
 
@@ -420,7 +438,7 @@ Edit the CSS body rule to include `background-color: #ddd;`:
 body {
   margin: 12px;
   color: #333;
-  font-family: 'Lato', Verdana, Arial, sans-serif;
+  font-family: "Lato", Verdana, Arial, sans-serif;
   background-color: #ddd;
 }
 ```
@@ -652,8 +670,7 @@ Use the [flexbox CSS module](https://codepen.io/DannyBoyNYC/pen/QYaNab) on the n
 
 ```css
 @media all and (max-width: 800px) {
-  ... 
-  .nav {
+  ... .nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -676,8 +693,7 @@ Revert aside's position property to `static` (the default).
 
 ```css
 @media all and (max-width: 800px) {
-  ... 
-  aside {
+  ... aside {
     position: static;
     float: none;
     margin-right: 20px;
@@ -689,8 +705,7 @@ Add adjustments to the image and blockquote:
 
 ```css
 @media all and (max-width: 800px) {
-  ... 
-  blockquote {
+  ... blockquote {
     width: 100%;
     float: none;
     margin: 0;
@@ -706,7 +721,7 @@ Try:
 - The new image CSS is not working. Why and how would you fix it?
 - if the CSS we just wrote for responsiveness was at the top of the stylesheet what would you see?
 
-## CSS Demo's
+## CSS Demos
 
 Below are some demos of the major layout features covered so far.
 
@@ -716,9 +731,7 @@ CodePen [Intro-margin-auto](https://codepen.io/DannyBoyNYC/pen/qgpVaL)
 
 ```html
 <div class="container">
-  <div class="inner">
-    Hello
-  </div>
+  <div class="inner">Hello</div>
 </div>
 ```
 
@@ -821,7 +834,7 @@ ul a {
 See also - [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
 See also - [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
 
-## Highlighting Tabs
+## Highlighting the Navigation
 
 A simple way to create opportunities for section differentiation or themes across a web site is to add a class at a high level of the pages.
 
@@ -930,12 +943,12 @@ Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979
 ```html
 <li>
   <a
-    class="map" target="_blank"
+    class="map"
+    target="_blank"
     href="https://www.google.com/maps/place/Geido/@40.6778979,-73.9749227,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25ba8edab126b:0xfaa0551477e2ec72!8m2!3d40.6778939!4d-73.972734"
-    >
-    Map
-    </a
   >
+    Map
+  </a>
   | <a href="#">Directions</a>
 </li>
 ```
@@ -977,7 +990,7 @@ For the purposes of this course, you should try to ignore these as we focus sole
 Make sure everything in `scripts.js` is commented or deleted. Add this to `scripts.js`:
 
 ```js
-var mapClicker = document.querySelector('.map');
+var mapClicker = document.querySelector(".map");
 console.log(mapClicker);
 ```
 
@@ -985,10 +998,10 @@ Note: you use the `document.querySelector()` method to find the first matching e
 
 ```js
 // The first button
-let button = document.querySelector('button');
+let button = document.querySelector("button");
 
 // The first element with the .bg-red class
-let red = document.querySelector('.bg-red');
+let red = document.querySelector(".bg-red");
 
 // The first element with a data attribute of snack equal to carrots
 let carrots = document.querySelector('[data-snack="carrots"]');
@@ -998,11 +1011,11 @@ If an element isn’t found, querySelector() returns null. If you try to do some
 
 ```js
 // An element that doesn't exist
-let none = document.querySelector('.bg-orange');
+let none = document.querySelector(".bg-orange");
 
 // Verify element exists before doing anything with it
 if (none) {
-	// Do something...
+  // Do something...
 }
 ```
 
@@ -1011,11 +1024,11 @@ if (none) {
 Use `addEventListener` to listen for a click on `mapClicker`:
 
 ```js
-var mapClicker = document.querySelector('.map');
+var mapClicker = document.querySelector(".map");
 
-mapClicker.addEventListener('click', function() {
+mapClicker.addEventListener("click", function () {
   event.preventDefault();
-  console.log('You clicked on the map link.');
+  console.log("You clicked on the map link.");
 });
 ```
 
@@ -1028,9 +1041,9 @@ Let's examine the event.
 When you click on anything on the page an event occurs. We can examine the event in the console.
 
 ```js
-var mapClicker = document.querySelector('.map');
+var mapClicker = document.querySelector(".map");
 
-mapClicker.addEventListener('click', function() {
+mapClicker.addEventListener("click", function () {
   console.log(event); // The event details
   console.log(event.target); // The clicked element
   event.preventDefault();
@@ -1046,9 +1059,9 @@ A function is a list of commands that, in this case, are run when the event occu
 Create and call a `show` function to run when the event (the user clicks on `mapClicker`) occurs:
 
 ```js
-var mapClicker = document.querySelector('.map');
+var mapClicker = document.querySelector(".map");
 
-mapClicker.addEventListener('click', show);
+mapClicker.addEventListener("click", show);
 
 function show() {
   console.log(event); // The event details
@@ -1130,10 +1143,10 @@ Try:
 Create a new variable with a reference to the popover div.
 
 ```js
-var mapClicker = document.querySelector('.map');
-var popOver = document.querySelector('.popover'); // NEW
+var mapClicker = document.querySelector(".map");
+var popOver = document.querySelector(".popover"); // NEW
 
-mapClicker.addEventListener('click', show);
+mapClicker.addEventListener("click", show);
 
 function show(e) {
   e.preventDefault();
@@ -1143,13 +1156,13 @@ function show(e) {
 Use `classList` to toggle the `showme` class:
 
 ```js
-var mapClicker = document.querySelector('.map');
-var popOver = document.querySelector('.popover');
+var mapClicker = document.querySelector(".map");
+var popOver = document.querySelector(".popover");
 
-mapClicker.addEventListener('click', show);
+mapClicker.addEventListener("click", show);
 
 function show(e) {
-  popOver.classList.toggle('showme'); // NEW
+  popOver.classList.toggle("showme"); // NEW
   e.preventDefault();
 }
 ```
@@ -1163,13 +1176,13 @@ If we want to manipulate the display of other items based on the presence of the
 We'll go all the way to the top by adding the class on the body tag:
 
 ```js
-var mapClicker = document.querySelector('.map');
-var body = document.querySelector('body'); // NEW
+var mapClicker = document.querySelector(".map");
+var body = document.querySelector("body"); // NEW
 
-mapClicker.addEventListener('click', show);
+mapClicker.addEventListener("click", show);
 
 function show(e) {
-  body.classList.toggle('showme'); // NEW
+  body.classList.toggle("showme"); // NEW
   e.preventDefault();
 }
 ```
@@ -1205,7 +1218,7 @@ So instead of listening to specific elements, we’ll listen for all click event
 Let's start over again by examining the event targets:
 
 ```js
-document.addEventListener('click', show);
+document.addEventListener("click", show);
 
 function show() {
   console.log(event.target);
@@ -1223,12 +1236,12 @@ Try:
 We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to toggle a class:
 
 ```js
-document.addEventListener('click', handleClicks);
+document.addEventListener("click", handleClicks);
 
 function handleClicks() {
   console.log(event.target);
-  if (event.target.matches('.map')) {
-    document.querySelector('body').classList.toggle('showme');
+  if (event.target.matches(".map")) {
+    document.querySelector("body").classList.toggle("showme");
     event.preventDefault();
   }
 }
@@ -1239,11 +1252,11 @@ This is somewhat analogous to using a class at a high level - see for example th
 Note that the `event` is passed automagically to the function. If we wanted to explicitly declare it - and make our code a bit more concise - we could do so by using `e`:
 
 ```js
-document.addEventListener('click', handleClicks);
+document.addEventListener("click", handleClicks);
 
 function handleClicks(e) {
-  if (e.target.matches('.map')) {
-    document.querySelector('body').classList.toggle('showme');
+  if (e.target.matches(".map")) {
+    document.querySelector("body").classList.toggle("showme");
     e.preventDefault();
   }
 }
@@ -1322,7 +1335,7 @@ Add some additional formatting to the close link:
 
 ```css
 .popover .closer {
-  ... 
+  ...
   text-decoration: none;
   background-color: #fff;
   padding: 0.25rem;
@@ -1357,15 +1370,15 @@ Note that the close function is identical to the show function we currently have
 We will use - [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
 
 ```js
-document.addEventListener('click', handleClicks);
+document.addEventListener("click", handleClicks);
 
 function handleClicks(e) {
-  if (e.target.matches('.map')) {
-    document.querySelector('body').classList.add('showme');
+  if (e.target.matches(".map")) {
+    document.querySelector("body").classList.add("showme");
     e.preventDefault();
   }
-  if (e.target.matches('.closer')) {
-    document.querySelector('body').classList.remove('showme');
+  if (e.target.matches(".closer")) {
+    document.querySelector("body").classList.remove("showme");
     e.preventDefault();
   }
 }
@@ -1377,17 +1390,17 @@ Let's refactor the script by using an 'or' operator `||` in JavaScript:
 if (
   event.target.classList.contains('map') ||
   event.target.classList.contains('closer')
-) 
+)
 ```
 
 With our toggle, e.g.:
 
 ```js
-document.addEventListener('click', handleClicks);
+document.addEventListener("click", handleClicks);
 
 function handleClicks(e) {
-  if (e.target.matches('.map') || e.target.matches('.closer')) {
-    document.querySelector('body').classList.toggle('showme');
+  if (e.target.matches(".map") || e.target.matches(".closer")) {
+    document.querySelector("body").classList.toggle("showme");
     e.preventDefault();
   }
 }
