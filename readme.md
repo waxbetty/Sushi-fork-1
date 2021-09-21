@@ -865,7 +865,7 @@ Edit the nav so it uses classes on the tabs and 'real' links:
 
 ('t-' stands for tab.)
 
-I have placed a series of placeholder HTML pages in today's directory. Click on the tabs to test.
+I have placed a series of placeholder HTML pages in today's directory. Move them to the `app` folder and click on the tabs to test.
 
 Add the following to our CSS block:
 
@@ -961,7 +961,7 @@ Note the contents of `scripts.js`. Open the developer tools in Chrome and displa
 
 In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console.
 
-If you are interested in an additional run through of this content please see [Travery's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting.
+If you are interested in an additional run through of this content please see [Traversy's video series](https://youtu.be/0ik6X4DJKCc) on DOM scripting.
 
 ---
 
