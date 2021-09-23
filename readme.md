@@ -967,15 +967,14 @@ Add a link to a [Google map](https://www.google.com/maps/place/Geido/@40.6778979
   >
     Map
   </a>
-  | <a href="#">Directions</a>
 </li>
 ```
 
 Note the target attribute for the anchor tag. We have also used `class="map"` to identify the href.
 
-Note the contents of `scripts.js`. Open the developer tools in Chrome and display the JavaScript Console.
+## Aside - playing with the console
 
-## Aside - experiment in the console
+Note the contents of `scripts.js`. Open the developer tools in Chrome and display the JavaScript Console.
 
 In order to gain insight into the DOM and some central concepts we will uncomment and recomment lines in `scripts.js` and examine the output in the console.
 
@@ -1005,37 +1004,18 @@ For the purposes of this course, you should try to ignore these as we focus sole
 
 #### QuerySelector
 
-Make sure everything in `scripts.js` is commented or deleted. Add this to `scripts.js`:
+Make sure everything in `scripts.js` is commented or deleted _and_ that the map link in the HTML has a class of `map`.
+
+Add this to `scripts.js`:
 
 ```js
 var mapClicker = document.querySelector(".map");
 console.log(mapClicker);
 ```
 
-Note: you use the `document.querySelector()` method to find the first matching element on a page.
+Note: you use the `document.querySelector()` method to find _the first_ matching element on a page.
 
-```js
-// The first button
-let button = document.querySelector("button");
-
-// The first element with the .bg-red class
-let red = document.querySelector(".bg-red");
-
-// The first element with a data attribute of snack equal to carrots
-let carrots = document.querySelector('[data-snack="carrots"]');
-```
-
-If an element isn’t found, querySelector() returns null. If you try to do something with the nonexistent element, an error will get thrown. You should check that a matching element was found before using it.
-
-```js
-// An element that doesn't exist
-let none = document.querySelector(".bg-orange");
-
-// Verify element exists before doing anything with it
-if (none) {
-  // Do something...
-}
-```
+If an element isn’t found, querySelector() returns null. If you try to do something with the nonexistent element, an error will be thrown.
 
 #### addEventListener
 
@@ -1050,9 +1030,9 @@ mapClicker.addEventListener("click", function () {
 });
 ```
 
-Without `preventDefault()` a click would launch the link in a new tab. Since we are working with a link we need to prevent it from navigating away from the page.
+Without `preventDefault()` a click would launch the link in a new tab. Since we want to show a map on _our_ page we need to prevent navigating away from the page.
 
-Note: you use the `EventTarget.addEventListener()` method to listen for events on an element. You can find a full list of available [events on the Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Events).
+You use the `EventTarget.addEventListener()` method to listen for events on an element. You can find a full list of available [events on the Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Events).
 
 Let's examine the event.
 
@@ -1061,18 +1041,18 @@ When you click on anything on the page an event occurs. We can examine the event
 ```js
 var mapClicker = document.querySelector(".map");
 
-mapClicker.addEventListener("click", function () {
-  console.log(event); // The event details
-  console.log(event.target); // The clicked element
-  event.preventDefault();
+mapClicker.addEventListener("click", function (e) {
+  console.log(e); // The event details
+  console.log(e.target); // The clicked element
+  e.preventDefault();
 });
 ```
 
-We run the `EventTarget.addEventListener()` method on the element we want to listen for events on. It accepts two arguments: the event to listen for, and a callback function to run when the event happens.
+We run the `EventTarget.addEventListener()` method on the element we want to listen for events on. It accepts two arguments: the event to listen for, and a [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) to run when the event happens.
 
-The event.target property is the element that triggered the event. The event object has other properties as well, many of them specific to the type of event that occurred.
+The `event.target` property is the element that triggered the event. The event object has other properties as well, many of them specific to the type of event that occurred.
 
-A function is a list of commands that, in this case, are run when the event occurs.
+A [JavaScript function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is a list of commands or statements that, in this case, are run when the event occurs.
 
 Create and call a `show` function to run when the event (the user clicks on `mapClicker`) occurs:
 
@@ -1081,14 +1061,14 @@ var mapClicker = document.querySelector(".map");
 
 mapClicker.addEventListener("click", show);
 
-function show() {
-  console.log(event); // The event details
-  console.log(event.target); // The clicked element
-  event.preventDefault();
+function show(e) {
+  console.log(e); // The event details
+  console.log(e.target); // The clicked element
+  e.preventDefault();
 }
 ```
 
-Add the following to the bottom of the html after the footer and before `<script>`. You should see the map at the bottom of the browser:
+Add the following HTML to the bottom of the `index.html` - after the footer and before `<script>`:
 
 ```html
 <div class="popover">
@@ -1126,25 +1106,7 @@ Style the popover div:
 
 Note the `position: fixed` as well as the `top` and `left` properties - we center the div with 50% and then use `calc` to subtract half the width and height of the div.
 
-Note: if we were using the alternate box model our CSS might look like this:
-
-```css
-.popover {
-  padding: 1rem;
-  width: calc(300px + 2rem);
-  height: calc(225px + 2rem);
-  background: #fff;
-  border: 1px solid #600;
-  border-radius: 4px;
-  position: fixed;
-  top: calc(50% - 116px);
-  left: calc(50% - 166px);
-  /*display: none;*/
-  box-sizing: border-box;
-}
-```
-
-Uncomment `display: none` so the popover div is initially hidden.
+Uncomment / add `display: none` so the popover div is initially hidden.
 
 Add a new utility rule to the css:
 
@@ -1213,7 +1175,7 @@ This will entail editing the CSS selector:
 }
 ```
 
-Placing the new class at a high level allows us to manipulate the display of other items:
+Placing the new class at a higher level in the DOM allows us to manipulate the display of other items:
 
 ```css
 .showme #wrapper {
@@ -1238,10 +1200,10 @@ Let's start over again by examining the event targets:
 ```js
 document.addEventListener("click", show);
 
-function show() {
-  console.log(event.target);
+function show(e) {
+  console.log(e.target);
   // 'event.target' is the clicked element
-  event.preventDefault();
+  e.preventDefault();
 }
 ```
 
@@ -1256,29 +1218,16 @@ We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/E
 ```js
 document.addEventListener("click", handleClicks);
 
-function handleClicks() {
-  console.log(event.target);
-  if (event.target.matches(".map")) {
-    document.querySelector("body").classList.toggle("showme");
-    event.preventDefault();
-  }
-}
-```
-
-This is somewhat analogous to using a class at a high level - see for example the first part of today's exercise - as it allows us to control things at a higher level.
-
-Note that the `event` is passed automagically to the function. If we wanted to explicitly declare it - and make our code a bit more concise - we could do so by using `e`:
-
-```js
-document.addEventListener("click", handleClicks);
-
 function handleClicks(e) {
+  console.log(e.target);
   if (e.target.matches(".map")) {
     document.querySelector("body").classList.toggle("showme");
     e.preventDefault();
   }
 }
 ```
+
+This is somewhat analogous to using a class at a high level - see for example the first part of today's exercise - as it allows us to control things at a higher level.
 
 ## HomeWork
 

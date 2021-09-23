@@ -15,7 +15,7 @@ header {
 header h1,
 header h2 {
   font-size: 4rem;
-  line-height: 1.1;
+  line-height: 1;
   margin: 8px 0;
   color: #600;
 }
@@ -124,9 +124,33 @@ a {
   color: #600;
 }
 
+.popover {
+  padding: 1rem;
+  width: 300px;
+  height: 225px;
+  background: #fff;
+  border: 2px solid #600;
+  border-radius: 4px;
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  display: none;
+}
+
+.showme .popover {
+  display: block;
+}
+
+.showme #wrapper {
+  filter: blur(4px) grayscale(100%) opacity(50%);
+}
+
 @media all and (max-width: 800px) {
   body {
     margin: 0;
+  }
+  header h1 {
+    padding-top: 2rem;
   }
   article {
     margin-left: 0;
