@@ -5,6 +5,7 @@ body {
   color: #333;
   font-family: "Lato", Verdana, Arial, sans-serif;
   line-height: 1.6;
+  background-color: #ddd;
 }
 
 header {
@@ -16,10 +17,13 @@ header h2 {
   font-size: 4rem;
   line-height: 1.1;
   margin: 8px 0;
+  color: #600;
 }
 
 header h2 {
   font-size: 2rem;
+  border-bottom: 1px dotted #600;
+  padding-bottom: 0.5rem;
 }
 
 .nav {
@@ -28,9 +32,10 @@ header h2 {
   position: absolute;
   right: 0;
   top: 24px;
+  display: flex;
 }
 .nav li {
-  display: inline-block;
+  /* display: inline-block; */
   margin-right: 10px;
 }
 .nav a {
@@ -39,11 +44,19 @@ header h2 {
   padding: 4px;
   display: block;
   background-color: #600;
-  transition: all 0.5s cubic-bezier(0.91, -0.02, 0, 0.99);
+  transition: background-color 0.5s cubic-bezier(0.91, -0.02, 0, 0.99);
 }
 .nav a:hover {
   color: #222;
   background-color: #f0dfb4;
+}
+
+.p-review .t-review a,
+.p-cuisines .t-cuisine a,
+.p-delivery .t-delivery a,
+.p-recipes .t-recipe a {
+  color: #600;
+  background: #f0dfb4;
 }
 
 aside {
@@ -54,6 +67,20 @@ aside {
   background-color: #f0dfb4;
   padding: 6px;
   border: 1px solid #600;
+
+  font-size: 0.875rem;
+  box-shadow: 3px 3px 3px #ddd;
+  border-radius: 4px;
+}
+
+aside th {
+  text-align: right;
+}
+
+aside ul {
+  list-style: none;
+  margin: 0.5rem;
+  padding: 0;
 }
 
 article {
@@ -63,8 +90,11 @@ article {
 #wrapper {
   max-width: 840px;
   margin: 0 auto;
-  border: 1px solid #999;
+  /* border: 1px solid #999; */
   position: relative;
+  box-shadow: 0px 0px 6px 2px #aaa;
+  background-color: #fff;
+  padding: 1rem;
 }
 
 blockquote {
@@ -88,4 +118,52 @@ blockquote::before {
 
 h2 + p::first-line {
   font-weight: bold;
+}
+
+a {
+  color: #600;
+}
+
+@media all and (max-width: 800px) {
+  body {
+    margin: 0;
+  }
+  article {
+    margin-left: 0;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    display: flex;
+  }
+  .nav li {
+    margin: 0;
+    flex-grow: 1;
+  }
+  .nav li a {
+    border-radius: 0;
+  }
+  aside {
+    position: static;
+    float: none;
+    margin-right: 20px;
+    width: 100%;
+  }
+  blockquote {
+    width: 100%;
+    float: none;
+    margin: 0;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+@media print {
+  * {
+    display: none !important;
+    color: red;
+  }
 }

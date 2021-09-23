@@ -439,6 +439,7 @@ body {
   margin: 12px;
   color: #333;
   font-family: "Lato", Verdana, Arial, sans-serif;
+  line-height: 1.6;
   background-color: #ddd;
 }
 ```
@@ -477,9 +478,9 @@ Make it more of a glow:
 }
 ```
 
-## Formatting the content
+## Formatting the Content
 
-<!-- Note the h1's margin outside the containing elements (not part of the box model). -->
+Add color and a border:
 
 ```css
 header h1,
@@ -488,10 +489,10 @@ header h2 {
   ...;
 }
 
-article h2 {
-  font-weight: 600;
-  color: #600;
+header h2 {
+  ...
   border-bottom: 1px dotted #600;
+  padding-bottom: 0.5rem;
 }
 ```
 
@@ -518,19 +519,27 @@ aside ul {
 }
 ```
 
-<!-- ### A Note on Inline CSS
+And change the ugly default blue for the links:
+
+```css
+a {
+  color: #600;
+}
+```
+
+### A Note on Inline CSS
 
 We've already seen the link tag and @import methods of adding css to our document.
 
-- As an external .CSS file via linking (HTML `<link>` tag)
-- As an external .CSS file via importing (CSS `@import` statements)
+- As an external .css file via linking (HTML `<link>` tag)
+- As an external .css file via importing (CSS `@import` statements)
 
 Here are some additional ways to add CSS to an HTML document:
 
 - Inline via the HTML `style=` attribute
 - In page via the HTML `<style>` tag
 
-The style tag applies to a specific page only. Since we are coding a single page here we could have used a `<style>` block in the head of our document.
+The style tag is inefficient because it applies to a specific page only.
 
 Inline styles are inefficient because they apply to a single element on a single page:
 
@@ -538,7 +547,9 @@ Inline styles are inefficient because they apply to a single element on a single
 <p style="margin-top: 12px;"></p>
 ```
 
-However this method is often used when dynamically changing the page after it has been loaded in the browser.
+We are not using them here however each has its use cases.
+
+<!-- However this method is often used when dynamically changing the page after it has been loaded in the browser.
 
 Try using the inspector to inspect a dynamic page (such as [http://www.w3schools.com/jquery/jquery_animate.asp](http://www.w3schools.com/jquery/jquery_animate.asp)). Note how it displays animation by temporarily highlighting inline css in purple.
 
@@ -630,9 +641,7 @@ Toggle the device button in the developer tools again.
 
 Responsive design uses media queries in conjunction with a flexible layout to allow us to adapt the page to various devices.
 
-The first media query for most designers was the _print_ media query.
-
-Copy and paste this at the bottom of the stylesheet:
+The first media query was the _print_ media query. Demo:
 
 ```css
 @media print {
@@ -642,8 +651,6 @@ Copy and paste this at the bottom of the stylesheet:
   }
 }
 ```
-
-Try printing the document to see what happens.
 
 We will use `max-width` and add CSS that overrides undesirable features to correct the display on smaller devices.
 
@@ -670,7 +677,8 @@ Use the [flexbox CSS module](https://codepen.io/DannyBoyNYC/pen/QYaNab) on the n
 
 ```css
 @media all and (max-width: 800px) {
-  ... .nav {
+  /* ... omitted for bevity  */
+  .nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -693,10 +701,12 @@ Revert aside's position property to `static` (the default).
 
 ```css
 @media all and (max-width: 800px) {
-  ... aside {
+  /* ... omitted for bevity  */
+  aside {
     position: static;
     float: none;
     margin-right: 20px;
+    width: 100%;
   }
 }
 ```
@@ -705,21 +715,18 @@ Add adjustments to the image and blockquote:
 
 ```css
 @media all and (max-width: 800px) {
-  ... blockquote {
+  /* ... omitted for bevity  */
+  blockquote {
     width: 100%;
     float: none;
     margin: 0;
   }
   img {
     float: none;
+    width: 100%;
   }
 }
 ```
-
-Try:
-
-- The new image CSS is not working. Why and how would you fix it?
-- if the CSS we just wrote for responsiveness was at the top of the stylesheet what would you see?
 
 ## CSS Demos
 
@@ -836,9 +843,9 @@ See also - [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
 
 ## Highlighting the Navigation
 
-A simple way to create opportunities for section differentiation or themes across a web site is to add a class at a high level of the pages.
+A simple way to create opportunities for section differentiation or themes across a web site is to add a class at a high level of the page.
 
-Note: before continuing note the behavior of the navigation tabs in the device simulator. Remember - there is no such thing as `:hover` on devices.
+Note: before continuing note the behavior of the navigation tabs in the device simulator - there is no such thing as `:hover` on devices.
 
 Add a class to body tag so we know what kind of page this is.
 
@@ -865,7 +872,9 @@ Edit the nav so it uses classes on the tabs and 'real' links:
 
 ('t-' stands for tab.)
 
-I have placed a series of placeholder HTML pages in today's directory. Move them to the `app` folder and click on the tabs to test.
+I have placed a series of placeholder HTML pages in today's directory.
+
+<!-- Move them to the `app` folder and click on the tabs to test. -->
 
 Add the following to our CSS block:
 
@@ -901,6 +910,15 @@ This semester we will observe how the three pillars of web development come toge
 "DOM" is an acronym for [Document Object Model](https://en.wikipedia.org/wiki/Document_Object_Model).
 
 The DOM is an application programming interface (API) that treats an HTML document as a tree structure where each node on the tree is an object representing a part of the document.
+
+Conceptual demo:
+
+`https://react-all-the-news.netlify.app/` - inspect and then view source
+formatted with `https://webformatter.com/html`.
+
+This page has very little HTML. It relies on DOM manipulation to display.
+
+Compare with `pitchfork.com`
 
 <!-- ### Variable Assignment and Types
 
