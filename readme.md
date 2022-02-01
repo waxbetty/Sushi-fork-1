@@ -17,12 +17,13 @@
 
 ## Today's Homework
 
-1. Install [NodeJS](https://nodejs.org/en/) (the LTS - "long term service" - version)
-2. Install [Git](https://git-scm.com/) on your personal computer.
+1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
+2. Read [A Complete Guide to CSS Concepts and Fundamentals | Tania Rascia](https://www.taniarascia.com/overview-of-css-concepts/)
+
+1. Install [NodeJS](https://nodejs.org/en/) LTS - "long term service" - version, currently 16.13.2)
+2. Install [Git](https://git-scm.com/) 
 3. Create a free account on [Github](http://github.com)
 4. Create a free account on [Netlify](https://www.netlify.com)
-5. [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
-6. Download the master .zip file from Github again and, using the notes below, step through everything we did in class again. Be sure to Google any CSS properties or HTML you are unfamiliar with.
 
 <!-- 2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance. -->
 
@@ -63,9 +64,9 @@ Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/J
 
 ## Sushi Exercise
 
-A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link. Be sure to resize the browser to see the responsive features.
+<!-- A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link. Be sure to resize the browser to see the responsive features. -->
 
-In this exercise we use the contents of the Sushi folder to begin looking at layout focusing on the following properties:
+In this exercise we use the contents of the app folder to begin looking at layout focusing on the following properties:
 
 - margin
 - padding
@@ -76,7 +77,7 @@ In this exercise we use the contents of the Sushi folder to begin looking at lay
 - z-index
 - visibility
 
-Open `before.html` in VSCode. This is often referred to as tag soup - it makes little sense to anyone looking at the code. Note the lack of semantics and the preponderance of visual markup code in the HTML. This is how HTML was written from the late 90's to about a decade ago and is similar to how HTML emails are written today.
+Open `before.html` in VS Code. This is often referred to as tag soup - it makes little sense to anyone looking at the code. Note the lack of semantics and the preponderance of visual markup code in the HTML. This is how HTML was written from the late 90's to about a decade ago and is similar to how HTML emails are written today.
 
 Open `index.html`. This is an HTML5 document that uses semantic HTML.
 
@@ -102,7 +103,7 @@ and link it to `index.html` in the head:
 
 Google has a CDN (Content Delivery Network) offering [free fonts](https://fonts.google.com) for use in HTML documents.
 
-We'll use this as an example of using external stylesheets via @import vs the `<link>` tag.
+(We'll use this as an example of loading external stylesheets via `@import` vs the `<link>` tag.)
 
 We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our headers.
 
@@ -120,13 +121,13 @@ Edit the body css rule:
 font-family: Lato, Verdana, Arial, sans-serif;
 ```
 
-Link a second Google font css file from html:
+Link a second Google font css file from `index.html`:
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
 ```
 
-In use:
+In `styles.css`:
 
 ```css
 header {
@@ -135,7 +136,7 @@ header {
 }
 ```
 
-`<link>` is generally preferred over `@import` however, in practice, web developers use imports along with tools to combine multiple stylesheets into a single compressed and minified sheet.
+`<link>` is generally preferred over `@import`.
 
 Note: `h1` tags are bold by default but Lobster has no bold version. Thus we use `font-weight: normal` to keep the browser from applying bold.
 
