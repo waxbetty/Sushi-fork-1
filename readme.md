@@ -272,13 +272,26 @@ Examine the nav ul in the inspector. Note the coordinate system.
 
 Toggle the position property on and off in the inspector.
 
+Demo - example of a complex selector:
+
+```css
+.nav li {
+    display: inline-block;
+}
+.nav li:not(:last-child) {
+    margin-right: 10px;
+}
+```
+
+## Styling the Aside
+
 In the HTML, add an `<aside>` tag around the table and the unordered list.
 
 ```html
-<!-- HERE -->
 <article>
   <h2>Geido</h2>
   <p class="summary">...</p>
+  <!-- OPEN THE aside HERE before the table -->
   <aside>
     <table>
       ...
@@ -287,7 +300,7 @@ In the HTML, add an `<aside>` tag around the table and the unordered list.
     <ul>
       ...
     </ul>
-    <!-- AND CLOSE IT HERE -->
+    <!-- AND CLOSE IT HERE after the <ul> -->
   </aside>
 </article>
 ```
@@ -379,7 +392,7 @@ blockquote::before {
 Or
 
 ```css
-aside + p::first-line {
+.summary + p::first-line {
   font-weight: bold;
 }
 ```
@@ -390,23 +403,34 @@ A complete list of pseudo classes and pseudo elements is located [on MDN](https:
 
 See my Pen <a href="https://codepen.io/DannyBoyNYC/pen/ZwrwoQ/">Intro-pseudo</a> on <a href="https://codepen.io">CodePen</a>.
 
-## Relative Positioning
+## Relative Positioning and Centering
 
 Currently our document "flexes" as we make the browser wider to make use of all the available horizontal space. While flexibility is a good practice, we need to understand more about the drawbacks of fixed widths.
 
-Add a wrapper `<div id="wrapper">` to the entire content area (after the `<body>` tag and close it before the closing `</body>` tag) and add the following to our CSS style block.
+Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>` tag and close it before the closing `</body>` tag:
 
-```css
-#wrapper {
-  width: 840px;
-}
-```
+```html
+  <body>
+    <div id="wrapper">
+      <nav>
+        ...
+      </footer>
+    </div>
+  </body>
 
-vs.
+ Add the following to our CSS style block.
 
 ```css
 #wrapper {
   max-width: 840px;
+}
+```
+
+Demo: note that we did not use `width`:
+
+```css
+#wrapper {
+  width: 840px;
 }
 ```
 
@@ -429,7 +453,9 @@ Add a relative positioning property.
 }
 ```
 
-Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. The rule here is that absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree. This is an important CSS design pattern and well will see it again.
+Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. 
+
+The rule here is _absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree_. This is an important CSS design pattern and we will see it again.
 
 ## More Design Elements
 
@@ -457,7 +483,7 @@ Let's add a white background to wrapper.
 }
 ```
 
-Note the body background color is grayed out in the inspector. Neither it nor the margin are inherited by other elements.
+Select the wrapper div and note how the body background color and margin is grayed out in the inspector. Neither it nor the margin are [inherited](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance) by other elements.
 
 Add a box shadow to the wrapper CSS:
 
@@ -475,7 +501,7 @@ Make it more of a glow:
 ```css
 #wrapper {
   box-shadow: 0px 0px 6px 2px #aaa;
-  ...;
+  ...
 }
 ```
 
@@ -493,11 +519,8 @@ header h2 {
 header h2 {
   ...
   border-bottom: 1px dotted #600;
-  padding-bottom: 0.5rem;
 }
 ```
-
-<!-- Note - selector strength here. Note that the lack of namespacing allows this to effect the "Geido" text as well. -->
 
 Format elements in the list and table:
 
@@ -506,7 +529,7 @@ aside {
   font-size: 0.875rem;
   box-shadow: 3px 3px 3px #ddd;
   border-radius: 4px;
-  ...;
+  ...
 }
 
 aside th {
@@ -525,6 +548,10 @@ And change the ugly default blue for the links:
 ```css
 a {
   color: #600;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline
 }
 ```
 
@@ -535,7 +562,7 @@ We've already seen the link tag and @import methods of adding css to our documen
 - As an external .css file via linking (HTML `<link>` tag)
 - As an external .css file via importing (CSS `@import` statements)
 
-Here are some additional ways to add CSS to an HTML document:
+Some additional ways to add CSS to an HTML document:
 
 - Inline via the HTML `style=` attribute
 - In page via the HTML `<style>` tag
@@ -653,7 +680,7 @@ The first media query was the _print_ media query. Demo:
 }
 ```
 
-We will use `max-width` and add CSS that overrides undesirable features to correct the display on smaller devices.
+We will add CSS that overrides undesirable features to correct the display on smaller devices.
 
 Begin by removing the margin from the body and article and fixing the nav to the top of the screen.
 
@@ -735,7 +762,7 @@ Below are some demos of the major layout features covered so far.
 
 [Front end foundations collection](https://codepen.io/collection/nZyrPj/) on Codepen.io.
 
-CodePen [Intro-margin-auto](https://codepen.io/DannyBoyNYC/pen/qgpVaL)
+- CodePen [Intro-margin-auto](https://codepen.io/DannyBoyNYC/pen/qgpVaL)
 
 ```html
 <div class="container">
@@ -758,7 +785,7 @@ CodePen [Intro-margin-auto](https://codepen.io/DannyBoyNYC/pen/qgpVaL)
 }
 ```
 
-CodePen [Intro-position](https://codepen.io/DannyBoyNYC/pen/YBYyoq)
+- CodePen [Intro-position](https://codepen.io/DannyBoyNYC/pen/YBYyoq)
 
 ```html
 <div class="container">
@@ -784,7 +811,7 @@ div {
 }
 ```
 
-CodePen [Intro-float](https://codepen.io/DannyBoyNYC/pen/pGpgyQ)
+- CodePen [Intro-float](https://codepen.io/DannyBoyNYC/pen/pGpgyQ)
 
 ```html
 <div class="container">
@@ -806,7 +833,7 @@ div {
 }
 ```
 
-CodePen [Intro-flexbox](https://codepen.io/DannyBoyNYC/pen/QYaNab)
+- CodePen [Intro-flexbox](https://codepen.io/DannyBoyNYC/pen/QYaNab)
 
 ```html
 <div class="container">
@@ -839,8 +866,10 @@ ul a {
 }
 ```
 
-See also - [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
-See also - [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
+See also:
+
+- [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
+- [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
 
 ## Highlighting the Navigation
 
@@ -904,7 +933,9 @@ Note that we could use these top level page classes and some CSS to customize ot
 
 ## JavaScript - DOM Scripting
 
-This semester we will observe how the three pillars of web development come together to create the modern web. Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
+This semester we will observe how the three pillars of web development (HTML, CSS and JavaScript) work together to create the modern web. 
+
+Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
 
 <!-- An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer). -->
 
@@ -912,14 +943,14 @@ This semester we will observe how the three pillars of web development come toge
 
 The DOM is an application programming interface (API) that treats an HTML document as a tree structure where each node on the tree is an object representing a part of the document.
 
-Conceptual demo:
+The first question many people ask is - what's the difference between the HTML tree and the DOM? 
 
-`https://react-all-the-news.netlify.app/` - inspect and then view source
-formatted with `https://webformatter.com/html`.
+Demo: a Create React App page
 
-This page has very little HTML. It relies on DOM manipulation to display.
+- view the Elements in Dev tools
+- view the HTML in View Page Source
 
-Compare with `pitchfork.com`
+This page has almost no HTML. It relies on the DOM and DOM manipulation via JavaScript in order to display anything. The page is said to render on the front end.
 
 <!-- ### Variable Assignment and Types
 
@@ -1025,7 +1056,7 @@ Use `addEventListener` to listen for a click on `mapClicker`:
 ```js
 var mapClicker = document.querySelector(".map");
 
-mapClicker.addEventListener("click", function () {
+mapClicker.addEventListener("click", function (event) {
   event.preventDefault();
   console.log("You clicked on the map link.");
 });
@@ -1055,7 +1086,11 @@ The `event.target` property is the element that triggered the event. The event o
 
 A [JavaScript function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is a list of commands or statements that, in this case, are run when the event occurs.
 
-Create and call a `show` function to run when the event (the user clicks on `mapClicker`) occurs:
+In this case our function is known as a [callback Function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function). 
+
+`addEventListener()` is the so called outer function. It is a function provided to us by the browser (a browser API) and is also referred to as a [method](https://developer.mozilla.org/en-US/docs/Glossary/Method), but more on that later.
+
+Create and call a `show` callback function to run when the event (the user clicks on `mapClicker`) occurs:
 
 ```js
 var mapClicker = document.querySelector(".map");
@@ -1119,22 +1154,20 @@ Add a new utility rule to the css:
 
 Try:
 
-- In the Elements inspector, try adding the `showme` class to the popover.
+In the Elements inspector, try adding the `showme` class to the popover.
 
-Create a new variable with a reference to the popover div.
+Select the popover div in the Elements inspector and use the `.cls` tool (next to `:hov`).
+
+Create a new variable `popOver` containing a reference to the popover DOM node (aka the popover div).
 
 ```js
 var mapClicker = document.querySelector(".map");
 var popOver = document.querySelector(".popover"); // NEW
 
-mapClicker.addEventListener("click", show);
-
-function show(e) {
-  e.preventDefault();
-}
+...
 ```
 
-Use `classList` to toggle the `showme` class:
+Use the browser's [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) API to toggle the `showme` class:
 
 ```js
 var mapClicker = document.querySelector(".map");
@@ -1168,7 +1201,7 @@ function show(e) {
 }
 ```
 
-This will entail editing the CSS selector:
+This will require us to edit the CSS selector:
 
 ```css
 .showme .popover {
@@ -1176,7 +1209,7 @@ This will entail editing the CSS selector:
 }
 ```
 
-Placing the new class at a higher level in the DOM allows us to manipulate the display of other items:
+There are many advantages to toggling the class at a higher level in the DOM. One is that it allows us to manipulate the display of other items:
 
 ```css
 .showme #wrapper {
@@ -1188,7 +1221,7 @@ Note - it becomes more difficult for the user to close the popover.
 
 ### Using Event Delegation
 
-This will be the final iteration of this script. It is a standard to use what is known as _event delegation_ in JavaScript.
+This will be the final iteration of this script. It common to use what is known as _event delegation_ in JavaScript.
 
 Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to handle events at a higher level in the DOM than the element on which the event originated.
 
@@ -1212,9 +1245,9 @@ Note: `preventDefault()` here disables _all_ our links - even those on our navba
 
 Try:
 
-- clicking elsewhere on the page with the Console open.
+- clicking anywhere on the page with the Console open.
 
-We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to toggle a class:
+We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an [if](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to test for the item being clicked on, then use `classList` to toggle a class:
 
 ```js
 document.addEventListener("click", handleClicks);
@@ -1228,7 +1261,7 @@ function handleClicks(e) {
 }
 ```
 
-This is somewhat analogous to using a class at a high level - see for example the first part of today's exercise - as it allows us to control things at a higher level.
+Event delegation allows us to intercept and control any click on the entire document via the browser's built in event bubbling mechanism. 
 
 ## HomeWork
 
