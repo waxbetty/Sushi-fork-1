@@ -15,7 +15,9 @@
   - [JavaScript - DOM Scripting](#javascript---dom-scripting)
     - [End Sushi](#end-sushi)
 
-## Today's Homework
+## Homework
+
+Use you newly acquired CSS and HTML skills to improve the design the restaurant review page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration.
 
 1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
 2. Read [A Complete Guide to CSS Concepts and Fundamentals | Tania Rascia](https://www.taniarascia.com/overview-of-css-concepts/)
