@@ -29,11 +29,17 @@ Use you newly acquired CSS and HTML skills to improve the design the restaurant 
 
 ## Installing and Configuring Git
 
+(These are MacOS specific instructions.)
+
+Note: you can skip installing Homebrew and simply download and run the installer noted [here](https://sourceforge.net/projects/git-osx-installer/). Run `$ git version` afterwards to verify that you have git installed.
+
 ### Installing HomeBrew
 
 Install the [Homebrew](https://brew.sh/) package manager. This will allow you to install almost any app from the command line.
 
 `$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+
+Install git via Homebrew.
 
 `$ brew update`
 
@@ -44,6 +50,8 @@ Install the [Homebrew](https://brew.sh/) package manager. This will allow you to
 See hints from brew in the terminal regarding troubleshooting if the above command doesn’t work.
 
 ### Configuring GIT
+
+You must configure Git to use the SSH protocol.
 
 `touch ~/.gitconfig`
 
@@ -59,6 +67,8 @@ See hints from brew in the terminal regarding troubleshooting if the above comma
 
 ### Add an SSH Key
 
+Adding an SSH key to you computer allows you to push your code to a remote repository without having to enter your password.
+
 - ADDING SSH KEY TO YOUR COMPUTER - [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 `$ ssh-keygen -t ed25519 -C "your_email@example.com"`
@@ -68,6 +78,8 @@ See hints from brew in the terminal regarding troubleshooting if the above comma
 `$ ssh-add -K ~/.ssh/id_rsa`
 
 ### Add an SSH Key to Github
+
+You should add an SSH key to your account.
 
 - ADDING SSH KEY TO GITHUB - [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
