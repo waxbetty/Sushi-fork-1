@@ -22,10 +22,72 @@ Use you newly acquired CSS and HTML skills to improve the design the restaurant 
 1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
 2. Read [A Complete Guide to CSS Concepts and Fundamentals | Tania Rascia](https://www.taniarascia.com/overview-of-css-concepts/)
 
-1. Install [NodeJS](https://nodejs.org/en/) LTS - "long term service" - version, currently 16.13.2)
-2. Install [Git](https://git-scm.com/) 
-3. Create a free account on [Github](http://github.com)
-4. Create a free account on [Netlify](https://www.netlify.com)
+3. Install [NodeJS](https://nodejs.org/en/) LTS - "long term service" - version, currently 16.13.2)
+4. Create a free account on [Github](http://github.com)
+5. Create a free account on [Netlify](https://www.netlify.com)
+6. Install [Git](https://git-scm.com/) (see the following)
+
+## Installing and Configuring Git
+
+### Installing HomeBrew
+
+Install the [Homebrew](https://brew.sh/) package manager. This will allow you to install almost any app from the command line.
+
+`$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+
+`$ brew update`
+
+`$ brew install git`
+
+`$ git version`
+
+See hints from brew in the terminal regarding troubleshooting if the above command doesn’t work.
+
+### Configuring GIT
+
+`touch ~/.gitconfig`
+
+`code ~/.gitconfig`
+
+```
+[user]
+  name   = Firstname Lastname
+  email  = you@example.com
+[github]
+  user   = username
+```
+
+### Add an SSH Key
+
+- ADDING SSH KEY TO YOUR COMPUTER - [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+`$ ssh-keygen -t ed25519 -C "your_email@example.com"`
+
+`$ eval "$(ssh-agent -s)"`
+
+`$ ssh-add -K ~/.ssh/id_rsa`
+
+### Add an SSH Key to Github
+
+- ADDING SSH KEY TO GITHUB - [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+Log into Github
+
+`pbcopy < ~/.ssh/id_ed25519.pub`
+
+In the upper-right corner of any Gihub page, click your profile photo, then click **Settings**
+
+In the “Access” section of the sidebar, click **SSH and GPG keys**.
+
+Click **New SSH key** or **Add SSH key**
+
+In the “Title” field, add a descriptive label for the new key. For example, if you’re using a personal Mac, you might call this key “Personal MacBook Air”.
+
+Paste your key into the “Key” field.
+
+Click **Add SSH key**.
+
+If prompted, confirm your GitHub password.
 
 <!-- 2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance. -->
 
@@ -278,10 +340,10 @@ Demo - example of a complex selector:
 
 ```css
 .nav li {
-    display: inline-block;
+  display: inline-block;
 }
 .nav li:not(:last-child) {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 ```
 
@@ -411,7 +473,7 @@ Currently our document "flexes" as we make the browser wider to make use of all 
 
 Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>` tag and close it before the closing `</body>` tag:
 
-```html
+````html
   <body>
     <div id="wrapper">
       <nav>
@@ -426,7 +488,7 @@ Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>`
 #wrapper {
   max-width: 840px;
 }
-```
+````
 
 Demo: note that we did not use `width`:
 
@@ -455,7 +517,7 @@ Add a relative positioning property.
 }
 ```
 
-Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. 
+Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box.
 
 The rule here is _absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree_. This is an important CSS design pattern and we will see it again.
 
@@ -503,7 +565,7 @@ Make it more of a glow:
 ```css
 #wrapper {
   box-shadow: 0px 0px 6px 2px #aaa;
-  ...
+  ...;
 }
 ```
 
@@ -531,7 +593,7 @@ aside {
   font-size: 0.875rem;
   box-shadow: 3px 3px 3px #ddd;
   border-radius: 4px;
-  ...
+  ...;
 }
 
 aside th {
@@ -553,7 +615,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 ```
 
@@ -935,7 +997,7 @@ Note that we could use these top level page classes and some CSS to customize ot
 
 ## JavaScript - DOM Scripting
 
-This semester we will observe how the three pillars of web development (HTML, CSS and JavaScript) work together to create the modern web. 
+This semester we will observe how the three pillars of web development (HTML, CSS and JavaScript) work together to create the modern web.
 
 Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
 
@@ -945,7 +1007,7 @@ Even though we have just begun learning HTML and CSS, I will briefly introduce J
 
 The DOM is an application programming interface (API) that treats an HTML document as a tree structure where each node on the tree is an object representing a part of the document.
 
-The first question many people ask is - what's the difference between the HTML tree and the DOM? 
+The first question many people ask is - what's the difference between the HTML tree and the DOM?
 
 Demo: a Create React App page
 
@@ -1088,7 +1150,7 @@ The `event.target` property is the element that triggered the event. The event o
 
 A [JavaScript function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is a list of commands or statements that, in this case, are run when the event occurs.
 
-In this case our function is known as a [callback Function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function). 
+In this case our function is known as a [callback Function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function).
 
 `addEventListener()` is the so called outer function. It is a function provided to us by the browser (a browser API) and is also referred to as a [method](https://developer.mozilla.org/en-US/docs/Glossary/Method), but more on that later.
 
@@ -1263,7 +1325,7 @@ function handleClicks(e) {
 }
 ```
 
-Event delegation allows us to intercept and control any click on the entire document via the browser's built in event bubbling mechanism. 
+Event delegation allows us to intercept and control any click on the entire document via the browser's built in event bubbling mechanism.
 
 ## HomeWork
 
