@@ -63,6 +63,8 @@ You must configure Git to use the SSH protocol.
   email  = you@example.com
 [github]
   user   = username
+[init]
+	defaultBranch = main
 ```
 
 ### Add an SSH Key
@@ -1037,8 +1039,6 @@ var width = 100;
 width;
 typeof width;
 
-width + 300;
-width; // still 100
 width = width + 300;
 width; // now 400
 
@@ -1104,7 +1104,7 @@ You will also be introduced to:
 
 ### A Quick Note on jQuery
 
-[jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The rational for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
+[jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The reasons for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
 
 For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript."
 
@@ -1112,7 +1112,7 @@ For the purposes of this course, you should try to ignore these as we focus sole
 
 #### QuerySelector
 
-Make sure everything in `scripts.js` is commented or deleted _and_ that the map link in the HTML has a class of `map`.
+Make sure everything in `scripts.js` has been deleted _and_ that the map link in the HTML has a class of `map`.
 
 Add this to `scripts.js`:
 
@@ -1123,7 +1123,7 @@ console.log(mapClicker);
 
 Note: you use the `document.querySelector()` method to find _the first_ matching element on a page.
 
-If an element isn’t found, querySelector() returns null. If you try to do something with the nonexistent element, an error will be thrown.
+If an element isn’t found, querySelector() returns null. If you try to do something with the nonexistent element, an error will be thrown (a very common mistake).
 
 #### addEventListener
 
@@ -1149,9 +1149,9 @@ When you click on anything on the page an event occurs. We can examine the event
 ```js
 var mapClicker = document.querySelector(".map");
 
-mapClicker.addEventListener("click", function (e) {
-  console.log(e); // The event details
-  console.log(e.target); // The clicked element
+mapClicker.addEventListener("click", function (event) {
+  console.log(event); // The event details
+  console.log(event.target); // The clicked element
   e.preventDefault();
 });
 ```
@@ -1293,13 +1293,19 @@ There are many advantages to toggling the class at a higher level in the DOM. On
 }
 ```
 
+Note: we are using the [filter](https://developer.mozilla.org/en-US/docs/Web/CSS/filter) CSS property to blur the background image.
+
 Note - it becomes more difficult for the user to close the popover.
 
 ### Using Event Delegation
 
-This will be the final iteration of this script. It common to use what is known as _event delegation_ in JavaScript.
+This will be the final iteration of this script.
 
-Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to handle events at a higher level in the DOM than the element on which the event originated.
+It common to use what is known as _event delegation_ in JavaScript.
+
+Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to listen for and handle events at a higher level in the DOM.
+
+This is different than attaching a listener to the element on which the event originated as we listen for events on the entire document.
 
 Events "bubble up" from the targeted element to their parent elements and all the way up through their ancestors and eventually to the document and window - the highest levels of a page.
 
@@ -1479,6 +1485,19 @@ function handleClicks(e) {
   if (e.target.matches(".map") || e.target.matches(".closer")) {
     document.querySelector("body").classList.toggle("showme");
     e.preventDefault();
+  }
+}
+```
+
+We might allow the user to click anywhere outide the popover to close it.
+
+```js
+function handleClicks(e) {
+  if (e.target.matches(".map") || e.target.matches(".closer")) {
+    document.querySelector("body").classList.toggle("showme");
+    e.preventDefault();
+  } else {
+    document.querySelector("body").classList.remove("showme");
   }
 }
 ```
@@ -1926,7 +1945,3 @@ a:hover,
   ...;
 }
 ```
-
-## Looking Forward
-
-Examine the other demos in the `demo` folder. -->
