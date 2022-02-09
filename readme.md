@@ -17,6 +17,13 @@
 
 ## Homework
 
+### Class 3 Homework
+
+1. reimplement the entire JavaScript for the popover, pay attention to the document provided in the read me
+1. fix the css for the closer button
+1. fix the JavaScript so the # links jump to the top of the page
+1. check your git install and configure it using the two Github links below or try [this](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
 Use you newly acquired CSS and HTML skills to improve the design the restaurant review page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration.
 
 1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
@@ -53,9 +60,9 @@ See hints from brew in the terminal regarding troubleshooting if the above comma
 
 You must configure Git to use the SSH protocol.
 
-`touch ~/.gitconfig`
+`$ touch ~/.gitconfig`
 
-`code ~/.gitconfig`
+`$ code ~/.gitconfig`
 
 ```
 [user]
@@ -71,7 +78,7 @@ You must configure Git to use the SSH protocol.
 
 Adding an SSH key to you computer allows you to push your code to a remote repository without having to enter your password.
 
-- ADDING SSH KEY TO YOUR COMPUTER - [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- ADDING SSH KEY TO YOUR COMPUTER - [https://docs.git`hub.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 `$ ssh-keygen -t ed25519 -C "your_email@example.com"`
 
