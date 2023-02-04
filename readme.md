@@ -28,19 +28,18 @@ Use you newly acquired CSS and HTML skills to improve the design the restaurant 
 
 1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
 2. Read [A Complete Guide to CSS Concepts and Fundamentals | Tania Rascia](https://www.taniarascia.com/overview-of-css-concepts/)
-
 3. Install [NodeJS](https://nodejs.org/en/) LTS - "long term service" - version, currently 16.13.2)
 4. Create a free account on [Github](http://github.com)
 5. Create a free account on [Netlify](https://www.netlify.com)
 6. Install [Git](https://git-scm.com/) (see the following)
 
-## Installing and Configuring Git
+<!-- ## Installing and Configuring Git
 
 (These are MacOS specific instructions.)
 
-Note: you can skip installing Homebrew and simply download and run the installer noted [here](https://sourceforge.net/projects/git-osx-installer/). Run `$ git version` afterwards to verify that you have git installed.
+Note: you can skip installing Homebrew and simply download and run the installer noted [here](https://sourceforge.net/projects/git-osx-installer/). Run `$ git version` afterwards to verify that you have git installed. -->
 
-### Installing HomeBrew
+<!-- ### Installing HomeBrew
 
 Install the [Homebrew](https://brew.sh/) package manager. This will allow you to install almost any app from the command line.
 
@@ -54,9 +53,9 @@ Install git via Homebrew.
 
 `$ git version`
 
-See hints from brew in the terminal regarding troubleshooting if the above command doesn’t work.
+See hints from brew in the terminal regarding troubleshooting if the above command doesn’t work. -->
 
-### Configuring GIT
+<!-- ### Configuring GIT
 
 You must configure Git to use the SSH protocol.
 
@@ -72,9 +71,9 @@ You must configure Git to use the SSH protocol.
   user   = username
 [init]
 	defaultBranch = main
-```
+``` -->
 
-### Add an SSH Key
+<!-- ### Add an SSH Key
 
 Adding an SSH key to you computer allows you to push your code to a remote repository without having to enter your password.
 
@@ -108,7 +107,7 @@ Paste your key into the “Key” field.
 
 Click **Add SSH key**.
 
-If prompted, confirm your GitHub password.
+If prompted, confirm your GitHub password. -->
 
 <!-- 2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance. -->
 
@@ -129,7 +128,7 @@ If prompted, confirm your GitHub password.
    - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
 1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com) -->
 
-### Additional Reading
+<!-- ### Additional Reading
 
 These are good resources for beginners and go into more depth in some areas than we have time for in class. Be sure to download any accompanying files in order to follow along on your own.
 
@@ -141,7 +140,7 @@ If you prefer video:
 If you prefer to read:
 
 - [MDN's Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
-- [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL)
+- [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL) -->
 
 <!-- #### DOM Scripting
 
