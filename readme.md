@@ -31,7 +31,7 @@ Use you newly acquired CSS and HTML skills to improve the design the restaurant 
 3. Install [NodeJS](https://nodejs.org/en/) LTS - "long term service" - version, currently 16.13.2)
 4. Create a free account on [Github](http://github.com)
 5. Create a free account on [Netlify](https://www.netlify.com)
-6. Install [Git](https://git-scm.com/) (see the following)
+6. Install [Git](https://git-scm.com/) (see [this artivle on Free Code Camp](https://www.freecodecamp.org/news/what-is-git-and-how-to-use-it-c341b049ae61/) for an overview).
 
 <!-- ## Installing and Configuring Git
 
