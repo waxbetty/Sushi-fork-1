@@ -208,10 +208,11 @@ a {
   padding: 0.25rem;
   border: 2px solid #600;
   border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
   line-height: 1rem;
   text-align: center;
+  font-size: 16px
 }
 
 @media print {
