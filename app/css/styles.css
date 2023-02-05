@@ -34,10 +34,12 @@ header h2 {
   top: 24px;
   display: flex;
 }
+
 .nav li {
   /* display: inline-block; */
   margin-right: 10px;
 }
+
 .nav a {
   color: #fff;
   text-decoration: none;
@@ -46,6 +48,7 @@ header h2 {
   background-color: #600;
   transition: background-color 0.5s cubic-bezier(0.91, -0.02, 0, 0.99);
 }
+
 .nav a:hover {
   color: #222;
   background-color: #f0dfb4;
@@ -102,6 +105,7 @@ blockquote {
   width: 40%;
   font-size: 24px;
 }
+
 article img {
   float: right;
 }
@@ -116,7 +120,7 @@ blockquote::before {
   color: #600;
 }
 
-h2 + p::first-line {
+h2+p::first-line {
   font-weight: bold;
 }
 
@@ -149,12 +153,15 @@ a {
   body {
     margin: 0;
   }
+
   header h1 {
     padding-top: 2rem;
   }
+
   article {
     margin-left: 0;
   }
+
   .nav {
     position: fixed;
     top: 0;
@@ -162,27 +169,49 @@ a {
     margin: 0;
     display: flex;
   }
+
   .nav li {
     margin: 0;
     flex-grow: 1;
   }
+
   .nav li a {
     border-radius: 0;
   }
+
   aside {
     position: static;
     float: none;
     margin-right: 20px;
     width: 100%;
   }
+
   blockquote {
     width: 100%;
     float: none;
     margin: 0;
   }
+
   img {
     width: 100%;
   }
+}
+
+.popover .closer {
+  position: absolute;
+  top: -11px;
+  right: -14px;
+  color: #600;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #fff;
+  padding: 0.25rem;
+  border: 2px solid #600;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
 }
 
 @media print {
