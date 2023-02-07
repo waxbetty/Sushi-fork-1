@@ -354,9 +354,12 @@ _Edit_ the nav CSS rule to position it
 
 Examine the nav ul in the inspector. Note the coordinate system.
 
-Toggle the position property on and off in the inspector.
+- Toggle the position property on and off in the inspector
+- Use left instead of right to observe stacking
 
-Demo - example of a complex selector:
+### Demo - example of a complex selector:
+
+We could add margin to the right of every list item except the last by using:
 
 ```css
 .nav li {
@@ -476,7 +479,7 @@ blockquote::before {
 Or
 
 ```css
-.summary + p::first-line {
+aside+p::first-line {
   font-weight: bold;
 }
 ```
@@ -493,7 +496,7 @@ Currently our document "flexes" as we make the browser wider to make use of all 
 
 Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>` tag and close it before the closing `</body>` tag:
 
-````html
+```html
   <body>
     <div id="wrapper">
       <nav>
@@ -501,6 +504,7 @@ Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>`
       </footer>
     </div>
   </body>
+```
 
  Add the following to our CSS style block.
 
@@ -508,7 +512,7 @@ Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>`
 #wrapper {
   max-width: 840px;
 }
-````
+```
 
 Demo: note that we did not use `width`:
 
@@ -639,7 +643,7 @@ a:hover {
 }
 ```
 
-### A Note on Inline CSS
+<!-- ### A Note on Inline CSS
 
 We've already seen the link tag and @import methods of adding css to our document.
 
@@ -659,7 +663,7 @@ Inline styles are inefficient because they apply to a single element on a single
 <p style="margin-top: 12px;"></p>
 ```
 
-We are not using them here however each has its use cases.
+We are not using them here however each has its use cases. -->
 
 <!-- However this method is often used when dynamically changing the page after it has been loaded in the browser.
 
@@ -986,9 +990,9 @@ Edit the nav so it uses classes on the tabs and 'real' links:
 
 ('t-' stands for tab.)
 
-I have placed a series of placeholder HTML pages in today's directory.
+I have placed a series of placeholder HTML pages in the "other" directory.
 
-<!-- Move them to the `app` folder and click on the tabs to test. -->
+Move them to the `app` folder and click on the tabs to test.
 
 Add the following to our CSS block:
 
@@ -1013,7 +1017,7 @@ Expand the css rule to allow the other tabs to display highlighted as well.
 }
 ```
 
-Note that we could use these top level page classes and some CSS to customize other items on the page.
+Note: we could chose to use these top level page classes and some CSS to customize other items on the page and create a visual scheme whereby each section of the site has its own distinct look.
 
 ## JavaScript - DOM Scripting
 
@@ -1029,12 +1033,14 @@ The DOM is an application programming interface (API) that treats an HTML docume
 
 The first question many people ask is - what's the difference between the HTML tree and the DOM?
 
-Demo: a Create React App page
+Examine lesson one and the number of cat click displayed. View both the source of the page as well as the DOM in the developer tools. The HTML has "0" as the starting point and changed as we clicked. The HTML wasn't altered, the DOM was.
+
+<!-- Demo: a Create React App page
 
 - view the Elements in Dev tools
 - view the HTML in View Page Source
 
-This page has almost no HTML. It relies on the DOM and DOM manipulation via JavaScript in order to display anything. The page is said to render on the front end.
+This page has almost no HTML. It relies on the DOM and DOM manipulation via JavaScript in order to display anything. The page is said to render on the front end. -->
 
 <!-- ### Variable Assignment and Types
 
@@ -1110,7 +1116,7 @@ You will also be introduced to:
 
 ### A Quick Note on jQuery
 
-[jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The reasons for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
+[jQuery](https://jquery.com) is / was an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The reasons for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
 
 For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript."
 
@@ -1158,11 +1164,11 @@ var mapClicker = document.querySelector(".map");
 mapClicker.addEventListener("click", function (event) {
   console.log(event); // The event details
   console.log(event.target); // The clicked element
-  e.preventDefault();
+  event.preventDefault();
 });
 ```
 
-We run the `EventTarget.addEventListener()` method on the element we want to listen for events on. It accepts two arguments: the event to listen for, and a [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) to run when the event happens.
+We run the `<EventTarget>.addEventListener()` method on the element we want to listen for events on. It accepts two arguments: the event to listen for, and a [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) to run when the event happens.
 
 The `event.target` property is the element that triggered the event. The event object has other properties as well, many of them specific to the type of event that occurred.
 
@@ -1351,6 +1357,37 @@ function handleClicks(e) {
 
 Event delegation allows us to intercept and control any click on the entire document via the browser's built in event bubbling mechanism.
 
+## Closing the Pop Over
+
+```js
+document.addEventListener("click", handleClicks);
+
+function handleClicks(e) {
+  if (e.target.matches(".map")) {
+    document.querySelector("body").classList.add("showme");
+    e.preventDefault();
+  } else {
+    document.querySelector("body").classList.remove("showme");
+  }
+}
+```
+
+Refactored: 
+
+```js
+document.addEventListener("click", handleClicks);
+var body = document.querySelector("body")
+
+function handleClicks(e) {
+  if (e.target.matches(".map")) {
+    body.classList.add("showme");
+    e.preventDefault();
+  } else {
+    body.classList.remove("showme");
+  }
+}
+```
+
 ## HomeWork
 
 ### 1. A Close (✖︎) Link
@@ -1480,9 +1517,11 @@ function handleClicks(e) {
 }
 ```
 
-We might allow the user to click anywhere outide the popover to close it.
+Allow the user to click anywhere outide the popover to close it.
 
 ```js
+document.addEventListener("click", handleClicks);
+
 function handleClicks(e) {
   if (e.target.matches(".map") || e.target.matches(".closer")) {
     document.querySelector("body").classList.toggle("showme");
@@ -1522,7 +1561,9 @@ box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
 
 ### 2. A Close (✖︎) Button
 
-Recall that anchor tags are intended to be used with navigation. We are currently using a link which is not a good practice. Use a `<button>` element instead and style the button so it looks the same as before the change.
+Recall that anchor tags are intended to be used with navigation. We are currently using a link which is not a good practice. Use a `<button>` element instead of a link and style the button so it looks the same as before the change.
+
+The same issue exists for the "map" link. Make it a button as well.
 
 
 ### End Sushi
