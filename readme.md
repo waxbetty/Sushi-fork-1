@@ -19,10 +19,9 @@
 
 ### Class 3 Homework
 
-1. reimplement the entire JavaScript for the popover, pay attention to the document provided in the read me
-1. fix the css for the closer button
-1. fix the JavaScript so the # links jump to the top of the page
+1. use JavaScript to toggle the value of `aria-hidden` when the modal is shown or hidden. (Hint: use `document.querySelector` to select the modal and then use `setAttribute` to set the value of `aria-hidden`.)
 1. check your git install and configure it using the two Github links below or try [this](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+1. use CSS to style the page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration.
 
 Use you newly acquired CSS and HTML skills to improve the design the restaurant review page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration.
 
@@ -479,7 +478,7 @@ blockquote::before {
 Or
 
 ```css
-aside+p::first-line {
+aside + p::first-line {
   font-weight: bold;
 }
 ```
@@ -506,7 +505,7 @@ Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>`
   </body>
 ```
 
- Add the following to our CSS style block.
+Add the following to our CSS style block.
 
 ```css
 #wrapper {
@@ -1116,7 +1115,7 @@ You will also be introduced to:
 
 ### A Quick Note on jQuery
 
-[jQuery](https://jquery.com) is / was an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The reasons for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
+[jQuery](https://jquery.com) is / was an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The reasons for using jQuery have dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
 
 For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript."
 
@@ -1307,7 +1306,7 @@ There are many advantages to toggling the class at a higher level in the DOM. On
 
 Note: we are using the [filter](https://developer.mozilla.org/en-US/docs/Web/CSS/filter) CSS property to blur the background image.
 
-Note - it becomes more difficult for the user to close the popover.
+Note: it becomes more difficult for the user to close the popover.
 
 ### Using Event Delegation
 
@@ -1372,11 +1371,11 @@ function handleClicks(e) {
 }
 ```
 
-Refactored: 
+Refactored:
 
 ```js
 document.addEventListener("click", handleClicks);
-var body = document.querySelector("body")
+var body = document.querySelector("body");
 
 function handleClicks(e) {
   if (e.target.matches(".map")) {
@@ -1532,6 +1531,18 @@ function handleClicks(e) {
 }
 ```
 
+## ARIA
+
+[ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) is an acronym for Accessible Rich Internet Applications. It is a set of attributes that define ways to make web content and web applications (especially those developed with JavaScript) more accessible to people with disabilities.
+
+Add `aria-modal="true"` to the modal's HTML. This will allow screen readers to know that the modal is a modal.
+
+Add `role="button"` to the modal's close button. This will allow screen readers to know that the link is a button. Alternatively use a [button element instead of an anchor tag](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role).
+
+Add `aria-hidden="true"` to the modal's HTML. This will allow screen readers to know that the modal is hidden. Use JavaScript to toggle the value of `aria-hidden` when the modal is shown or hidden.
+
+---
+
 See the samples on CodePen for [querySelector](https://codepen.io/DannyBoyNYC/pen/wNXPKY) and [querySelectorAll](https://codepen.io/DannyBoyNYC/pen/exKegp)].
 
 <!-- Try a [recipe](http://fontawesome.io/examples/) from font-awesome:
@@ -1565,6 +1576,4 @@ Recall that anchor tags are intended to be used with navigation. We are currentl
 
 The same issue exists for the "map" link. Make it a button as well.
 
-
 ### End Sushi
-
