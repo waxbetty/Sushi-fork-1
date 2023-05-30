@@ -15,14 +15,98 @@
   - [JavaScript - DOM Scripting](#javascript---dom-scripting)
     - [End Sushi](#end-sushi)
 
-## Today's Homework
+## Homework
 
-1. Install [NodeJS](https://nodejs.org/en/) (the LTS - "long term service" - version)
-2. Install [Git](https://git-scm.com/) on your personal computer.
-3. Create a free account on [Github](http://github.com)
-4. Create a free account on [Netlify](https://www.netlify.com)
-5. [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
-6. Download the master .zip file from Github again and, using the notes below, step through everything we did in class again. Be sure to Google any CSS properties or HTML you are unfamiliar with.
+### Class 3 Homework
+
+1. use JavaScript to toggle the value of `aria-hidden` when the modal is shown or hidden. (Hint: use `document.querySelector` to select the modal and then use `setAttribute` to set the value of `aria-hidden`.)
+1. check your git install and configure it using the two Github links below or try [this](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+1. use CSS to style the page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration.
+
+Use you newly acquired CSS and HTML skills to improve the design the restaurant review page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration.
+
+1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
+2. Read [A Complete Guide to CSS Concepts and Fundamentals | Tania Rascia](https://www.taniarascia.com/overview-of-css-concepts/)
+3. Install [NodeJS](https://nodejs.org/en/) LTS - "long term service" - version, currently 16.13.2)
+4. Create a free account on [Github](http://github.com)
+5. Create a free account on [Netlify](https://www.netlify.com)
+6. Install [Git](https://git-scm.com/) (see [this artivle on Free Code Camp](https://www.freecodecamp.org/news/what-is-git-and-how-to-use-it-c341b049ae61/) for an overview).
+
+<!-- ## Installing and Configuring Git
+
+(These are MacOS specific instructions.)
+
+Note: you can skip installing Homebrew and simply download and run the installer noted [here](https://sourceforge.net/projects/git-osx-installer/). Run `$ git version` afterwards to verify that you have git installed. -->
+
+<!-- ### Installing HomeBrew
+
+Install the [Homebrew](https://brew.sh/) package manager. This will allow you to install almost any app from the command line.
+
+`$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+
+Install git via Homebrew.
+
+`$ brew update`
+
+`$ brew install git`
+
+`$ git version`
+
+See hints from brew in the terminal regarding troubleshooting if the above command doesn’t work. -->
+
+<!-- ### Configuring GIT
+
+You must configure Git to use the SSH protocol.
+
+`$ touch ~/.gitconfig`
+
+`$ code ~/.gitconfig`
+
+```
+[user]
+  name   = Firstname Lastname
+  email  = you@example.com
+[github]
+  user   = username
+[init]
+	defaultBranch = main
+``` -->
+
+<!-- ### Add an SSH Key
+
+Adding an SSH key to you computer allows you to push your code to a remote repository without having to enter your password.
+
+- ADDING SSH KEY TO YOUR COMPUTER - [https://docs.git`hub.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+`$ ssh-keygen -t ed25519 -C "your_email@example.com"`
+
+`$ eval "$(ssh-agent -s)"`
+
+`$ ssh-add -K ~/.ssh/id_rsa`
+
+### Add an SSH Key to Github
+
+You should add an SSH key to your account.
+
+- ADDING SSH KEY TO GITHUB - [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+Log into Github
+
+`pbcopy < ~/.ssh/id_ed25519.pub`
+
+In the upper-right corner of any Gihub page, click your profile photo, then click **Settings**
+
+In the “Access” section of the sidebar, click **SSH and GPG keys**.
+
+Click **New SSH key** or **Add SSH key**
+
+In the “Title” field, add a descriptive label for the new key. For example, if you’re using a personal Mac, you might call this key “Personal MacBook Air”.
+
+Paste your key into the “Key” field.
+
+Click **Add SSH key**.
+
+If prompted, confirm your GitHub password. -->
 
 <!-- 2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance. -->
 
@@ -43,7 +127,7 @@
    - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
 1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com) -->
 
-### Additional Reading
+<!-- ### Additional Reading
 
 These are good resources for beginners and go into more depth in some areas than we have time for in class. Be sure to download any accompanying files in order to follow along on your own.
 
@@ -55,7 +139,7 @@ If you prefer video:
 If you prefer to read:
 
 - [MDN's Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
-- [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL)
+- [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL) -->
 
 <!-- #### DOM Scripting
 
@@ -63,9 +147,9 @@ Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/J
 
 ## Sushi Exercise
 
-A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link. Be sure to resize the browser to see the responsive features.
+<!-- A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link. Be sure to resize the browser to see the responsive features. -->
 
-In this exercise we use the contents of the Sushi folder to begin looking at layout focusing on the following properties:
+In this exercise we use the contents of the app folder to begin looking at layout focusing on the following properties:
 
 - margin
 - padding
@@ -76,7 +160,7 @@ In this exercise we use the contents of the Sushi folder to begin looking at lay
 - z-index
 - visibility
 
-Open `before.html` in VSCode. This is often referred to as tag soup - it makes little sense to anyone looking at the code. Note the lack of semantics and the preponderance of visual markup code in the HTML. This is how HTML was written from the late 90's to about a decade ago and is similar to how HTML emails are written today.
+Open `before.html` in VS Code. This is often referred to as tag soup - it makes little sense to anyone looking at the code. Note the lack of semantics and the preponderance of visual markup code in the HTML. This is how HTML was written from the late 90's to about a decade ago and is similar to how HTML emails are written today.
 
 Open `index.html`. This is an HTML5 document that uses semantic HTML.
 
@@ -102,7 +186,7 @@ and link it to `index.html` in the head:
 
 Google has a CDN (Content Delivery Network) offering [free fonts](https://fonts.google.com) for use in HTML documents.
 
-We'll use this as an example of using external stylesheets via @import vs the `<link>` tag.
+(We'll use this as an example of loading external stylesheets via `@import` vs the `<link>` tag.)
 
 We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our headers.
 
@@ -120,13 +204,13 @@ Edit the body css rule:
 font-family: Lato, Verdana, Arial, sans-serif;
 ```
 
-Link a second Google font css file from html:
+Link a second Google font css file from `index.html`:
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
 ```
 
-In use:
+In `styles.css`:
 
 ```css
 header {
@@ -135,7 +219,7 @@ header {
 }
 ```
 
-`<link>` is generally preferred over `@import` however, in practice, web developers use imports along with tools to combine multiple stylesheets into a single compressed and minified sheet.
+`<link>` is generally preferred over `@import`.
 
 Note: `h1` tags are bold by default but Lobster has no bold version. Thus we use `font-weight: normal` to keep the browser from applying bold.
 
@@ -269,15 +353,31 @@ _Edit_ the nav CSS rule to position it
 
 Examine the nav ul in the inspector. Note the coordinate system.
 
-Toggle the position property on and off in the inspector.
+- Toggle the position property on and off in the inspector
+- Use left instead of right to observe stacking
+
+### Demo - example of a complex selector:
+
+We could add margin to the right of every list item except the last by using:
+
+```css
+.nav li {
+  display: inline-block;
+}
+.nav li:not(:last-child) {
+  margin-right: 10px;
+}
+```
+
+## Styling the Aside
 
 In the HTML, add an `<aside>` tag around the table and the unordered list.
 
 ```html
-<!-- HERE -->
 <article>
   <h2>Geido</h2>
   <p class="summary">...</p>
+  <!-- OPEN THE aside HERE before the table -->
   <aside>
     <table>
       ...
@@ -286,7 +386,7 @@ In the HTML, add an `<aside>` tag around the table and the unordered list.
     <ul>
       ...
     </ul>
-    <!-- AND CLOSE IT HERE -->
+    <!-- AND CLOSE IT HERE after the <ul> -->
   </aside>
 </article>
 ```
@@ -389,23 +489,35 @@ A complete list of pseudo classes and pseudo elements is located [on MDN](https:
 
 See my Pen <a href="https://codepen.io/DannyBoyNYC/pen/ZwrwoQ/">Intro-pseudo</a> on <a href="https://codepen.io">CodePen</a>.
 
-## Relative Positioning
+## Relative Positioning and Centering
 
 Currently our document "flexes" as we make the browser wider to make use of all the available horizontal space. While flexibility is a good practice, we need to understand more about the drawbacks of fixed widths.
 
-Add a wrapper `<div id="wrapper">` to the entire content area (after the `<body>` tag and close it before the closing `</body>` tag) and add the following to our CSS style block.
+Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>` tag and close it before the closing `</body>` tag:
 
-```css
-#wrapper {
-  width: 840px;
-}
+```html
+  <body>
+    <div id="wrapper">
+      <nav>
+        ...
+      </footer>
+    </div>
+  </body>
 ```
 
-vs.
+Add the following to our CSS style block.
 
 ```css
 #wrapper {
   max-width: 840px;
+}
+```
+
+Demo: note that we did not use `width`:
+
+```css
+#wrapper {
+  width: 840px;
 }
 ```
 
@@ -428,7 +540,9 @@ Add a relative positioning property.
 }
 ```
 
-Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box. The rule here is that absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree. This is an important CSS design pattern and well will see it again.
+Note the impact the relative positioning has on the layout (toggle it on and off using the inspector). The two absolutely positioned elements (aside and .nav) previously had no positioning context and aligned themselves to the edges of the browser window. With the addition of the relative positioning to the wrapper they now become positioned relative to the wrapper box.
+
+The rule here is _absolutely positioned elements are positioned relative to their nearest positioned ancestor in the HTML tree_. This is an important CSS design pattern and we will see it again.
 
 ## More Design Elements
 
@@ -456,7 +570,7 @@ Let's add a white background to wrapper.
 }
 ```
 
-Note the body background color is grayed out in the inspector. Neither it nor the margin are inherited by other elements.
+Select the wrapper div and note how the body background color and margin is grayed out in the inspector. Neither it nor the margin are [inherited](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance) by other elements.
 
 Add a box shadow to the wrapper CSS:
 
@@ -492,11 +606,8 @@ header h2 {
 header h2 {
   ...
   border-bottom: 1px dotted #600;
-  padding-bottom: 0.5rem;
 }
 ```
-
-<!-- Note - selector strength here. Note that the lack of namespacing allows this to effect the "Geido" text as well. -->
 
 Format elements in the list and table:
 
@@ -524,17 +635,21 @@ And change the ugly default blue for the links:
 ```css
 a {
   color: #600;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 ```
 
-### A Note on Inline CSS
+<!-- ### A Note on Inline CSS
 
 We've already seen the link tag and @import methods of adding css to our document.
 
 - As an external .css file via linking (HTML `<link>` tag)
 - As an external .css file via importing (CSS `@import` statements)
 
-Here are some additional ways to add CSS to an HTML document:
+Some additional ways to add CSS to an HTML document:
 
 - Inline via the HTML `style=` attribute
 - In page via the HTML `<style>` tag
@@ -547,7 +662,7 @@ Inline styles are inefficient because they apply to a single element on a single
 <p style="margin-top: 12px;"></p>
 ```
 
-We are not using them here however each has its use cases.
+We are not using them here however each has its use cases. -->
 
 <!-- However this method is often used when dynamically changing the page after it has been loaded in the browser.
 
@@ -652,7 +767,7 @@ The first media query was the _print_ media query. Demo:
 }
 ```
 
-We will use `max-width` and add CSS that overrides undesirable features to correct the display on smaller devices.
+We will add CSS that overrides undesirable features to correct the display on smaller devices.
 
 Begin by removing the margin from the body and article and fixing the nav to the top of the screen.
 
@@ -734,7 +849,7 @@ Below are some demos of the major layout features covered so far.
 
 [Front end foundations collection](https://codepen.io/collection/nZyrPj/) on Codepen.io.
 
-CodePen [Intro-margin-auto](https://codepen.io/DannyBoyNYC/pen/qgpVaL)
+- CodePen [Intro-margin-auto](https://codepen.io/DannyBoyNYC/pen/qgpVaL)
 
 ```html
 <div class="container">
@@ -757,7 +872,7 @@ CodePen [Intro-margin-auto](https://codepen.io/DannyBoyNYC/pen/qgpVaL)
 }
 ```
 
-CodePen [Intro-position](https://codepen.io/DannyBoyNYC/pen/YBYyoq)
+- CodePen [Intro-position](https://codepen.io/DannyBoyNYC/pen/YBYyoq)
 
 ```html
 <div class="container">
@@ -783,7 +898,7 @@ div {
 }
 ```
 
-CodePen [Intro-float](https://codepen.io/DannyBoyNYC/pen/pGpgyQ)
+- CodePen [Intro-float](https://codepen.io/DannyBoyNYC/pen/pGpgyQ)
 
 ```html
 <div class="container">
@@ -805,7 +920,7 @@ div {
 }
 ```
 
-CodePen [Intro-flexbox](https://codepen.io/DannyBoyNYC/pen/QYaNab)
+- CodePen [Intro-flexbox](https://codepen.io/DannyBoyNYC/pen/QYaNab)
 
 ```html
 <div class="container">
@@ -838,8 +953,10 @@ ul a {
 }
 ```
 
-See also - [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
-See also - [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
+See also:
+
+- [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
+- [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
 
 ## Highlighting the Navigation
 
@@ -872,9 +989,9 @@ Edit the nav so it uses classes on the tabs and 'real' links:
 
 ('t-' stands for tab.)
 
-I have placed a series of placeholder HTML pages in today's directory.
+I have placed a series of placeholder HTML pages in the "other" directory.
 
-<!-- Move them to the `app` folder and click on the tabs to test. -->
+Move them to the `app` folder and click on the tabs to test.
 
 Add the following to our CSS block:
 
@@ -899,11 +1016,13 @@ Expand the css rule to allow the other tabs to display highlighted as well.
 }
 ```
 
-Note that we could use these top level page classes and some CSS to customize other items on the page.
+Note: we could chose to use these top level page classes and some CSS to customize other items on the page and create a visual scheme whereby each section of the site has its own distinct look.
 
 ## JavaScript - DOM Scripting
 
-This semester we will observe how the three pillars of web development come together to create the modern web. Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
+This semester we will observe how the three pillars of web development (HTML, CSS and JavaScript) work together to create the modern web.
+
+Even though we have just begun learning HTML and CSS, I will briefly introduce JavaScript so that we can cover all three as a cohesive system.
 
 <!-- An example of [mobile first design](https://www.nytimes.com/interactive/2018/12/28/nyregion/nyc-property-tax-photos.html?fallback=0&recId=1GuXvkf8n9fJPZ4Orme791unw08&locked=0&geoContinent=NA&geoRegion=CA&recAlloc=story-desks&geoCountry=US&blockId=signature-journalism-vi&imp_id=986464160&action=click&module=editorsPicks&pgtype=Article&region=Footer). -->
 
@@ -911,14 +1030,16 @@ This semester we will observe how the three pillars of web development come toge
 
 The DOM is an application programming interface (API) that treats an HTML document as a tree structure where each node on the tree is an object representing a part of the document.
 
-Conceptual demo:
+The first question many people ask is - what's the difference between the HTML tree and the DOM?
 
-`https://react-all-the-news.netlify.app/` - inspect and then view source
-formatted with `https://webformatter.com/html`.
+Examine lesson one and the number of cat click displayed. View both the source of the page as well as the DOM in the developer tools. The HTML has "0" as the starting point and changed as we clicked. The HTML wasn't altered, the DOM was.
 
-This page has very little HTML. It relies on DOM manipulation to display.
+<!-- Demo: a Create React App page
 
-Compare with `pitchfork.com`
+- view the Elements in Dev tools
+- view the HTML in View Page Source
+
+This page has almost no HTML. It relies on the DOM and DOM manipulation via JavaScript in order to display anything. The page is said to render on the front end. -->
 
 <!-- ### Variable Assignment and Types
 
@@ -929,8 +1050,6 @@ var width = 100;
 width;
 typeof width;
 
-width + 300;
-width; // still 100
 width = width + 300;
 width; // now 400
 
@@ -996,7 +1115,7 @@ You will also be introduced to:
 
 ### A Quick Note on jQuery
 
-[jQuery](https://jquery.com) is an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The rational for using jQuery has dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
+[jQuery](https://jquery.com) is / was an incredibly popular JavaScript library that has been in use for over a decade. When you search for information about JavaScript or JavaScript techniques your results will likely contain a multitude of references to it. The reasons for using jQuery have dramatically decreased in recent years due to the rapid evolution of JavaScript as well as increasing standardization.
 
 For the purposes of this course, you should try to ignore these as we focus solely on "vanilla JavaScript."
 
@@ -1004,7 +1123,7 @@ For the purposes of this course, you should try to ignore these as we focus sole
 
 #### QuerySelector
 
-Make sure everything in `scripts.js` is commented or deleted _and_ that the map link in the HTML has a class of `map`.
+Make sure everything in `scripts.js` has been deleted _and_ that the map link in the HTML has a class of `map`.
 
 Add this to `scripts.js`:
 
@@ -1015,7 +1134,7 @@ console.log(mapClicker);
 
 Note: you use the `document.querySelector()` method to find _the first_ matching element on a page.
 
-If an element isn’t found, querySelector() returns null. If you try to do something with the nonexistent element, an error will be thrown.
+If an element isn’t found, querySelector() returns null. If you try to do something with the nonexistent element, an error will be thrown (a very common mistake).
 
 #### addEventListener
 
@@ -1024,7 +1143,7 @@ Use `addEventListener` to listen for a click on `mapClicker`:
 ```js
 var mapClicker = document.querySelector(".map");
 
-mapClicker.addEventListener("click", function () {
+mapClicker.addEventListener("click", function (event) {
   event.preventDefault();
   console.log("You clicked on the map link.");
 });
@@ -1041,20 +1160,24 @@ When you click on anything on the page an event occurs. We can examine the event
 ```js
 var mapClicker = document.querySelector(".map");
 
-mapClicker.addEventListener("click", function (e) {
-  console.log(e); // The event details
-  console.log(e.target); // The clicked element
-  e.preventDefault();
+mapClicker.addEventListener("click", function (event) {
+  console.log(event); // The event details
+  console.log(event.target); // The clicked element
+  event.preventDefault();
 });
 ```
 
-We run the `EventTarget.addEventListener()` method on the element we want to listen for events on. It accepts two arguments: the event to listen for, and a [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) to run when the event happens.
+We run the `<EventTarget>.addEventListener()` method on the element we want to listen for events on. It accepts two arguments: the event to listen for, and a [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) to run when the event happens.
 
 The `event.target` property is the element that triggered the event. The event object has other properties as well, many of them specific to the type of event that occurred.
 
 A [JavaScript function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is a list of commands or statements that, in this case, are run when the event occurs.
 
-Create and call a `show` function to run when the event (the user clicks on `mapClicker`) occurs:
+In this case our function is known as a [callback Function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function).
+
+`addEventListener()` is the so called outer function. It is a function provided to us by the browser (a browser API) and is also referred to as a [method](https://developer.mozilla.org/en-US/docs/Glossary/Method), but more on that later.
+
+Create and call a `show` callback function to run when the event (the user clicks on `mapClicker`) occurs:
 
 ```js
 var mapClicker = document.querySelector(".map");
@@ -1118,22 +1241,20 @@ Add a new utility rule to the css:
 
 Try:
 
-- In the Elements inspector, try adding the `showme` class to the popover.
+In the Elements inspector, try adding the `showme` class to the popover.
 
-Create a new variable with a reference to the popover div.
+Select the popover div in the Elements inspector and use the `.cls` tool (next to `:hov`).
+
+Create a new variable `popOver` containing a reference to the popover DOM node (aka the popover div).
 
 ```js
 var mapClicker = document.querySelector(".map");
 var popOver = document.querySelector(".popover"); // NEW
 
-mapClicker.addEventListener("click", show);
-
-function show(e) {
-  e.preventDefault();
-}
+...
 ```
 
-Use `classList` to toggle the `showme` class:
+Use the browser's [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) API to toggle the `showme` class:
 
 ```js
 var mapClicker = document.querySelector(".map");
@@ -1167,7 +1288,7 @@ function show(e) {
 }
 ```
 
-This will entail editing the CSS selector:
+This will require us to edit the CSS selector:
 
 ```css
 .showme .popover {
@@ -1175,7 +1296,7 @@ This will entail editing the CSS selector:
 }
 ```
 
-Placing the new class at a higher level in the DOM allows us to manipulate the display of other items:
+There are many advantages to toggling the class at a higher level in the DOM. One is that it allows us to manipulate the display of other items:
 
 ```css
 .showme #wrapper {
@@ -1183,13 +1304,19 @@ Placing the new class at a higher level in the DOM allows us to manipulate the d
 }
 ```
 
-Note - it becomes more difficult for the user to close the popover.
+Note: we are using the [filter](https://developer.mozilla.org/en-US/docs/Web/CSS/filter) CSS property to blur the background image.
+
+Note: it becomes more difficult for the user to close the popover.
 
 ### Using Event Delegation
 
-This will be the final iteration of this script. It is a standard to use what is known as _event delegation_ in JavaScript.
+This will be the final iteration of this script.
 
-Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to handle events at a higher level in the DOM than the element on which the event originated.
+It common to use what is known as _event delegation_ in JavaScript.
+
+Event Delegation refers to the process of using the browser's native event propagation or "bubbling" to listen for and handle events at a higher level in the DOM.
+
+This is different than attaching a listener to the element on which the event originated as we listen for events on the entire document.
 
 Events "bubble up" from the targeted element to their parent elements and all the way up through their ancestors and eventually to the document and window - the highest levels of a page.
 
@@ -1211,9 +1338,9 @@ Note: `preventDefault()` here disables _all_ our links - even those on our navba
 
 Try:
 
-- clicking elsewhere on the page with the Console open.
+- clicking anywhere on the page with the Console open.
 
-We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to toggle a class:
+We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an [if](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to test for the item being clicked on, then use `classList` to toggle a class:
 
 ```js
 document.addEventListener("click", handleClicks);
@@ -1227,11 +1354,42 @@ function handleClicks(e) {
 }
 ```
 
-This is somewhat analogous to using a class at a high level - see for example the first part of today's exercise - as it allows us to control things at a higher level.
+Event delegation allows us to intercept and control any click on the entire document via the browser's built in event bubbling mechanism.
+
+## Closing the Pop Over
+
+```js
+document.addEventListener("click", handleClicks);
+
+function handleClicks(e) {
+  if (e.target.matches(".map")) {
+    document.querySelector("body").classList.add("showme");
+    e.preventDefault();
+  } else {
+    document.querySelector("body").classList.remove("showme");
+  }
+}
+```
+
+Refactored:
+
+```js
+document.addEventListener("click", handleClicks);
+var body = document.querySelector("body");
+
+function handleClicks(e) {
+  if (e.target.matches(".map")) {
+    body.classList.add("showme");
+    e.preventDefault();
+  } else {
+    body.classList.remove("showme");
+  }
+}
+```
 
 ## HomeWork
 
-### A Close (✖︎) Button
+### 1. A Close (✖︎) Link
 
 <!-- 1. We will use [Font Awesome](https://fontawesome.com/cheatsheet) for icons
 1. Examine some usage samples from [Font Awesome](http://fontawesome.io/examples/)
@@ -1319,21 +1477,6 @@ Note: `border-radius: 50%` creates a circle - as long as the box is perfectly sq
 
 Re-enable the `display:none` property on the popover div.
 
-<!-- Create a new script at the bottom of `scripts.js` to include a reference to the new close button:
-
-```js
-var closeButton = document.querySelector('.closer');
-closeButton.addEventListener('click', close);
-
-function close(){
-  var body = document.querySelector('body');
-  body.classList.toggle('showme');
-  event.preventDefault();
-}
-```
-
-Note that the close function is identical to the show function we currently have. -->
-
 We will use - [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
 
 ```js
@@ -1373,6 +1516,33 @@ function handleClicks(e) {
 }
 ```
 
+Allow the user to click anywhere outide the popover to close it.
+
+```js
+document.addEventListener("click", handleClicks);
+
+function handleClicks(e) {
+  if (e.target.matches(".map") || e.target.matches(".closer")) {
+    document.querySelector("body").classList.toggle("showme");
+    e.preventDefault();
+  } else {
+    document.querySelector("body").classList.remove("showme");
+  }
+}
+```
+
+## ARIA
+
+[ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) is an acronym for Accessible Rich Internet Applications. It is a set of attributes that define ways to make web content and web applications (especially those developed with JavaScript) more accessible to people with disabilities.
+
+Add `aria-modal="true"` to the modal's HTML. This will allow screen readers to know that the modal is a modal.
+
+Add `role="button"` to the modal's close button. This will allow screen readers to know that the link is a button. Alternatively use a [button element instead of an anchor tag](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role).
+
+Add `aria-hidden="true"` to the modal's HTML. This will allow screen readers to know that the modal is hidden. Use JavaScript to toggle the value of `aria-hidden` when the modal is shown or hidden.
+
+---
+
 See the samples on CodePen for [querySelector](https://codepen.io/DannyBoyNYC/pen/wNXPKY) and [querySelectorAll](https://codepen.io/DannyBoyNYC/pen/exKegp)].
 
 <!-- Try a [recipe](http://fontawesome.io/examples/) from font-awesome:
@@ -1400,423 +1570,10 @@ box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
 <div id="wrapper">
 ``` -->
 
-<!-- ```css
-.overlay {
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: 10;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-```
+### 2. A Close (✖︎) Button
 
-Note that it blocks all the clicks.
+Recall that anchor tags are intended to be used with navigation. We are currently using a link which is not a good practice. Use a `<button>` element instead of a link and style the button so it looks the same as before the change.
 
-...and turn it on:
-
-```js
-...
-var overlay = document.querySelector('.overlay')
-...
-
-function show(){
-	popOver.classList.toggle('showme')
-	overlay.classList.toggle('showme')
-	event.preventDefault()
-}
-```
-
-We used the z-index css property to control stacking order for the menu (review).
-
-We need to control z-index in this case by giving the popover a hight number than the overlay.
-
-Note that there is no possibility of animating this because we are using `display: block` and `display: none`. These are binary states and cannot be used for effects like fading on etc. More on this in a later class. -->
-
-<!-- Event delegation allows us to listen for click events anywhere on the page and then do different things depending on which item is clicked on. It also improves code organization.
-
-The last argument in `addEventListener()` (`false`) is known as "Use Capture." It allows you to force bubbling on events that don't do it by default. Setting `useCapture` to true allows you to take advantage of event bubbling for events that otherwise don’t support it.
-
-For example, focus does not bubble, so in the example below we force it so we can listen for events on the document or window:
-
-```js
-// Listen for all focus events in the document
-document.addEventListener(
-  'focus',
-  function(event) {
-    // Run functions whenever an element in the document comes into focus
-  },
-  true,
-);
-```
--->
+The same issue exists for the "map" link. Make it a button as well.
 
 ### End Sushi
-
-<!-- ## Styling a List: Floats vs Flexbox
-
-<img src="Tabs/tabs-image.jpg">
-
-In this exercise we will focus on list styling and navigation but instead of using `display: inline` or `display: inline-block` to create horizontal navigation we will use floats. -->
-
-<!-- ## Demo in Sublime
-
-* Install [package control](https://packagecontrol.io)
-
-* Install [emmet](https://packagecontrol.io/packages/Emmet)
-
-* Review [emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
-
-Using emmet -->
-
-<!-- ```sh
-!
-
-ul>li*4>a[href="#"]{link}
-
-nav>ul>li.t-cuisines*4>a[href="cuisines.html"]{cuisines}
-``` -->
-
-<!-- Create an HTML file and save it as `cuisines.html` into the `Tabs` folder. -->
-
-<!-- * duplicate lines `cmd-d` and
-* use multiple cursors `cmd` to complete the classes and links so you end up with: -->
-
-<!-- ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Cuisines</title>
-    <style></style>
-  </head>
-
-  <body>
-    <nav>
-      <ul class="nav">
-        <li class="t-cuisines"><a href="cuisines.html">Cuisines</a></li>
-        <li class="t-chefs"><a href="chefs.html">Chefs</a></li>
-        <li class="t-reviews"><a href="reviews.html">Reviews</a></li>
-        <li class="t-delivery"><a href="delivery.html">Delivery</a></li>
-      </ul>
-    </nav>
-  </body>
-</html>
-```
-
-Take a moment to examine the default user agent styles using the inspector.
-
-Add and review some basic formatting (in the `<style>` block):
-
-```css
-body {
-  margin: 0;
-  font-family: 'Lucida Grande', sans-serif;
-}
-.nav {
-  background: #ffcb2d;
-  margin: 0;
-  padding: 10px 0 0 46px;
-}
-```
-
-Remove the bullets from the `<ul>`:
-
-```css
-.nav {
-  ...
-  list-style: none;
-}
-```
-
-Float the list items to the left:
-
-```css
-li {
-  float: left;
-}
-```
-
-Notice what happened to the `<ul>`'s height. The `<li>` items no longer force the parent `<ul>` element to expand to contain them. This behavior, know as collapsing, occurs whenever all the direct children of a container element are floated. In this case the `<ul>` has collapsed. This behavior is important as "collapsing" is a common design issue when using floats.
-
-There are a number of methods in use to prevent this:
-
-- float a float (or "FNE" - float nearly everything) - apply a float to the collapsed element
-- the clearfix hack - this entails creating a utility class and will be covered later
-- adding a clearing div - this entails adding an HTML element to the page and is discouraged
-
-For our current example let's use the second FNE method.
-
-Try adding a float to the 'collapsed' element:
-
-```css
-.nav {
-  ...
-  float: left;
-}
-```
-
-Note that the width has changed. Boxes are 100% width by default (they stretch to fill their container). Floating the collapsed element causes it to contract to contain its children.
-
-Since we want the `<ul>` to extend the width of the window let's fix the width.
-
-```css
-.nav {
-  ...
-  width: 100%;
-}
-```
-
-_When you float an element you usually have to specify a width._
-
-Extend the [background property](https://www.w3schools.com/css/css_background.asp) to add a background color and image to the `<ul>`.
-
-```css
-.nav {
-  ...
-  background-color: #ffcb2d;
-  background-image: url(i/nav_bg.gif);
-}
-```
-
-Aside: demo the background property using `pattern.gif`.
-
-Add positioning to the background.
-
-```css
-.nav {
-  ...
-  background-color: #ffcb2d;
-  background-image: url(i/nav_bg.gif);
-  background-repeat: repeat-x;
-  background-position: bottom left;
-}
-```
-
-Next we'll tackle the `<a>` tags. Add the following to our CSS block.
-
-```css
-a {
-  text-decoration: none;
-  color: #333;
-}
-```
-
-Adding padding, margins to separate, and a border to make them more tab-like:
-
-```css
-a {
-  ...
-  padding: 4px 8px;
-  border: 1px solid #9b8748;
-  margin: 0 6px 0 0;
-}
-```
-
-Although it may be a little difficult to discern, the same issue we had with collapsing earlier has occurred here as well. We will use the same method as before to make the container expand to fit its floated children. Let's remove the redundant border while we're at it.
-
-```css
-a {
-  ...
-  border-bottom: none;
-  float: left;
-}
-```
-
-By floating the anchors we cause the `<li>`s to expand to contain their floated children.
-Now we add a background image to the `<a>`. Note the use of the background shortcut and that the image has a gradient and transparency.
-
-```css
-
-a {
-  ...
-  background: #f9eaa9 url(i/off_bg.gif) repeat-x top left;
-
-```
-
-Note what happened to the background graphic we placed in the `<ul>`. It is hidden behind the anchors.
-
-Now we create hover states for our tabs by swapping out the background image:
-
-```css
-a:hover {
-  background: #fff url(i/on_bg.gif) repeat-x top left;
-}
-```
-
-### Finishing touches
-
-This part is a but tricky since it uses padding to show or hide the background graphic running along the bottom of the `<ul>`. We will be increasing the height by one pixel on hover to hide the image.
-
-Recall that the padding on the bottom of the anchor tags was 4px. Let's increase the padding on the hover state to 5px.
-
-```css
-a:hover {
-  ... padding-bottom: 5px;
-}
-```
-
-If you roll over the tabs now the height of the anchor increases by one pixel causing the `<ul>` to expand as well and thus showing the border along the bottom under the inactive tabs.
-
-Due to the fact that there is no selected tab (only hovered) the height of the element appears to jump slightly. Let's assume that one of the tabs will always be highlighted.
-
-Create a second selector to highlight one of the anchors by adding `.t-cuisines a` as a second selector to the hover rule.
-
-```css
-a:hover,
-.t-cuisines a {
-  ...;
-}
-```
-
-Note that when you use two selectors they must be separated by a comma.
-
-Many prefer to keep the multiple selectors on separate lines like so:
-
-```css
-a:hover,
-.t-cuisines a {
-  ...;
-}
-```
-
-Now, if we add an id to the body tag we can edit the selector to make it page specific.
-
-Add `class="cuisines"` to the body tag.
-
-```html
-<body class="p-cuisines"></body>
-```
-
-Edit the second selector to make the tab highlighting specific to this page.
-
-```css
-a:hover,
-.p-cuisines .t-cuisines a {
-  ...;
-}
-```
-
-We are going to create a second HTML page shortly so let's copy our CSS into an external file as `styles.css` and link to it:
-
-```html
-<link href="css/styles.css" rel="stylesheet" type="text/css" />
-```
-
-Note that because we used a new directory, the paths to the images are no longer correct. Correct them now using this pattern:
-
-```css
-background-image: url(../i/nav_bg.gif);
-```
-
-Save a new copy of the HTML page as `chefs.html` and edit the ID:
-
-```html
-<body class="chefs"></body>
-```
-
-Add a new selector to the CSS.
-
-```css
-a:hover,
-.p-cuisines .t-cuisines a,
-.p-chefs .t-chefs a {
-  ...;
-}
-```
-
-Now when you navigate between the two pages you should see a friendly reminder of what page you are on courtesy of the CSS file.
-
-- There is a demo of this in the `Tabs > demo` directory.
-
-### Removing the on- off- images
-
-Images and any other externally linked asset increases the time it takes to download and render your page. It is considered a best practice to minimize the number of images whereever possible so let's remove as many as we can.
-
-Aside: [Hex color vs. RGB vs. RGBA](https://www.w3schools.com/colors/colors_converter.asp)
-
-- [Intro to gradients in css](https://css-tricks.com/css3-gradients/) has more information than you'll ever need
-- The [Gradient editor](http://www.colorzilla.com/gradient-editor/) is still a useful tool
-
-Edit the background properties for the tabs:
-
-Normal (eg. non-hovered) state:
-
-```css
-background-image: linear-gradient(
-  to bottom,
-  rgba(255, 236, 165, 1) 0%,
-  rgba(232, 213, 149, 1) 6%,
-  rgba(253, 233, 162, 1) 94%,
-  rgba(253, 233, 162, 1) 100%
-);
-```
-
-Highlighted (eg. hovered) state:
-
-```css
-background-image: linear-gradient(
-  to bottom,
-  rgba(255, 255, 255, 1) 0%,
-  rgba(224, 226, 240, 1) 6%,
-  rgba(254, 254, 254, 1) 53%
-);
-```
-
-We cannot use `border` for the underline on the `<ul>` so let's use a very thin gradient:
-
-```css
-background-image: linear-gradient(
-  to bottom,
-  #ffcb2d 0%,
-  #ffcb2d 96%,
-  #9b8748 100%
-);
-```
-
-### Using Flexbox
-
-We will be covering flexbox in a future class. For now, note that a more modern method of creating the same design would be to use `display: flex`.
-
-Remove the float from the `ul` and add `display: flex`:
-
-```css
-.nav {
-  ... /* float: left; */ display: flex;;
-}
-```
-
-Remove the float from the `<li>` tags and add flex:
-
-```css
-li {
-  /* float: left; */
-  display: flex;
-}
-```
-
-Remove the float and underline from the anchors: -->
-
-<!-- ```css
-a {
-  ...
-  /* border-bottom: none; */ /* float: left; */ ;;
-}
-``` -->
-
-<!-- Add `border-bottom: none;` to the active state:
-
-```css
-a:hover,
-.p-cuisines .t-cuisines a,
-.p-chefs .t-chefs a {
-  border-bottom: none;
-  ...;
-}
-```
-
-## Looking Forward
-
-Examine the other demos in the `demo` folder. -->
