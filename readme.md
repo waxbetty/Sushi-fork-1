@@ -1340,15 +1340,30 @@ Try:
 
 - clicking anywhere on the page with the Console open.
 
-We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an [if](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to test for the item being clicked on, then use `classList` to toggle a class:
+We will use [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an [if](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement:
 
 ```js
+function testMe(num) {
+  if (num > 8) {
+    console.log("num is > 8:", num);
+  } else {
+    console.log("num is , 8:", num);
+  }
+}
+
+testMe(5);
+```
+
+We test for the item being clicked on and use [classList](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) to toggle the class name on the body tag:
+
+```js
+var body = document.querySelector("body");
 document.addEventListener("click", handleClicks);
 
 function handleClicks(e) {
   console.log(e.target);
   if (e.target.matches(".map")) {
-    document.querySelector("body").classList.toggle("showme");
+    body.classList.toggle("showme");
     e.preventDefault();
   }
 }
@@ -1359,23 +1374,8 @@ Event delegation allows us to intercept and control any click on the entire docu
 ## Closing the Pop Over
 
 ```js
-document.addEventListener("click", handleClicks);
-
-function handleClicks(e) {
-  if (e.target.matches(".map")) {
-    document.querySelector("body").classList.add("showme");
-    e.preventDefault();
-  } else {
-    document.querySelector("body").classList.remove("showme");
-  }
-}
-```
-
-Refactored:
-
-```js
-document.addEventListener("click", handleClicks);
 var body = document.querySelector("body");
+document.addEventListener("click", handleClicks);
 
 function handleClicks(e) {
   if (e.target.matches(".map")) {
@@ -1390,39 +1390,6 @@ function handleClicks(e) {
 ## HomeWork
 
 ### 1. A Close (✖︎) Link
-
-<!-- 1. We will use [Font Awesome](https://fontawesome.com/cheatsheet) for icons
-1. Examine some usage samples from [Font Awesome](http://fontawesome.io/examples/)
-2. Load Font Awesome with:
-
-```html
-<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-```
-
-Use it once to add an icon to the web site link:
-
-```html
-<li><a href="#"><i class="fa fa-external-link-square-alt"></i>Web site</a></li>
-```
-
-Use the inspector to examine it.
-
-1. [Examine](http://fontawesome.io/icons/) looks like `fa-times` will work.
-
-Add a link to the popover:
-
-```html
-<div class="popover">
-	<a class="closer"><i class="fa fa-times" aria-hidden="true"></i></a>
-	<iframe>...</iframe>
-</div>
-```
-
-```css
-.popover .closer {
-	float: right;
-}
-``` -->
 
 Add to the top of the `popover` div:
 
@@ -1480,15 +1447,16 @@ Re-enable the `display:none` property on the popover div.
 We will use - [element.matches](https://developer.mozilla.org/en-US/docs/Web/API/Element/matches) and an `if` statement to test for the item being clicked on, then use `classList` to add or remove a class:
 
 ```js
+var body = document.querySelector("body");
 document.addEventListener("click", handleClicks);
 
 function handleClicks(e) {
   if (e.target.matches(".map")) {
-    document.querySelector("body").classList.add("showme");
+    body.classList.add("showme");
     e.preventDefault();
   }
   if (e.target.matches(".closer")) {
-    document.querySelector("body").classList.remove("showme");
+    body.classList.remove("showme");
     e.preventDefault();
   }
 }
@@ -1506,27 +1474,31 @@ if (
 With our toggle, e.g.:
 
 ```js
+var body = document.querySelector("body");
 document.addEventListener("click", handleClicks);
 
 function handleClicks(e) {
   if (e.target.matches(".map") || e.target.matches(".closer")) {
-    document.querySelector("body").classList.toggle("showme");
+    body.classList.toggle("showme");
     e.preventDefault();
   }
 }
 ```
 
+There are many operators in JavaScript. See [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators). We will focus on the most common.
+
 Allow the user to click anywhere outide the popover to close it.
 
 ```js
+var body = document.querySelector("body");
 document.addEventListener("click", handleClicks);
 
 function handleClicks(e) {
   if (e.target.matches(".map") || e.target.matches(".closer")) {
-    document.querySelector("body").classList.toggle("showme");
+    body.classList.toggle("showme");
     e.preventDefault();
   } else {
-    document.querySelector("body").classList.remove("showme");
+    body.classList.remove("showme");
   }
 }
 ```
@@ -1537,43 +1509,10 @@ function handleClicks(e) {
 
 Add `aria-modal="true"` to the modal's HTML. This will allow screen readers to know that the modal is a modal.
 
-Add `role="button"` to the modal's close button. This will allow screen readers to know that the link is a button. Alternatively use a [button element instead of an anchor tag](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role).
-
-Add `aria-hidden="true"` to the modal's HTML. This will allow screen readers to know that the modal is hidden. Use JavaScript to toggle the value of `aria-hidden` when the modal is shown or hidden.
+Add `aria-hidden="true"` to the modal's HTML. This will allow screen readers to know that the modal is hidden. We use JavaScript to toggle the value of `aria-hidden` when the modal is shown or hidden.
 
 ---
 
 See the samples on CodePen for [querySelector](https://codepen.io/DannyBoyNYC/pen/wNXPKY) and [querySelectorAll](https://codepen.io/DannyBoyNYC/pen/exKegp)].
-
-<!-- Try a [recipe](http://fontawesome.io/examples/) from font-awesome:
-
-```html
-<a class="closer">
-	<span class="fa-stack fa-md">
-		<i class="fa fa-square fa-stack-2x"></i>
-		<i class="fa fa-times fa-stack-1x fa-inverse" aria-hidden="true"></i>
-	</span>
-</a>
-``` -->
-
-<!-- Add a shadow to the popover:
-
-```css
-box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-``` -->
-
-<!-- Add an overlay for effect:
-
-```html
-<body>
-<div class="overlay"></div>
-<div id="wrapper">
-``` -->
-
-### 2. A Close (✖︎) Button
-
-Recall that anchor tags are intended to be used with navigation. We are currently using a link which is not a good practice. Use a `<button>` element instead of a link and style the button so it looks the same as before the change.
-
-The same issue exists for the "map" link. Make it a button as well.
 
 ### End Sushi
