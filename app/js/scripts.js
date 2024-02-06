@@ -3,7 +3,7 @@ console.log("Hello from scripts.js!");
 // console.log(document.title);
 // document.title = 123;
 
-/* 1. QUERYSELECTOR - uncomment in sequence */
+/* 1::  querySelector - uncomment in sequence */
 // var bodyElement = document.querySelector("body");
 /* view variable in console */
 // bodyElement.textContent = "Text content set in JavaScript";
@@ -11,7 +11,7 @@ console.log("Hello from scripts.js!");
 /* elements in dev tools VS view source */
 /* comment out all the above */
 
-/* 2. QUERYSELECTORALL */
+/* 2::  querySelectorAll */
 // var listItems = document.querySelectorAll("li");
 /* view the variable in the console. Returns a NodeList */
 
@@ -36,7 +36,7 @@ console.log("Hello from scripts.js!");
 //   listItems[i].style.backgroundColor = "blue";
 // }
 
-/* 3. EVENTLISTENERS */
+/* 3::  addEventListener */
 /* ADD a class of 'map' to the map ANCHOR tag in the sidebar */
 // var mapLink = document.querySelector(".map");
 // mapLink.style.borderBottom = "solid 8px red";
@@ -65,7 +65,7 @@ console.log("Hello from scripts.js!");
 //   console.log("event.target.textContent::", e.target.textContent);
 // });
 
-/* 4. FUNCTIONS */
+/* 4:: FUNCTIONS */
 // var mapLink = document.querySelector(".map");
 // mapLink.addEventListener("click", buttonClick);
 
@@ -82,7 +82,7 @@ console.log("Hello from scripts.js!");
 }
 */
 
-/* 5. DYNAMICALLY CREATE AN ELEMENT */
+/* 5:: DYNAMICALLY CREATE AN ELEMENT */
 
 /* CREATE a div and then look at it in the console */
 // var newDiv = document.createElement("div");
