@@ -33,9 +33,15 @@ header h2 {
   border-bottom: 1px dotted #600;
 }
 
+nav {
+  background-color: #600;
+}
+
 .nav {
   list-style: none;
   padding: 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav a {
@@ -50,12 +56,19 @@ header h2 {
   color: #222;
   background-color: #f0dfb4;
 }
+
+main {
+  display: flex;
+  gap: 32px;
+}
+
 aside {
-  width: 180px;
+  min-width: 220px;
+  max-height: 50vh;
   background-color: #f0dfb4;
   padding: 6px;
   border: 1px solid #600;
-  font-size: 0.875rem;
+  font-size: 1rem;
   box-shadow: 3px 3px 3px #ddd;
   border-radius: 4px;
 }
