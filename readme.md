@@ -17,20 +17,23 @@
 
 ## Homework
 
-### Class 3 Homework
+Continue with the Front End Masters assignment from the first class. You will need a [free account](https://frontendmasters.com/trial/) on Front End Masters to view the lessons and on [Netlify](https://www.netlify.com) in order to deploy your work to the web.
 
-1. use JavaScript to toggle the value of `aria-hidden` when the modal is shown or hidden. (Hint: use `document.querySelector` to select the modal and then use `setAttribute` to set the value of `aria-hidden`.)
+<!-- 1. use JavaScript to toggle the value of `aria-hidden` when the modal is shown or hidden. (Hint: use `document.querySelector` to select the modal and then use `setAttribute` to set the value of `aria-hidden`.)
 1. check your git install and configure it using the two Github links below or try [this](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-1. use CSS to style the page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration.
+1. use CSS to style the page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration. -->
 
-Use you newly acquired CSS and HTML skills to improve the design the restaurant review page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration.
+<!-- Use your newly acquired CSS and HTML skills to improve the design the restaurant review page so that it looks better. You may examine the two files I showed (ver1.html and ver2.html) in the `other > home-work-samples` directory for inspiration. -->
 
-1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get
-2. Read [A Complete Guide to CSS Concepts and Fundamentals | Tania Rascia](https://www.taniarascia.com/overview-of-css-concepts/)
-3. Install [NodeJS](https://nodejs.org/en/) LTS - "long term service" - version, currently 16.13.2)
-4. Create a free account on [Github](http://github.com)
-5. Create a free account on [Netlify](https://www.netlify.com)
-6. Install [Git](https://git-scm.com/) (see [this artivle on Free Code Camp](https://www.freecodecamp.org/news/what-is-git-and-how-to-use-it-c341b049ae61/) for an overview).
+<!-- 1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get -->
+<!-- 1. Read [A Complete Guide to CSS Concepts and Fundamentals | Tania Rascia](https://www.taniarascia.com/overview-of-css-concepts/) -->
+
+## Accounts and Installs
+
+1. Install [Git](https://git-scm.com/) on your computer
+1. Create an account on [Github](http://github.com)
+   <!-- 1. Read and follow [this tutorial](https://www.freecodecamp.org/news/introduction-to-git-and-github/) on Free Code Camp to get Git and Github working together -->
+   <!-- 1. Install [NodeJS LTS](https://nodejs.org/en/) - "long term service" on your computer -->
 
 <!-- ## Installing and Configuring Git
 
@@ -38,29 +41,9 @@ Use you newly acquired CSS and HTML skills to improve the design the restaurant 
 
 Note: you can skip installing Homebrew and simply download and run the installer noted [here](https://sourceforge.net/projects/git-osx-installer/). Run `$ git version` afterwards to verify that you have git installed. -->
 
-<!-- ### Installing HomeBrew
-
-Install the [Homebrew](https://brew.sh/) package manager. This will allow you to install almost any app from the command line.
-
-`$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
-
-Install git via Homebrew.
-
-`$ brew update`
-
-`$ brew install git`
-
-`$ git version`
-
-See hints from brew in the terminal regarding troubleshooting if the above command doesn’t work. -->
-
 <!-- ### Configuring GIT
 
-You must configure Git to use the SSH protocol.
-
-`$ touch ~/.gitconfig`
-
-`$ code ~/.gitconfig`
+You must configure Git before use
 
 ```
 [user]
@@ -72,82 +55,11 @@ You must configure Git to use the SSH protocol.
 	defaultBranch = main
 ``` -->
 
-<!-- ### Add an SSH Key
-
-Adding an SSH key to you computer allows you to push your code to a remote repository without having to enter your password.
-
-- ADDING SSH KEY TO YOUR COMPUTER - [https://docs.git`hub.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-
-`$ ssh-keygen -t ed25519 -C "your_email@example.com"`
-
-`$ eval "$(ssh-agent -s)"`
-
-`$ ssh-add -K ~/.ssh/id_rsa`
-
-### Add an SSH Key to Github
-
-You should add an SSH key to your account.
-
-- ADDING SSH KEY TO GITHUB - [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-
-Log into Github
-
-`pbcopy < ~/.ssh/id_ed25519.pub`
-
-In the upper-right corner of any Gihub page, click your profile photo, then click **Settings**
-
-In the “Access” section of the sidebar, click **SSH and GPG keys**.
-
-Click **New SSH key** or **Add SSH key**
-
-In the “Title” field, add a descriptive label for the new key. For example, if you’re using a personal Mac, you might call this key “Personal MacBook Air”.
-
-Paste your key into the “Key” field.
-
-Click **Add SSH key**.
-
-If prompted, confirm your GitHub password. -->
-
-<!-- 2. Examine the provided sample (in `other/menu`). Try to implement a sticky navigation bar in wide screen mode using the sample for guidance. -->
-
-<!-- ### 2. Review JavaScript -->
-
-<!-- Some guidance for this assignment is provided at the bottom of this ReadMe.
-
-1. Add a popover window to your page using a link to _your_ favorite restaurant
-2. Add a close button ("X") to the popover div using HTML (see this [final file](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/))
-3. Use CSS to style the close button
-4. Add JavaScript to make the close button close the popover when clicked
-5. Upload your homework to the NYU server. ([See session one](https://github.com/front-end-foundations/session1)) for access instructions -->
-
-<!-- 1. Review the documentation for
-   - [querySelector](https://www.w3schools.com/jsref/met_document_queryselector.asp),
-   - [addEventListener](https://www.w3schools.com/jsref/met_element_addeventlistener.asp),
-   - [querySelectorAll](https://www.w3schools.com/jsref/met_document_queryselectorall.asp), and
-   - [classList](https://www.w3schools.com/jsref/prop_element_classlist.asp).
-1. Install [NodeJS](https://nodejs.org/en/) (the latest version) and [Git](https://git-scm.com/) on your personal computer. Create a free account on [Github](http://github.com) -->
-
-<!-- ### Additional Reading
-
-These are good resources for beginners and go into more depth in some areas than we have time for in class. Be sure to download any accompanying files in order to follow along on your own.
-
-If you prefer video:
-
-- [HTML Crash Course for Absolute Beginners](https://youtu.be/UB1O30fR-EE), and the [accompanying files](https://www.traversymedia.com/downloads/htmlcheatsheet.zip)
-- [CSS Crash Course for Absolute Beginners](https://youtu.be/yfoY53QXEnI), and the [accompanying files](https://www.traversymedia.com/downloads/csscrashcourse.zip)
-
-If you prefer to read:
-
-- [MDN's Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
-- [MDN's Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSSL) -->
-
 <!-- #### DOM Scripting
 
 Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game). -->
 
 ## Sushi Exercise
-
-<!-- A finished version of this exercise is available [here](http://oit2.scps.nyu.edu/~devereld/session2/Sushi/). Be sure to test the Map link. Be sure to resize the browser to see the responsive features. -->
 
 In this exercise we use the contents of the app folder to begin looking at layout focusing on the following properties:
 
@@ -160,9 +72,11 @@ In this exercise we use the contents of the app folder to begin looking at layou
 - z-index
 - visibility
 
-Open `before.html` in VS Code. This is often referred to as tag soup - it makes little sense to anyone looking at the code. Note the lack of semantics and the preponderance of visual markup code in the HTML. This is how HTML was written from the late 90's to about a decade ago and is similar to how HTML emails are written today.
+Open `before.html` in VS Code. This style of code is often referred to as "tag soup" - it makes little sense to anyone looking at the code.
 
-Open `index.html`. This is an HTML5 document that uses semantic HTML.
+Note the lack of semantics and the preponderance of visual markup code in the HTML. This is how HTML was written from the late 90's to about a decade ago and is similar to how HTML emails are written today. It is still possible to find this kind of HTML in use.
+
+Open `index.html`. This is an HTML5 document that uses semantic HTML. Note the impact of semantics and how the content is understandable.
 
 Open `index.html` in Chrome using Go Live. Note the defaults for margins and padding used to display the body and the unordered list (`<ul>`).
 
@@ -186,7 +100,7 @@ and link it to `index.html` in the head:
 
 Google has a CDN (Content Delivery Network) offering [free fonts](https://fonts.google.com) for use in HTML documents.
 
-(We'll use this as an example of loading external stylesheets via `@import` vs the `<link>` tag.)
+We'll use to demonstrate loading external stylesheets via `@import` vs the `<link>` tag.
 
 We will use [Lato](https://fonts.google.com/specimen/Lato) for our main text and [Lobster](https://fonts.google.com/specimen/Lobster) for our headers.
 
@@ -271,7 +185,7 @@ header h2 {
 }
 ```
 
-Note the _margin collapsing_ between the H1 and H2 and paragraph tags.
+Note the _margin collapsing_ between the `h1` and `h2` and paragraph tags.
 
 ## Formatting the Navigation
 
@@ -318,10 +232,11 @@ Note:
 - `display: inline-block`
 - `text-decoration` (link underlining)
 - `display: block`
+- color models (examine chip in VS Code)
 
-Also note the use of a colon to target the hover state. This is an example of a _pseudo_ selector. So called because, unlike other selectors, it doesn't really target an HTML tag.
+Also note the use of a colon to target the hover state. This is an example of a _pseudo_ selector. So called because, unlike other selectors, it doesn't really target an HTML tag per se but a state.
 
-Examine the inspector's color picker. Also, note again the ability to force element hover state.
+Examine the dev tool's color picker. Also, note again the ability to force element hover state.
 
 Add css to `nav a`:
 
@@ -329,9 +244,9 @@ Add css to `nav a`:
 transition: all 0.5s linear;
 ```
 
-Transition is another CSS [short cut](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions). Try editing the animation's timing using the inspector's animation settings.
+Transition is another CSS [short cut](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions). Try editing the animation's timing using the dev tool inspector's animation settings.
 
-Note: to animate only one difference specify it instead of `all`:
+Note: to animate only one property specify it instead of `all`:
 
 ```css
 transition: background-color 0.5s linear;
@@ -356,18 +271,29 @@ Examine the nav ul in the inspector. Note the coordinate system.
 - Toggle the position property on and off in the inspector
 - Use left instead of right to observe stacking
 
-### Demo - example of a complex selector:
+### Demo - example of another pseudo selector:
 
-We could add margin to the right of every list item except the last by using:
+To remove the right hand space from the final nav item (so it "hugs" the right hand side of the window) we could add a class to the element ( `<li class="last-item">`) and format it accordingly:
+
+```css
+.nav .last-item {
+  margin-right: 0;
+}
+```
+
+Instead, let's use another "pseudo" selector - [.last-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:last-child):
 
 ```css
 .nav li {
   display: inline-block;
-}
-.nav li:not(:last-child) {
   margin-right: 10px;
 }
+.nav li:last-child {
+  margin-right: 0px;
+}
 ```
+
+This is a more advanced but much cleaner solution as it does not require adding a class to the html.
 
 ## Styling the Aside
 
@@ -444,19 +370,22 @@ aside {
 Format the pull quote and image:
 
 ```css
+article img {
+  float: right;
+}
+
 blockquote {
   float: right;
   width: 40%;
   font-size: 24px;
-}
-article img {
-  float: right;
 }
 ```
 
 Note the float property and how the text wraps around it before and after we have defined a width. By default, the floated container shrinks to the width determined by the content. [Live example](https://theintercept.com/2019/02/04/google-ai-project-maven-figure-eight/) - use the inspector to examine the blockquote at multiple widths.
 
 ## Pseudo Elements vs Pseudo Classes
+
+WARNING: this is fairly "nit picky" but you should have some idea of the difference between the two in order to understand documentation.
 
 A pseudo-class is a selector that assists in the selection of something that cannot be expressed by a simple selector, for example `:hover`. A pseudo-element allows you to create items that do not normally exist in the document tree such as `::before` or `::first-line`.
 
@@ -467,6 +396,7 @@ A pseudo-class is a selector that assists in the selection of something that can
 blockquote::before {
   content: "“";
   font-size: 4rem;
+  font-weight: bold;
   font-family: serif;
   color: #333;
   line-height: 0.1em;
@@ -478,12 +408,12 @@ blockquote::before {
 Or
 
 ```css
-aside + p::first-line {
+article p::first-line {
   font-weight: bold;
 }
 ```
 
-Note the `+` in the selector. This is an [adjacent sibling selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
+<!-- Note the `+` in the selector. This is an [adjacent sibling selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors). -->
 
 A complete list of pseudo classes and pseudo elements is located [on MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements).
 
@@ -491,7 +421,7 @@ See my Pen <a href="https://codepen.io/DannyBoyNYC/pen/ZwrwoQ/">Intro-pseudo</a>
 
 ## Relative Positioning and Centering
 
-Currently our document "flexes" as we make the browser wider to make use of all the available horizontal space. While flexibility is a good practice, we need to understand more about the drawbacks of fixed widths.
+Currently our document "flexes" as we make the window wider to make use of all the available horizontal space. This flexibility is a best practice, but in order to understand why let's examine the drawbacks of fixed widths.
 
 Add a wrapper `<div id="wrapper">` to the entire content area after the `<body>` tag and close it before the closing `</body>` tag:
 

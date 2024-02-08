@@ -1,0 +1,90 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+body {
+  margin: 12px;
+  color: #333;
+  font-family: "Lato", Verdana, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+a {
+  color: #600;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  font-family: Lobster, cursive;
+  font-weight: normal;
+}
+
+header h1,
+header h2 {
+  font-size: 4rem;
+  margin: 8px 0;
+  color: #600;
+}
+
+header h2 {
+  font-size: 2rem;
+  border-bottom: 1px dotted #600;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px;
+  display: block;
+  background-color: #600;
+  transition: background-color 0.5s linear;
+}
+.nav a:hover {
+  color: #222;
+  background-color: #f0dfb4;
+}
+aside {
+  width: 180px;
+  background-color: #f0dfb4;
+  padding: 6px;
+  border: 1px solid #600;
+  font-size: 0.875rem;
+  box-shadow: 3px 3px 3px #ddd;
+  border-radius: 4px;
+}
+
+aside th {
+  text-align: right;
+}
+
+aside ul {
+  list-style: none;
+  margin: 0.5rem;
+  padding: 0;
+}
+
+blockquote {
+  float: right;
+  width: 40%;
+  font-size: 24px;
+}
+article img {
+  float: right;
+}
+blockquote::before {
+  content: "“";
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: serif;
+  color: #333;
+  line-height: 0.1em;
+  vertical-align: -0.4em;
+  color: #600;
+}
