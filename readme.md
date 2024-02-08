@@ -888,6 +888,8 @@ See also:
 - [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
 - [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
 
+Note: download `flexbox-nav-ready` branch (includes page links) and perform flexbox layout before proceeding.
+
 ## Highlighting the Navigation
 
 A simple way to create opportunities for section differentiation or themes across a web site is to add a class at a high level of the page.
