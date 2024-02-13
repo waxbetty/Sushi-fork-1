@@ -1,7 +1,8 @@
 // EXAMINING AND CHANGING THE DOCUMENT  //
 console.log("Hello from scripts.js!");
-// console.log(document.title);
-// document.title = 123;
+console.log(window);
+// window.prompt('correct?')
+// window.console.dir(window.document);
 
 /* 1::  querySelector - uncomment in sequence */
 // var bodyElement = document.querySelector("body");
