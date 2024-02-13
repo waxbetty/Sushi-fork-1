@@ -1,18 +1,39 @@
 # Sushi Restaurant Review
 
 - [Sushi Restaurant Review](#sushi-restaurant-review)
-  - [Today's Homework](#todays-homework)
-    - [Additional Reading](#additional-reading)
+  - [Homework](#homework)
+  - [Accounts and Installs](#accounts-and-installs)
+  - [The Terminal](#the-terminal)
+    - [A Note For Windows Users](#a-note-for-windows-users)
+  - [Initialize GIT and Create a Branch](#initialize-git-and-create-a-branch)
   - [Sushi Exercise](#sushi-exercise)
   - [Google fonts](#google-fonts)
     - [Linking to a css file from css](#linking-to-a-css-file-from-css)
   - [Formatting the Navigation](#formatting-the-navigation)
   - [Absolute Positioning](#absolute-positioning)
+    - [Demo - example of another pseudo selector:](#demo---example-of-another-pseudo-selector)
+  - [Styling the Aside](#styling-the-aside)
+    - [Floating](#floating)
+  - [Pseudo Elements vs Pseudo Classes](#pseudo-elements-vs-pseudo-classes)
+  - [Relative Positioning and Centering](#relative-positioning-and-centering)
+  - [More Design Elements](#more-design-elements)
+  - [Formatting the Content](#formatting-the-content)
   - [Responsive Design](#responsive-design)
     - [Adding Simple Responsiveness](#adding-simple-responsiveness)
   - [CSS Demos](#css-demos)
   - [Highlighting the Navigation](#highlighting-the-navigation)
   - [JavaScript - DOM Scripting](#javascript---dom-scripting)
+  - [Aside - playing with the console](#aside---playing-with-the-console)
+    - [A Quick Note on jQuery](#a-quick-note-on-jquery)
+    - [Creating the Popover](#creating-the-popover)
+      - [QuerySelector](#queryselector)
+      - [addEventListener](#addeventlistener)
+    - [Moving the Toggle](#moving-the-toggle)
+    - [Using Event Delegation](#using-event-delegation)
+  - [Closing the Pop Over](#closing-the-pop-over)
+  - [HomeWork](#homework-1)
+    - [1. A Close (✖︎) Link](#1-a-close-︎-link)
+  - [ARIA](#aria)
     - [End Sushi](#end-sushi)
 
 ## Homework
@@ -28,36 +49,71 @@ Continue with the Front End Masters assignment from the first class. You will ne
 <!-- 1. Play [Practice your CSS selectors](https://flukeout.github.io) - see how far you can get -->
 <!-- 1. Read [A Complete Guide to CSS Concepts and Fundamentals | Tania Rascia](https://www.taniarascia.com/overview-of-css-concepts/) -->
 
+
 ## Accounts and Installs
 
-1. Install [Git](https://git-scm.com/) on your computer
+1. Install [Git](https://git-scm.com/) on your computer. Windows users install [here](https://gitforwindows.org).
 1. Create an account on [Github](http://github.com)
-   <!-- 1. Read and follow [this tutorial](https://www.freecodecamp.org/news/introduction-to-git-and-github/) on Free Code Camp to get Git and Github working together -->
-   <!-- 1. Install [NodeJS LTS](https://nodejs.org/en/) - "long term service" on your computer -->
+1. NEW! Install [NodeJS LTS](https://nodejs.org/en/) - "long term service" on your computer
 
-<!-- ## Installing and Configuring Git
 
-(These are MacOS specific instructions.)
+## The Terminal
 
-Note: you can skip installing Homebrew and simply download and run the installer noted [here](https://sourceforge.net/projects/git-osx-installer/). Run `$ git version` afterwards to verify that you have git installed. -->
+There are many good reasons to acquire a basic understanding of the command line terminal. In this class we will use the [Terminal](https://support.apple.com/guide/terminal/welcome/mac) app for GIT and GITHUB as well as for Node Package Manager (NPM).
 
-<!-- ### Configuring GIT
+---
 
-You must configure Git before use
+### A Note For Windows Users
 
+A rough equivalent to the Unix Terminal is [Powershell](https://docs.microsoft.com/en-us/powershell/) but there are important differences. Alternatives to Powershell include the app that comes with [Git for Windows](https://gitforwindows.org/) aka "Git Bash." _Unless you are very experienced with Windows, I suggest using Git Bash instead of Powershell on Windows._
+
+---
+
+Some basic shell commands (note: the convention in documentation is to use `$` to indicate a prompt - do NOT include it when copying and pasting a command):
+
+```sh
+$ pwd  // print working directory
+$ cd <path-to-folder> // change directory
+$ cd .. // go up one level
+$ cd ~ // go to your home directory
+$ ls  // list files
+$ ls -l  // flags expand the command
+$ ls -al
 ```
-[user]
-  name   = Firstname Lastname
-  email  = you@example.com
-[github]
-  user   = username
-[init]
-	defaultBranch = main
-``` -->
 
-<!-- #### DOM Scripting
+Demo: tab completion and history.
 
-Read MDNs [Intro to JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) to learn how to create [this game](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/A_first_splash#Example_%E2%80%94_Guess_the_number_game). -->
+Demo: on a mac you can `cd` into a folder via drag and drop or by copying and pasting a folder into the terminal.
+
+Before continuing we will run the following commands:
+
+```sh
+$ node --version
+$ npm --version
+$ git --version
+$ node
+> var total = 12+12
+> total
+> var el = document.querySelector('.anything') // error
+> .exit // or control + c to exit node
+$ clear // or command + k to clear the terminal
+```
+
+Use `cd` or the copy and paste method to cd into today's folder.
+
+If you want to learn more about the terminal try reading [this article](https://www.git-tower.com/blog/more-productive-mastering-terminal/?vgo_ee=e7b8PdtP0aWH7ZIgym%2BTUayPUFd7JHyq9acdSgULWaM%3D).
+
+## Initialize GIT and Create a Branch
+
+[Configure](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) your installation of git:
+
+```sh
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+$ git config --global init.defaultBranch main
+$ git config --list
+# $ :q
+```
 
 ## Sushi Exercise
 
@@ -888,7 +944,7 @@ See also:
 - [Pseudo Classes](https://codepen.io/DannyBoyNYC/pen/ZwrwoQ).
 - [Border Box Model](https://codepen.io/DannyBoyNYC/pen/gqeKqd)
 
-<!-- download develop branch (includes page links) and perform flexbox layout -->
+Note: download `flexbox-nav-ready` branch (includes page links) and perform flexbox layout before proceeding.
 
 ## Highlighting the Navigation
 
