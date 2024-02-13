@@ -36,7 +36,24 @@ header h2 {
 .nav {
   list-style: none;
   padding: 0;
+  position: absolute;
+  right: 0;
+  top: 24px;
 }
+
+.nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav li:last-child {
+  margin-right: 0;
+}
+
+/* .nav {
+  list-style: none;
+  padding: 0;
+} */
 
 .nav a {
   color: #fff;
