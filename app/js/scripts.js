@@ -1,6 +1,6 @@
 // EXAMINING AND CHANGING THE DOCUMENT  //
-console.log("Hello from scripts.js!");
-console.log(window);
+// console.log("Hello from scripts.js!");
+// console.log(window);
 // window.prompt('correct?')
 // window.console.dir(window.document);
 
@@ -39,8 +39,8 @@ console.log(window);
 
 /* 3::  addEventListener */
 /* ADD a class of 'map' to the map ANCHOR tag in the sidebar */
-// var mapLink = document.querySelector(".map");
-// mapLink.style.borderBottom = "solid 8px red";
+var mapLink = document.querySelector(".map");
+mapLink.style.borderBottom = "solid 8px red";
 
 // mapLink.addEventListener("click", function () {
 //   console.log("It works!");
@@ -53,17 +53,17 @@ console.log(window);
 //   console.log("It works!");
 // });
 
-// mapLink.addEventListener("click", function() {
+// mapLink.addEventListener("click", function (event) {
 //   event.preventDefault();
-//   console.log("event::", event);
-//   console.log("event.target::", event.target);
-//   console.log("event.target.href::", event.target.href);
+//   console.log("event:: ", event);
+//   console.log("event.target:: ", event.target);
+//   console.log("event.target.href:: ", event.target.href);
 // });
 
 // document.addEventListener("click", function (e) {
 //   e.preventDefault();
 //   console.log("event.target::", e.target);
-//   console.log("event.target.textContent::", e.target.textContent);
+//   console.log("event.targ  et.textContent::", e.target.textContent);
 // });
 
 /* 4:: FUNCTIONS */

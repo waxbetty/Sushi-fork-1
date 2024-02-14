@@ -16,6 +16,14 @@ a:hover {
   text-decoration: underline;
 }
 
+.p-review .t-review a,
+.p-cuisines .t-cuisine a,
+.p-delivery .t-delivery a,
+.p-recipes .t-recipe a {
+  color: #600;
+  background: #fff;
+}
+
 header {
   font-family: Lobster, cursive;
   font-weight: normal;
@@ -26,6 +34,11 @@ header h2 {
   font-size: 4rem;
   margin: 8px 0;
   color: #600;
+  line-height: 1.1;
+}
+
+header h1 {
+  padding-top: 36px;
 }
 
 header h2 {
@@ -67,8 +80,15 @@ header h2 {
   color: #222;
   background-color: #f0dfb4;
 }
+
+main {
+  display: flex;
+  gap: 32px;
+}
+
 aside {
-  width: 180px;
+  min-width: 220px;
+  max-height: 50vh;
   background-color: #f0dfb4;
   padding: 6px;
   border: 1px solid #600;
@@ -104,4 +124,20 @@ blockquote::before {
   line-height: 0.1em;
   vertical-align: -0.4em;
   color: #600;
+}
+
+@media (max-width: 800px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #600;
+  }
+
+  main {
+    display: block;
+  }
 }
