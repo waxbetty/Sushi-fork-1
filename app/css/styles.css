@@ -125,7 +125,31 @@ blockquote::before {
   vertical-align: -0.4em;
   color: #600;
 }
-
+.popover {
+  padding: 1rem;
+  width: 300px;
+  height: 225px;
+  background: #fff;
+  border: 2px solid #600;
+  border-radius: 4px;
+  position: fixed;
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
+  display: none;
+}
+.showme .popover {
+  display: block;
+}
+.popover .closer {
+  position: absolute;
+  top: -11px;
+  right: -14px;
+  color: #600;
+  cursor: pointer;
+}
+.showme main{
+  filter: blur(4px)
+}
 @media (max-width: 800px) {
   .nav {
     position: fixed;
